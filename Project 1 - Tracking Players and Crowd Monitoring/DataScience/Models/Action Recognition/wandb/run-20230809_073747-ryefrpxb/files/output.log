@@ -1,0 +1,20 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Traceback (most recent call last):
+  File "Train.py", line 118, in <module>
+    TC.train_model()
+  File "Train.py", line 103, in train_model
+    self.model.add(LSTM(50, return_sequences=False))
+  File "C:\Users\61493\.conda\envs\superRes\lib\site-packages\tensorflow\python\trackable\base.py", line 205, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "C:\Users\61493\.conda\envs\superRes\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\61493\.conda\envs\superRes\lib\site-packages\keras\engine\input_spec.py", line 233, in assert_input_compatibility
+    f'Input {input_index} of layer "{layer_name}" '
+ValueError: Input 0 of layer "lstm_1" is incompatible with the layer: expected ndim=3, found ndim=2. Full shape received: (None, 50)

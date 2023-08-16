@@ -1,0 +1,10 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+Traceback (most recent call last):
+  File "E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 110, in <module>
+    TC.load_data()
+  File "E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 83, in load_data
+    self.X_train = self.X_train.astype('float32')
+AttributeError: 'NoneType' object has no attribute 'astype'

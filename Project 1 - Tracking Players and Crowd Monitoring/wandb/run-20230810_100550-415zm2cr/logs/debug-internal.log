@@ -1,0 +1,63 @@
+2023-08-10 10:05:50,270 INFO    StreamThr :25124 [internal.py:wandb_internal():86] W&B internal server running at pid: 25124, started at: 2023-08-10 10:05:50.269688
+2023-08-10 10:05:50,271 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status
+2023-08-10 10:05:50,274 INFO    WriterThread:25124 [datastore.py:open_for_write():85] open: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\run-415zm2cr.wandb
+2023-08-10 10:05:50,275 DEBUG   SenderThread:25124 [sender.py:send():379] send: header
+2023-08-10 10:05:50,317 DEBUG   SenderThread:25124 [sender.py:send():379] send: run
+2023-08-10 10:05:50,926 INFO    SenderThread:25124 [dir_watcher.py:__init__():211] watching files in: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files
+2023-08-10 10:05:50,926 INFO    SenderThread:25124 [sender.py:_start_run_threads():1121] run started: 415zm2cr with start time 1691625950.271192
+2023-08-10 10:05:50,927 DEBUG   SenderThread:25124 [sender.py:send_request():406] send_request: summary_record
+2023-08-10 10:05:50,928 INFO    SenderThread:25124 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-10 10:05:50,936 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: check_version
+2023-08-10 10:05:50,936 DEBUG   SenderThread:25124 [sender.py:send_request():406] send_request: check_version
+2023-08-10 10:05:51,034 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: run_start
+2023-08-10 10:05:51,059 DEBUG   HandlerThread:25124 [system_info.py:__init__():31] System info init
+2023-08-10 10:05:51,059 DEBUG   HandlerThread:25124 [system_info.py:__init__():46] System info init done
+2023-08-10 10:05:51,059 INFO    HandlerThread:25124 [system_monitor.py:start():181] Starting system monitor
+2023-08-10 10:05:51,059 INFO    SystemMonitor:25124 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-08-10 10:05:51,059 INFO    HandlerThread:25124 [system_monitor.py:probe():201] Collecting system info
+2023-08-10 10:05:51,065 INFO    SystemMonitor:25124 [interfaces.py:start():190] Started cpu monitoring
+2023-08-10 10:05:51,066 INFO    SystemMonitor:25124 [interfaces.py:start():190] Started disk monitoring
+2023-08-10 10:05:51,066 INFO    SystemMonitor:25124 [interfaces.py:start():190] Started gpu monitoring
+2023-08-10 10:05:51,077 INFO    SystemMonitor:25124 [interfaces.py:start():190] Started memory monitoring
+2023-08-10 10:05:51,090 INFO    SystemMonitor:25124 [interfaces.py:start():190] Started network monitoring
+2023-08-10 10:05:51,096 DEBUG   HandlerThread:25124 [system_info.py:probe():195] Probing system
+2023-08-10 10:05:51,097 DEBUG   HandlerThread:25124 [system_info.py:_probe_git():180] Probing git
+2023-08-10 10:05:51,172 DEBUG   HandlerThread:25124 [system_info.py:_probe_git():188] Probing git done
+2023-08-10 10:05:51,172 DEBUG   HandlerThread:25124 [system_info.py:probe():240] Probing system done
+2023-08-10 10:05:51,172 DEBUG   HandlerThread:25124 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.6', 'heartbeatAt': '2023-08-10T00:05:51.096008', 'startedAt': '2023-08-10T00:05:50.257687', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'e:\\Dev\\Deakin\\Project_Orion\\DataScience\\Models\\Action Recognition\\Train.py', 'codePath': 'DataScience\\Models\\Action Recognition\\Train.py', 'git': {'remote': 'https://github.com/whosthis-svg/Project_Orion.git', 'commit': '2b7bf4251654ea6e71f0e24a3f5dd5f70434e2bd'}, 'email': '68013561+whosthis-svg@users.noreply.github.com', 'root': 'E:/Dev/Deakin/Project_Orion', 'host': 'sky', 'username': '61493', 'executable': 'C:\\Python310\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2688.0, 'min': 0.0, 'max': 2688.0}, 'cpu_freq_per_core': [{'current': 2688.0, 'min': 0.0, 'max': 2688.0}], 'disk': {'total': 931.4960899353027, 'used': 216.12956619262695}, 'gpu': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'memory_total': 4294967296}], 'memory': {'total': 31.64645767211914}}
+2023-08-10 10:05:51,173 INFO    HandlerThread:25124 [system_monitor.py:probe():211] Finished collecting system info
+2023-08-10 10:05:51,173 INFO    HandlerThread:25124 [system_monitor.py:probe():214] Publishing system info
+2023-08-10 10:05:51,173 DEBUG   HandlerThread:25124 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-08-10 10:05:51,174 DEBUG   HandlerThread:25124 [system_info.py:_save_pip():67] Saving pip packages done
+2023-08-10 10:05:51,175 INFO    HandlerThread:25124 [system_monitor.py:probe():216] Finished publishing system info
+2023-08-10 10:05:51,185 DEBUG   SenderThread:25124 [sender.py:send():379] send: files
+2023-08-10 10:05:51,185 INFO    SenderThread:25124 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-08-10 10:05:51,192 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-10 10:05:51,193 DEBUG   SenderThread:25124 [sender.py:send_request():406] send_request: stop_status
+2023-08-10 10:05:51,441 DEBUG   SenderThread:25124 [sender.py:send():379] send: telemetry
+2023-08-10 10:05:51,935 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\requirements.txt
+2023-08-10 10:05:51,935 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\output.log
+2023-08-10 10:05:51,936 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\wandb-metadata.json
+2023-08-10 10:05:51,936 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\wandb-summary.json
+2023-08-10 10:05:52,256 INFO    wandb-upload_0:25124 [upload_job.py:push():131] Uploaded file C:\Users\61493\AppData\Local\Temp\tmpvms52jwywandb\gcupfqn3-wandb-metadata.json
+2023-08-10 10:05:53,950 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\output.log
+2023-08-10 10:05:55,469 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:00,508 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:05,548 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:06,209 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-10 10:06:06,210 DEBUG   SenderThread:25124 [sender.py:send_request():406] send_request: stop_status
+2023-08-10 10:06:11,533 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:14,108 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\output.log
+2023-08-10 10:06:15,717 DEBUG   SenderThread:25124 [sender.py:send():379] send: telemetry
+2023-08-10 10:06:15,718 DEBUG   SenderThread:25124 [sender.py:send():379] send: metric
+2023-08-10 10:06:15,718 DEBUG   SenderThread:25124 [sender.py:send():379] send: telemetry
+2023-08-10 10:06:15,718 DEBUG   SenderThread:25124 [sender.py:send():379] send: metric
+2023-08-10 10:06:15,718 WARNING SenderThread:25124 [sender.py:send_metric():1326] Seen metric with glob (shouldn't happen)
+2023-08-10 10:06:15,718 DEBUG   SenderThread:25124 [sender.py:send():379] send: telemetry
+2023-08-10 10:06:16,928 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:18,139 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\output.log
+2023-08-10 10:06:21,211 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-10 10:06:21,212 DEBUG   SenderThread:25124 [sender.py:send_request():406] send_request: stop_status
+2023-08-10 10:06:22,514 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report
+2023-08-10 10:06:23,180 INFO    Thread-16 :25124 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230810_100550-415zm2cr\files\config.yaml
+2023-08-10 10:06:27,831 DEBUG   HandlerThread:25124 [handler.py:handle_request():144] handle_request: status_report

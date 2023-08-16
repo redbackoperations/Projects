@@ -1,0 +1,25 @@
+Data Gathering Techniques:
+1. Synthetic Data Generation
+
+2. Public Datasets
+
+3. Utilize Microcontroller Data
+
+4. Collaborations
+
+5. Real-world Miniature Tests
+
+Data Science Applications at This Stage:
+
+1. Exploratory Data Analysis (EDA)
+
+2. Feature Engineering
+
+3. Preprocessing Pipelines
+
+4. Model Prototyping
+
+5. Anomaly Detection
+
+
+

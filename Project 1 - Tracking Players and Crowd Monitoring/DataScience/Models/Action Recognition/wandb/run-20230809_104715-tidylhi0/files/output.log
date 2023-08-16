@@ -1,0 +1,35 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Epoch 1/30
+WARNING:tensorflow:AutoGraph could not transform <function Model.make_train_function.<locals>.train_function at 0x000002858607E1F8> and will run it as-is.
+Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
+Cause: 'arguments' object has no attribute 'posonlyargs'
+To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
+Traceback (most recent call last):
+  File "Train.py", line 120, in <module>
+    TC.train_model()
+  File "Train.py", line 112, in train_model
+    self.model.fit(self.X_train, self.y_train, epochs=30, batch_size=64, validation_data=(self.X_test, self.y_test), callbacks=[early_stopping,WandbMetricsLogger(log_freq=5),WandbModelCheckpoint("models")])
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\tensorflow\python\eager\execute.py", line 55, in quick_execute
+    inputs, attrs, num_outputs)
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+No OpKernel was registered to support Op 'CudnnRNNV3' used by {{node cond_40/then/_0/cond/CudnnRNNV3}} with these attrs: [seed=0, dropout=0, T=DT_FLOAT, input_mode="linear_input", direction="unidirectional", rnn_mode="lstm", is_training=true, seed2=0, num_proj=0, time_major=false]
+Registered devices: [CPU, GPU]
+Registered kernels:
+  <no registered kernels>
+	 [[cond_40/then/_0/cond/CudnnRNNV3]]
+	 [[sequential/lstm/PartitionedCall]] [Op:__inference_train_function_13739]

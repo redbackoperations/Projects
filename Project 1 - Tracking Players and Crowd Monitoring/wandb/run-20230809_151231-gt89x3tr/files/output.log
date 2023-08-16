@@ -1,0 +1,82 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Epoch 1/30
+1/5 [=====>........................] - ETA: 1:37 - loss: 8.0494 - accuracy: 0.2344
+2/5 [===========>..................] - ETA: 1:10 - loss: 7.9783 - accuracy: 0.1953
+3/5 [=================>............] - ETA: 48s - loss: 8.1451 - accuracy: 0.1823
+4/5 [=======================>......] - ETA: 24s - loss: 8.3368 - accuracy: 0.1680
+5/5 [==============================] - ETA: 0s - loss: 8.1246 - accuracy: 0.1667
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 132s 27s/step - loss: 8.1246 - accuracy: 0.1667 - val_loss: 7.7782 - val_accuracy: 0.1944
+Epoch 2/30
+1/5 [=====>........................] - ETA: 1:52 - loss: 6.3809 - accuracy: 0.2344
+2/5 [===========>..................] - ETA: 1:33 - loss: 6.7360 - accuracy: 0.1953
+3/5 [=================>............] - ETA: 1:05 - loss: 7.3099 - accuracy: 0.1719
+4/5 [=======================>......] - ETA: 34s - loss: 7.2951 - accuracy: 0.1836
+5/5 [==============================] - ETA: 0s - loss: 7.2182 - accuracy: 0.1875
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 170s 36s/step - loss: 7.2182 - accuracy: 0.1875 - val_loss: 5.1853 - val_accuracy: 0.1944
+Epoch 3/30
+1/5 [=====>........................] - ETA: 2:31 - loss: 4.8829 - accuracy: 0.2500
+2/5 [===========>..................] - ETA: 2:06 - loss: 5.4323 - accuracy: 0.2422
+3/5 [=================>............] - ETA: 1:36 - loss: 6.0644 - accuracy: 0.2240
+4/5 [=======================>......] - ETA: 50s - loss: 6.2858 - accuracy: 0.2227
+5/5 [==============================] - ETA: 0s - loss: 6.5374 - accuracy: 0.2361
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 242s 51s/step - loss: 6.5374 - accuracy: 0.2361 - val_loss: 5.0396 - val_accuracy: 0.2083
+Epoch 4/30
+1/5 [=====>........................] - ETA: 4:46 - loss: 6.3841 - accuracy: 0.1875
+2/5 [===========>..................] - ETA: 3:45 - loss: 6.3133 - accuracy: 0.2031
+3/5 [=================>............] - ETA: 2:21 - loss: 6.0052 - accuracy: 0.2344
+4/5 [=======================>......] - ETA: 1:10 - loss: 6.0994 - accuracy: 0.2422
+5/5 [==============================] - ETA: 0s - loss: 6.2602 - accuracy: 0.2326
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 336s 66s/step - loss: 6.2602 - accuracy: 0.2326 - val_loss: 5.1052 - val_accuracy: 0.2083
+Epoch 5/30
+1/5 [=====>........................] - ETA: 4:04 - loss: 4.8641 - accuracy: 0.2344
+2/5 [===========>..................] - ETA: 3:06 - loss: 5.1494 - accuracy: 0.2344
+3/5 [=================>............] - ETA: 2:03 - loss: 5.7180 - accuracy: 0.2031
+4/5 [=======================>......] - ETA: 1:01 - loss: 5.8188 - accuracy: 0.2148
+5/5 [==============================] - ETA: 0s - loss: 5.8036 - accuracy: 0.2153
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 297s 59s/step - loss: 5.8036 - accuracy: 0.2153 - val_loss: 5.1987 - val_accuracy: 0.2083
+Epoch 6/30
+1/5 [=====>........................] - ETA: 4:44 - loss: 4.7033 - accuracy: 0.2344
+2/5 [===========>..................] - ETA: 3:20 - loss: 4.9634 - accuracy: 0.2188
+3/5 [=================>............] - ETA: 2:10 - loss: 5.1204 - accuracy: 0.2240
+4/5 [=======================>......] - ETA: 1:03 - loss: 5.0630 - accuracy: 0.2422
+5/5 [==============================] - ETA: 0s - loss: 5.1881 - accuracy: 0.2257
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 312s 60s/step - loss: 5.1881 - accuracy: 0.2257 - val_loss: 5.2288 - val_accuracy: 0.2083
+Epoch 7/30
+1/5 [=====>........................] - ETA: 4:28 - loss: 4.5496 - accuracy: 0.2188
+2/5 [===========>..................] - ETA: 3:19 - loss: 4.5536 - accuracy: 0.2422
+3/5 [=================>............] - ETA: 2:17 - loss: 4.3761 - accuracy: 0.2656
+4/5 [=======================>......] - ETA: 1:08 - loss: 4.5380 - accuracy: 0.2422
+5/5 [==============================] - ETA: 0s - loss: 4.3922 - accuracy: 0.2465
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 331s 66s/step - loss: 4.3922 - accuracy: 0.2465 - val_loss: 5.1818 - val_accuracy: 0.2083
+Epoch 8/30
+1/5 [=====>........................] - ETA: 2:42 - loss: 2.8737 - accuracy: 0.3125
+2/5 [===========>..................] - ETA: 2:02 - loss: 2.9362 - accuracy: 0.2578
+3/5 [=================>............] - ETA: 1:26 - loss: 3.6929 - accuracy: 0.2448
+4/5 [=======================>......] - ETA: 43s - loss: 3.9496 - accuracy: 0.2539
+5/5 [==============================] - ETA: 0s - loss: 4.1038 - accuracy: 0.2569
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 212s 43s/step - loss: 4.1038 - accuracy: 0.2569 - val_loss: 5.1704 - val_accuracy: 0.2222
+Epoch 9/30
+1/5 [=====>........................] - ETA: 2:52 - loss: 3.4274 - accuracy: 0.2500
+2/5 [===========>..................] - ETA: 2:24 - loss: 3.5625 - accuracy: 0.2266
+3/5 [=================>............] - ETA: 1:39 - loss: 3.6797 - accuracy: 0.2448
+4/5 [=======================>......] - ETA: 50s - loss: 4.0537 - accuracy: 0.2422
+5/5 [==============================] - ETA: 0s - loss: 3.8612 - accuracy: 0.2465
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+5/5 [==============================] - 239s 49s/step - loss: 3.8612 - accuracy: 0.2465 - val_loss: 5.1612 - val_accuracy: 0.2222
+C:\Python310\lib\site-packages\keras\src\engine\training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(

@@ -1,0 +1,6 @@
+Keras==2.10.0
+Tensorflow==2.10.0
+numpy==1.25.2
+pandas==1.5.1
+scikit-learn==1.2.2
+wandb==0.15.8

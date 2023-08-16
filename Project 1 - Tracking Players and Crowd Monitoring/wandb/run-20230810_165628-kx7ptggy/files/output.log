@@ -1,0 +1,16 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Unique labels in y_train: [0 1 2 3 4 5]
+Unique labels in y_test: [0 1 2 3 4 5]
+Traceback (most recent call last):
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 135, in <module>
+    TC.train_model()
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 111, in train_model
+    class_weights = class_weight.compute_class_weight('balanced',
+TypeError: compute_class_weight() takes 1 positional argument but 3 were given

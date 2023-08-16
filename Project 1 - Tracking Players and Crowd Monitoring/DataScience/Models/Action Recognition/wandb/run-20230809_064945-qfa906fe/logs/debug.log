@@ -1,0 +1,27 @@
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Current SDK version is 0.15.8
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Configure stats pid to 90316
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Loading settings from C:\Users\61493\.config\wandb\settings
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Loading settings from E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\settings
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-08-09 06:49:45,978 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-08-09 06:49:45,979 INFO    MainThread:90316 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'DataScience\\Models\\Action Recognition\\Train.py', 'program': 'E:\\Dev\\Deakin\\Project_Orion\\DataScience\\Models\\Action Recognition\\Train.py'}
+2023-08-09 06:49:45,980 INFO    MainThread:90316 [wandb_init.py:_log_setup():507] Logging user logs to E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_064945-qfa906fe\logs\debug.log
+2023-08-09 06:49:45,980 INFO    MainThread:90316 [wandb_init.py:_log_setup():508] Logging internal logs to E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_064945-qfa906fe\logs\debug-internal.log
+2023-08-09 06:49:45,981 INFO    MainThread:90316 [wandb_init.py:init():547] calling init triggers
+2023-08-09 06:49:45,981 INFO    MainThread:90316 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'layer_1': 100, 'activation_1': 'tanh', 'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'metric': 'accuracy', 'epoch': 100, 'batch_size': 128}
+2023-08-09 06:49:45,981 INFO    MainThread:90316 [wandb_init.py:init():596] starting backend
+2023-08-09 06:49:45,981 INFO    MainThread:90316 [wandb_init.py:init():600] setting up manager
+2023-08-09 06:49:45,985 INFO    MainThread:90316 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2023-08-09 06:49:45,988 INFO    MainThread:90316 [wandb_init.py:init():606] backend started and connected
+2023-08-09 06:49:46,001 INFO    MainThread:90316 [wandb_init.py:init():697] updated telemetry
+2023-08-09 06:49:46,043 INFO    MainThread:90316 [wandb_init.py:init():730] communicating run to backend with 60.0 second timeout
+2023-08-09 06:49:46,694 INFO    MainThread:90316 [wandb_run.py:_on_init():2180] communicating current version
+2023-08-09 06:49:46,799 INFO    MainThread:90316 [wandb_run.py:_on_init():2189] got version response 
+2023-08-09 06:49:46,799 INFO    MainThread:90316 [wandb_init.py:init():781] starting run threads in backend
+2023-08-09 06:49:47,042 INFO    MainThread:90316 [wandb_run.py:_console_start():2159] atexit reg
+2023-08-09 06:49:47,043 INFO    MainThread:90316 [wandb_run.py:_redirect():2014] redirect: wrap_raw
+2023-08-09 06:49:47,043 INFO    MainThread:90316 [wandb_run.py:_redirect():2079] Wrapping output streams.
+2023-08-09 06:49:47,043 INFO    MainThread:90316 [wandb_run.py:_redirect():2104] Redirects installed.
+2023-08-09 06:49:47,044 INFO    MainThread:90316 [wandb_init.py:init():822] run started, returning control to user process
+2023-08-09 06:50:25,134 WARNING MsgRouterThr:90316 [router.py:message_loop():77] message_loop has been closed

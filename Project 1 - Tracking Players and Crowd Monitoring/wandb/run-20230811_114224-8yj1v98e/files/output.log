@@ -1,0 +1,25 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+(288, 16424, 44) float64
+(288,) int64
+(72, 16424, 44) float64
+(72,) int64
+Unique labels in y_train: [0 1 2 3 4 5]
+Unique labels in y_test: [0 1 2 3 4 5]
+Traceback (most recent call last):
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 185, in <module>
+    TC.train_model()
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 153, in train_model
+    self.model = Sequential()
+  File "C:\Python310\lib\site-packages\keras\src\engine\training.py", line 198, in __new__
+  File "C:\Python310\lib\site-packages\keras\src\engine\base_layer.py", line 757, in __new__
+  File "C:\Python310\lib\site-packages\keras\src\utils\version_utils.py", line 49, in __new__
+  File "C:\Python310\lib\site-packages\keras\src\utils\generic_utils.py", line 556, in __getattr__
+  File "C:\Python310\lib\site-packages\keras\src\utils\generic_utils.py", line 547, in _load
+  File "C:\Python310\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'keras.src.engine.base_layer_v1'

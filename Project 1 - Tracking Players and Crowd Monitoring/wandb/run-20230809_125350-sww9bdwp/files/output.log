@@ -1,0 +1,12 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Epoch 1/30
+1/9 [==>...........................] - ETA: 3:34 - loss: 7.4105 - accuracy: 0.1562
+2/9 [=====>........................] - ETA: 3:19 - loss: 8.2367 - accuracy: 0.1406
+3/9 [=========>....................] - ETA: 3:09 - loss: 9.4608 - accuracy: 0.1458

@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.10.6",
+    "heartbeatAt": "2023-08-08T20:17:33.594201",
+    "startedAt": "2023-08-08T20:17:32.411408",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "e:\\Dev\\Deakin\\Project_Orion\\DataScience\\Models\\Action Recognition\\Train.py",
+    "codePath": "DataScience\\Models\\Action Recognition\\Train.py",
+    "git": {
+        "remote": "https://github.com/whosthis-svg/Project_Orion.git",
+        "commit": "03e2b9c7894f505a9fafb3faf2f18f6d564d243c"
+    },
+    "email": "68013561+whosthis-svg@users.noreply.github.com",
+    "root": "E:/Dev/Deakin/Project_Orion",
+    "host": "sky",
+    "username": "61493",
+    "executable": "C:\\Python310\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2688.0,
+        "min": 0.0,
+        "max": 2688.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2688.0,
+            "min": 0.0,
+            "max": 2688.0
+        }
+    ],
+    "disk": {
+        "total": 931.4960899353027,
+        "used": 215.91315841674805
+    },
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 31.64645767211914
+    }
+}

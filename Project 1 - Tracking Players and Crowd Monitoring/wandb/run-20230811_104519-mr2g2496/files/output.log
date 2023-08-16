@@ -1,0 +1,9 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+Traceback (most recent call last):
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 173, in <module>
+    TC.load_data()
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 115, in load_data
+    df_normalized = pd.DataFrame(MinMaxScaler.fit_transform(df), columns=df.columns)
+TypeError: TransformerMixin.fit_transform() missing 1 required positional argument: 'X'

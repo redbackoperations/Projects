@@ -1,0 +1,249 @@
+2023-08-09 22:09:07,626 INFO    StreamThr :127004 [internal.py:wandb_internal():86] W&B internal server running at pid: 127004, started at: 2023-08-09 22:09:07.625663
+2023-08-09 22:09:07,628 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status
+2023-08-09 22:09:07,631 INFO    WriterThread:127004 [datastore.py:open_for_write():85] open: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\run-joto9v8j.wandb
+2023-08-09 22:09:07,632 DEBUG   SenderThread:127004 [sender.py:send():379] send: header
+2023-08-09 22:09:07,678 DEBUG   SenderThread:127004 [sender.py:send():379] send: run
+2023-08-09 22:09:08,358 INFO    SenderThread:127004 [dir_watcher.py:__init__():211] watching files in: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files
+2023-08-09 22:09:08,358 INFO    SenderThread:127004 [sender.py:_start_run_threads():1121] run started: joto9v8j with start time 1691582947.628661
+2023-08-09 22:09:08,359 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: summary_record
+2023-08-09 22:09:08,360 INFO    SenderThread:127004 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 22:09:08,368 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: check_version
+2023-08-09 22:09:08,368 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: check_version
+2023-08-09 22:09:08,519 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: run_start
+2023-08-09 22:09:08,549 DEBUG   HandlerThread:127004 [system_info.py:__init__():31] System info init
+2023-08-09 22:09:08,550 DEBUG   HandlerThread:127004 [system_info.py:__init__():46] System info init done
+2023-08-09 22:09:08,550 INFO    HandlerThread:127004 [system_monitor.py:start():181] Starting system monitor
+2023-08-09 22:09:08,550 INFO    SystemMonitor:127004 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-08-09 22:09:08,550 INFO    HandlerThread:127004 [system_monitor.py:probe():201] Collecting system info
+2023-08-09 22:09:08,568 INFO    SystemMonitor:127004 [interfaces.py:start():190] Started cpu monitoring
+2023-08-09 22:09:08,569 INFO    SystemMonitor:127004 [interfaces.py:start():190] Started disk monitoring
+2023-08-09 22:09:08,569 INFO    SystemMonitor:127004 [interfaces.py:start():190] Started gpu monitoring
+2023-08-09 22:09:08,587 INFO    SystemMonitor:127004 [interfaces.py:start():190] Started memory monitoring
+2023-08-09 22:09:08,636 DEBUG   HandlerThread:127004 [system_info.py:probe():195] Probing system
+2023-08-09 22:09:08,636 INFO    SystemMonitor:127004 [interfaces.py:start():190] Started network monitoring
+2023-08-09 22:09:08,637 DEBUG   HandlerThread:127004 [system_info.py:_probe_git():180] Probing git
+2023-08-09 22:09:08,728 DEBUG   HandlerThread:127004 [system_info.py:_probe_git():188] Probing git done
+2023-08-09 22:09:08,728 DEBUG   HandlerThread:127004 [system_info.py:probe():240] Probing system done
+2023-08-09 22:09:08,728 DEBUG   HandlerThread:127004 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.6', 'heartbeatAt': '2023-08-09T12:09:08.636213', 'startedAt': '2023-08-09T12:09:07.614470', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'e:\\Dev\\Deakin\\Project_Orion\\DataScience\\Models\\Action Recognition\\Train.py', 'codePath': 'DataScience\\Models\\Action Recognition\\Train.py', 'git': {'remote': 'https://github.com/whosthis-svg/Project_Orion.git', 'commit': '2b7bf4251654ea6e71f0e24a3f5dd5f70434e2bd'}, 'email': '68013561+whosthis-svg@users.noreply.github.com', 'root': 'E:/Dev/Deakin/Project_Orion', 'host': 'sky', 'username': '61493', 'executable': 'C:\\Python310\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2688.0, 'min': 0.0, 'max': 2688.0}, 'cpu_freq_per_core': [{'current': 2688.0, 'min': 0.0, 'max': 2688.0}], 'disk': {'total': 931.4960899353027, 'used': 216.1275634765625}, 'gpu': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'memory_total': 4294967296}], 'memory': {'total': 31.64645767211914}}
+2023-08-09 22:09:08,728 INFO    HandlerThread:127004 [system_monitor.py:probe():211] Finished collecting system info
+2023-08-09 22:09:08,728 INFO    HandlerThread:127004 [system_monitor.py:probe():214] Publishing system info
+2023-08-09 22:09:08,728 DEBUG   HandlerThread:127004 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-08-09 22:09:08,729 DEBUG   HandlerThread:127004 [system_info.py:_save_pip():67] Saving pip packages done
+2023-08-09 22:09:08,731 INFO    HandlerThread:127004 [system_monitor.py:probe():216] Finished publishing system info
+2023-08-09 22:09:08,743 DEBUG   SenderThread:127004 [sender.py:send():379] send: files
+2023-08-09 22:09:08,743 INFO    SenderThread:127004 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-08-09 22:09:08,754 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:09:08,755 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:09:09,109 DEBUG   SenderThread:127004 [sender.py:send():379] send: telemetry
+2023-08-09 22:09:09,369 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\output.log
+2023-08-09 22:09:09,369 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\wandb-summary.json
+2023-08-09 22:09:09,370 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\wandb-metadata.json
+2023-08-09 22:09:09,370 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\requirements.txt
+2023-08-09 22:09:09,812 INFO    wandb-upload_0:127004 [upload_job.py:push():131] Uploaded file C:\Users\61493\AppData\Local\Temp\tmpk848vj5vwandb\gnsgo0xp-wandb-metadata.json
+2023-08-09 22:09:11,379 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\output.log
+2023-08-09 22:09:13,131 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:18,171 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:23,211 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:23,757 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:09:23,757 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:09:29,156 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:34,857 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:35,572 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\output.log
+2023-08-09 22:09:35,916 DEBUG   SenderThread:127004 [sender.py:send():379] send: telemetry
+2023-08-09 22:09:35,916 DEBUG   SenderThread:127004 [sender.py:send():379] send: metric
+2023-08-09 22:09:35,916 DEBUG   SenderThread:127004 [sender.py:send():379] send: telemetry
+2023-08-09 22:09:35,916 DEBUG   SenderThread:127004 [sender.py:send():379] send: metric
+2023-08-09 22:09:35,916 WARNING SenderThread:127004 [sender.py:send_metric():1326] Seen metric with glob (shouldn't happen)
+2023-08-09 22:09:35,916 DEBUG   SenderThread:127004 [sender.py:send():379] send: telemetry
+2023-08-09 22:09:37,586 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\output.log
+2023-08-09 22:09:38,766 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:09:38,766 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:09:40,116 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:40,625 INFO    Thread-16 :127004 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\wandb\run-20230809_220907-joto9v8j\files\config.yaml
+2023-08-09 22:09:45,446 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:50,485 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:09:53,787 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:09:53,787 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:09:56,080 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:01,120 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:06,157 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:08,638 DEBUG   SystemMonitor:127004 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-08-09 22:10:08,638 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:10:08,793 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:10:08,794 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:10:12,141 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:17,181 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:22,218 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:23,800 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:10:23,801 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:10:28,139 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:33,175 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:38,212 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:38,646 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:10:38,801 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:10:38,802 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:10:44,113 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:49,149 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:53,815 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:10:53,815 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:10:54,162 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:10:59,203 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:04,237 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:08,651 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:11:08,821 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:11:08,822 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:11:10,120 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:15,158 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:20,187 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:23,812 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:11:23,812 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:11:26,089 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:31,119 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:36,154 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:38,659 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:11:38,828 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:11:38,829 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:11:42,143 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:47,180 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:52,212 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:11:53,836 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:11:53,836 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:11:58,154 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:03,182 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:08,222 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:08,661 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:12:08,846 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:12:08,847 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:12:14,218 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:19,249 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:23,852 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:12:23,853 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:12:25,212 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:30,244 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:35,272 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:38,663 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:12:38,849 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:12:38,850 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:12:41,155 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:46,193 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:51,242 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:12:53,860 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:12:53,860 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:12:57,200 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:02,232 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:07,307 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:08,687 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:13:08,874 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:13:08,874 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:13:13,195 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:18,226 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:23,254 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:23,886 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:13:23,887 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:13:29,254 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:34,285 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:38,695 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:13:38,897 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:13:38,897 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:13:40,197 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:45,246 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:50,254 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:13:53,909 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:13:53,909 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:13:56,200 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:01,227 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:06,253 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:08,697 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:14:08,914 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:14:08,914 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:14:12,192 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:17,234 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:22,261 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:23,917 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:14:23,917 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:14:27,273 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:32,304 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:37,377 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:38,706 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:14:38,923 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:14:38,924 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:14:43,242 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:48,279 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:53,308 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:14:53,927 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:14:53,928 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:14:59,279 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:04,306 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:08,715 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:15:08,932 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:15:08,932 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:15:09,389 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:14,431 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:19,480 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:23,923 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:15:23,923 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:15:25,255 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:30,284 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:35,315 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:38,718 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:15:38,920 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:15:38,921 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:15:41,256 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:46,295 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:51,323 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:15:53,923 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:15:53,924 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:15:57,234 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:02,264 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:07,297 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:08,721 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:16:08,937 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:16:08,938 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:16:12,372 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:17,408 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:22,439 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:23,956 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:16:23,956 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:16:28,260 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:33,292 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:38,333 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:38,721 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:16:38,968 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:16:38,968 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:16:44,290 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:49,318 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:16:53,984 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:16:53,984 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:16:55,315 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:00,344 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:05,375 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:08,732 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:17:08,995 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:17:08,996 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:17:11,267 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:16,298 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:21,335 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:23,984 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:17:23,984 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:17:27,269 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:32,298 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:37,326 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:38,748 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:17:38,996 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:17:38,996 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:17:43,295 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:48,326 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:53,360 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:17:54,010 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:17:54,010 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:17:58,372 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:18:03,406 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:18:08,430 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:18:08,755 DEBUG   SenderThread:127004 [sender.py:send():379] send: stats
+2023-08-09 22:18:09,018 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:18:09,019 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:18:14,363 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:18:19,404 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 22:18:24,024 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 22:18:24,024 DEBUG   SenderThread:127004 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 22:18:25,371 DEBUG   HandlerThread:127004 [handler.py:handle_request():144] handle_request: status_report

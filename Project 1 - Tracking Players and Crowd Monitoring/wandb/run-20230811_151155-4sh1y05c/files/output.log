@@ -1,0 +1,158 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+(288, 16424, 44) float64
+(288,) int64
+(72, 16424, 44) float64
+(72,) int64
+Unique labels in y_train: [0 1 2 3 4 5]
+Unique labels in y_test: [0 1 2 3 4 5]
+Epoch 1/30
+ 1/18 [>.............................] - ETA: 7:26 - loss: 1.9680 - accuracy: 0.1875
+ 2/18 [==>...........................] - ETA: 6:26 - loss: 1.9268 - accuracy: 0.1250
+ 3/18 [====>.........................] - ETA: 6:32 - loss: 1.8677 - accuracy: 0.0833
+ 4/18 [=====>........................] - ETA: 6:10 - loss: 1.8405 - accuracy: 0.1250
+ 5/18 [=======>......................] - ETA: 5:49 - loss: 1.8526 - accuracy: 0.1125
+ 6/18 [=========>....................] - ETA: 5:25 - loss: 1.8244 - accuracy: 0.1354
+ 7/18 [==========>...................] - ETA: 5:01 - loss: 1.8452 - accuracy: 0.1607
+ 8/18 [============>.................] - ETA: 4:39 - loss: 1.8400 - accuracy: 0.1797
+ 9/18 [==============>...............] - ETA: 4:15 - loss: 1.8396 - accuracy: 0.1736
+10/18 [===============>..............] - ETA: 3:51 - loss: 1.8365 - accuracy: 0.1688
+11/18 [=================>............] - ETA: 3:25 - loss: 1.8320 - accuracy: 0.1534
+12/18 [===================>..........] - ETA: 2:58 - loss: 1.8373 - accuracy: 0.1562
+13/18 [====================>.........] - ETA: 2:31 - loss: 1.8238 - accuracy: 0.1490
+14/18 [======================>.......] - ETA: 2:02 - loss: 1.8215 - accuracy: 0.1473
+15/18 [========================>.....] - ETA: 1:33 - loss: 1.8104 - accuracy: 0.1417
+16/18 [=========================>....] - ETA: 1:02 - loss: 1.8036 - accuracy: 0.1406
+17/18 [===========================>..] - ETA: 31s - loss: 1.8000 - accuracy: 0.1397
+18/18 [==============================] - ETA: 0s - loss: 1.7981 - accuracy: 0.1424
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 624s 35s/step - loss: 1.7981 - accuracy: 0.1424 - val_loss: 1.7735 - val_accuracy: 0.1944 - lr: 0.0010
+Epoch 2/30
+ 1/18 [>.............................] - ETA: 11:33 - loss: 1.6046 - accuracy: 0.3750
+ 2/18 [==>...........................] - ETA: 11:58 - loss: 1.6897 - accuracy: 0.2812
+ 3/18 [====>.........................] - ETA: 11:32 - loss: 1.6731 - accuracy: 0.2500
+ 4/18 [=====>........................] - ETA: 11:02 - loss: 1.7264 - accuracy: 0.2344
+ 5/18 [=======>......................] - ETA: 10:32 - loss: 1.7096 - accuracy: 0.2375
+ 6/18 [=========>....................] - ETA: 9:54 - loss: 1.6982 - accuracy: 0.2396
+ 7/18 [==========>...................] - ETA: 9:17 - loss: 1.7190 - accuracy: 0.2321
+ 8/18 [============>.................] - ETA: 8:29 - loss: 1.7120 - accuracy: 0.2422
+ 9/18 [==============>...............] - ETA: 7:44 - loss: 1.6958 - accuracy: 0.2500
+10/18 [===============>..............] - ETA: 6:57 - loss: 1.6850 - accuracy: 0.2500
+11/18 [=================>............] - ETA: 6:07 - loss: 1.6877 - accuracy: 0.2614
+12/18 [===================>..........] - ETA: 5:16 - loss: 1.6851 - accuracy: 0.2708
+13/18 [====================>.........] - ETA: 4:25 - loss: 1.6763 - accuracy: 0.2837
+14/18 [======================>.......] - ETA: 3:32 - loss: 1.6770 - accuracy: 0.2723
+15/18 [========================>.....] - ETA: 2:40 - loss: 1.6673 - accuracy: 0.2792
+16/18 [=========================>....] - ETA: 1:47 - loss: 1.6634 - accuracy: 0.2734
+17/18 [===========================>..] - ETA: 54s - loss: 1.6544 - accuracy: 0.2904
+18/18 [==============================] - ETA: 0s - loss: 1.6553 - accuracy: 0.2951
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 1033s 58s/step - loss: 1.6553 - accuracy: 0.2951 - val_loss: 1.7333 - val_accuracy: 0.1528 - lr: 0.0010
+Epoch 3/30
+ 1/18 [>.............................] - ETA: 22:25 - loss: 1.4330 - accuracy: 0.4375
+ 2/18 [==>...........................] - ETA: 21:26 - loss: 1.4835 - accuracy: 0.3438
+ 3/18 [====>.........................] - ETA: 19:49 - loss: 1.4905 - accuracy: 0.3542
+ 4/18 [=====>........................] - ETA: 18:42 - loss: 1.5004 - accuracy: 0.3750
+ 5/18 [=======>......................] - ETA: 17:20 - loss: 1.4905 - accuracy: 0.3625
+ 6/18 [=========>....................] - ETA: 16:05 - loss: 1.4852 - accuracy: 0.3438
+ 7/18 [==========>...................] - ETA: 14:52 - loss: 1.4892 - accuracy: 0.3571
+ 8/18 [============>.................] - ETA: 13:39 - loss: 1.5170 - accuracy: 0.3672
+ 9/18 [==============>...............] - ETA: 12:24 - loss: 1.4929 - accuracy: 0.3681
+10/18 [===============>..............] - ETA: 11:06 - loss: 1.4909 - accuracy: 0.3750
+11/18 [=================>............] - ETA: 9:47 - loss: 1.4843 - accuracy: 0.3807
+12/18 [===================>..........] - ETA: 8:24 - loss: 1.4908 - accuracy: 0.3750
+13/18 [====================>.........] - ETA: 7:05 - loss: 1.4831 - accuracy: 0.3846
+14/18 [======================>.......] - ETA: 5:43 - loss: 1.4676 - accuracy: 0.3839
+15/18 [========================>.....] - ETA: 4:18 - loss: 1.4590 - accuracy: 0.3917
+16/18 [=========================>....] - ETA: 2:53 - loss: 1.4482 - accuracy: 0.3828
+17/18 [===========================>..] - ETA: 1:27 - loss: 1.4374 - accuracy: 0.3860
+18/18 [==============================] - ETA: 0s - loss: 1.4334 - accuracy: 0.3819
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 1673s 94s/step - loss: 1.4334 - accuracy: 0.3819 - val_loss: 1.8796 - val_accuracy: 0.1667 - lr: 0.0010
+Epoch 4/30
+ 1/18 [>.............................] - ETA: 30:52 - loss: 1.2777 - accuracy: 0.6250
+ 2/18 [==>...........................] - ETA: 29:24 - loss: 1.4438 - accuracy: 0.4688
+ 3/18 [====>.........................] - ETA: 27:24 - loss: 1.4393 - accuracy: 0.4167
+ 4/18 [=====>........................] - ETA: 25:42 - loss: 1.4733 - accuracy: 0.3750
+ 5/18 [=======>......................] - ETA: 24:01 - loss: 1.4480 - accuracy: 0.3625
+ 6/18 [=========>....................] - ETA: 22:08 - loss: 1.4523 - accuracy: 0.3750
+ 7/18 [==========>...................] - ETA: 20:25 - loss: 1.4221 - accuracy: 0.3661
+ 8/18 [============>.................] - ETA: 18:39 - loss: 1.4182 - accuracy: 0.3828
+ 9/18 [==============>...............] - ETA: 16:52 - loss: 1.4438 - accuracy: 0.3681
+10/18 [===============>..............] - ETA: 15:02 - loss: 1.4200 - accuracy: 0.3750
+11/18 [=================>............] - ETA: 13:14 - loss: 1.4169 - accuracy: 0.3636
+12/18 [===================>..........] - ETA: 11:26 - loss: 1.3988 - accuracy: 0.3802
+13/18 [====================>.........] - ETA: 9:35 - loss: 1.3973 - accuracy: 0.3798
+14/18 [======================>.......] - ETA: 7:42 - loss: 1.3820 - accuracy: 0.4018
+15/18 [========================>.....] - ETA: 5:47 - loss: 1.3789 - accuracy: 0.3917
+16/18 [=========================>....] - ETA: 3:52 - loss: 1.3816 - accuracy: 0.3867
+17/18 [===========================>..] - ETA: 1:56 - loss: 1.3802 - accuracy: 0.3897
+18/18 [==============================] - ETA: 0s - loss: 1.3760 - accuracy: 0.3889
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 2222s 124s/step - loss: 1.3760 - accuracy: 0.3889 - val_loss: 1.9133 - val_accuracy: 0.1667 - lr: 0.0010
+Epoch 5/30
+ 1/18 [>.............................] - ETA: 31:12 - loss: 1.3993 - accuracy: 0.4375
+ 2/18 [==>...........................] - ETA: 29:58 - loss: 1.3458 - accuracy: 0.4688
+ 3/18 [====>.........................] - ETA: 28:21 - loss: 1.2981 - accuracy: 0.4792
+ 4/18 [=====>........................] - ETA: 26:44 - loss: 1.3091 - accuracy: 0.4688
+ 5/18 [=======>......................] - ETA: 24:54 - loss: 1.3484 - accuracy: 0.4375
+ 7/18 [==========>...................] - ETA: 21:12 - loss: 1.3054 - accuracy: 0.4554
+ 8/18 [============>.................] - ETA: 19:21 - loss: 1.3228 - accuracy: 0.4297
+ 9/18 [==============>...............] - ETA: 17:29 - loss: 1.3325 - accuracy: 0.4167
+10/18 [===============>..............] - ETA: 15:36 - loss: 1.3157 - accuracy: 0.4313
+11/18 [=================>............] - ETA: 13:43 - loss: 1.3280 - accuracy: 0.4261
+12/18 [===================>..........] - ETA: 11:47 - loss: 1.3219 - accuracy: 0.4375
+13/18 [====================>.........] - ETA: 9:50 - loss: 1.3012 - accuracy: 0.4615
+14/18 [======================>.......] - ETA: 7:53 - loss: 1.3055 - accuracy: 0.4375
+15/18 [========================>.....] - ETA: 5:55 - loss: 1.2988 - accuracy: 0.4375
+16/18 [=========================>....] - ETA: 3:57 - loss: 1.2913 - accuracy: 0.4336
+17/18 [===========================>..] - ETA: 1:58 - loss: 1.2973 - accuracy: 0.4412
+18/18 [==============================] - ETA: 0s - loss: 1.3052 - accuracy: 0.4444
+Epoch 5: ReduceLROnPlateau reducing learning rate to 0.00020000000949949026.0.4444
+Epoch 5: ReduceLROnPlateau reducing learning rate to 0.00020000000949949026.0.4444
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 2265s 127s/step - loss: 1.3052 - accuracy: 0.4444 - val_loss: 1.9403 - val_accuracy: 0.1667 - lr: 0.0010
+Epoch 6/30
+ 1/18 [>.............................] - ETA: 29:37 - loss: 1.0866 - accuracy: 0.5000
+ 2/18 [==>...........................] - ETA: 29:18 - loss: 1.1708 - accuracy: 0.5312
+ 3/18 [====>.........................] - ETA: 27:55 - loss: 1.2520 - accuracy: 0.5000
+ 4/18 [=====>........................] - ETA: 25:58 - loss: 1.2663 - accuracy: 0.5000
+ 5/18 [=======>......................] - ETA: 24:12 - loss: 1.2215 - accuracy: 0.5250
+ 6/18 [=========>....................] - ETA: 22:13 - loss: 1.1995 - accuracy: 0.5104
+ 7/18 [==========>...................] - ETA: 20:16 - loss: 1.2030 - accuracy: 0.5000
+ 8/18 [============>.................] - ETA: 18:27 - loss: 1.1839 - accuracy: 0.4922
+ 9/18 [==============>...............] - ETA: 16:39 - loss: 1.2023 - accuracy: 0.4931
+10/18 [===============>..............] - ETA: 14:47 - loss: 1.1976 - accuracy: 0.4938
+11/18 [=================>............] - ETA: 13:00 - loss: 1.1946 - accuracy: 0.5000
+12/18 [===================>..........] - ETA: 11:08 - loss: 1.2047 - accuracy: 0.5000
+13/18 [====================>.........] - ETA: 9:18 - loss: 1.2228 - accuracy: 0.4952
+14/18 [======================>.......] - ETA: 7:27 - loss: 1.2129 - accuracy: 0.5089
+15/18 [========================>.....] - ETA: 5:36 - loss: 1.2149 - accuracy: 0.5042
+16/18 [=========================>....] - ETA: 3:44 - loss: 1.2096 - accuracy: 0.5117
+17/18 [===========================>..] - ETA: 1:52 - loss: 1.1997 - accuracy: 0.5184
+18/18 [==============================] - ETA: 0s - loss: 1.2028 - accuracy: 0.5069
+WARNING:absl:Found untraced functions such as lstm_cell_1_layer_call_fn, lstm_cell_1_layer_call_and_return_conditional_losses, lstm_cell_2_layer_call_fn, lstm_cell_2_layer_call_and_return_conditional_losses, lstm_cell_4_layer_call_fn while saving (showing 5 of 8). These functions will not be directly callable after loading.
+wandb: Adding directory to artifact (.\models)... Done. 0.0s
+18/18 [==============================] - 2158s 121s/step - loss: 1.2028 - accuracy: 0.5069 - val_loss: 1.9338 - val_accuracy: 0.1944 - lr: 2.0000e-04
+Epoch 7/30
+ 1/18 [>.............................] - ETA: 32:31 - loss: 1.1596 - accuracy: 0.6250
+ 2/18 [==>...........................] - ETA: 33:11 - loss: 1.1427 - accuracy: 0.5312
+ 3/18 [====>.........................] - ETA: 30:53 - loss: 1.2514 - accuracy: 0.4792
+ 4/18 [=====>........................] - ETA: 28:47 - loss: 1.2887 - accuracy: 0.4375
+ 5/18 [=======>......................] - ETA: 26:39 - loss: 1.2402 - accuracy: 0.4875
+ 6/18 [=========>....................] - ETA: 24:33 - loss: 1.2108 - accuracy: 0.4792
+ 7/18 [==========>...................] - ETA: 22:31 - loss: 1.2204 - accuracy: 0.4643
+ 8/18 [============>.................] - ETA: 20:30 - loss: 1.2130 - accuracy: 0.4688
+ 9/18 [==============>...............] - ETA: 18:28 - loss: 1.1928 - accuracy: 0.5000
+10/18 [===============>..............] - ETA: 16:27 - loss: 1.2005 - accuracy: 0.5000
+11/18 [=================>............] - ETA: 14:26 - loss: 1.1864 - accuracy: 0.5114
+12/18 [===================>..........] - ETA: 12:23 - loss: 1.1779 - accuracy: 0.5156
+13/18 [====================>.........] - ETA: 10:19 - loss: 1.1821 - accuracy: 0.5096
+14/18 [======================>.......] - ETA: 8:15 - loss: 1.1779 - accuracy: 0.5045
+15/18 [========================>.....] - ETA: 6:12 - loss: 1.1785 - accuracy: 0.4917

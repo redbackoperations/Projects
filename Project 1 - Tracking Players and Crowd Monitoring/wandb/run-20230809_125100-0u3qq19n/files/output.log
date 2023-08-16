@@ -1,0 +1,21 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+(288, 16424, 12) float64
+(288,) int64
+(72, 16424, 12) float64
+(72,) int64
+Traceback (most recent call last):
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 130, in <module>
+    TC.train_model()
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 110, in train_model
+    self.model = Sequential()
+  File "C:\Python310\lib\site-packages\tensorflow\python\trackable\base.py", line 205, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "C:\Python310\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Python310\lib\site-packages\tensorflow\python\framework\ops.py", line 7209, in raise_from_not_ok_status
+    raise core._status_to_exception(e) from None  # pylint: disable=protected-access
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Multiple OpKernel registrations match NodeDef at the same priority '{{node AssignVariableOp}}': 'op: "AssignVariableOp" device_type: "GPU" constraint { name: "dtype" allowed_values { list { type: DT_INT64 } } } host_memory_arg: "resource"' and 'op: "AssignVariableOp" device_type: "GPU" constraint { name: "dtype" allowed_values { list { type: DT_INT64 } } } host_memory_arg: "resource"'
+	 [[AssignVariableOp]] [Op:AssignVariableOp]

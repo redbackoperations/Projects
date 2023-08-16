@@ -1,0 +1,12 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 0 sequences
+Traceback (most recent call last):
+  File "E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 107, in <module>
+    TC.load_data()
+  File "E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 81, in load_data
+    X = np.stack(sequences)
+  File "C:\Users\61493\.conda\envs\HAR\lib\site-packages\numpy\core\shape_base.py", line 445, in stack
+    raise ValueError('need at least one array to stack')
+ValueError: need at least one array to stack

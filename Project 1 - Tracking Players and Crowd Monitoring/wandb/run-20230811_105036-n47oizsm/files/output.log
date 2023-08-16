@@ -1,0 +1,25 @@
+Num GPUs Available:  0
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+   attitude.roll  attitude.pitch  ...  Az_diff_1  A_magnitude
+0      -0.023338       -1.224848  ...        NaN     1.266990
+1       0.035584       -1.261492  ...   0.010155     1.300244
+2       0.178433       -1.271822  ...   0.069888     1.307097
+3       0.277170       -1.258480  ...   0.056537     1.302086
+4       0.304507       -1.277737  ...   0.051775     1.320425
+[5 rows x 44 columns]
+(288, 16424, 44) float64
+(288,) int64
+(72, 16424, 44) float64
+(72,) int64
+Unique labels in y_train: [0 1 2 3 4 5]
+Unique labels in y_test: [0 1 2 3 4 5]
+Epoch 1/30
+ 1/18 [>.............................] - ETA: 7:56 - loss: nan - accuracy: 0.3125
+ 2/18 [==>...........................] - ETA: 5:58 - loss: nan - accuracy: 0.1875
+ 3/18 [====>.........................] - ETA: 5:57 - loss: nan - accuracy: 0.2292
+ 4/18 [=====>........................] - ETA: 6:01 - loss: nan - accuracy: 0.2344
+ 5/18 [=======>......................] - ETA: 5:50 - loss: nan - accuracy: 0.2500
+ 6/18 [=========>....................] - ETA: 5:32 - loss: nan - accuracy: 0.2292
+ 7/18 [==========>...................] - ETA: 5:14 - loss: nan - accuracy: 0.2321

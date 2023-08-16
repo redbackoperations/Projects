@@ -1,0 +1,233 @@
+2023-08-09 10:47:15,143 INFO    StreamThr :75272 [internal.py:wandb_internal():89] W&B internal server running at pid: 75272, started at: 2023-08-09 10:47:15.142721
+2023-08-09 10:47:15,144 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status
+2023-08-09 10:47:15,152 INFO    WriterThread:75272 [datastore.py:open_for_write():85] open: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\run-tidylhi0.wandb
+2023-08-09 10:47:15,153 DEBUG   SenderThread:75272 [sender.py:send():379] send: header
+2023-08-09 10:47:15,194 DEBUG   SenderThread:75272 [sender.py:send():379] send: run
+2023-08-09 10:47:15,870 INFO    SenderThread:75272 [dir_watcher.py:__init__():211] watching files in: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files
+2023-08-09 10:47:15,871 INFO    SenderThread:75272 [sender.py:_start_run_threads():1124] run started: tidylhi0 with start time 1691542035.14372
+2023-08-09 10:47:15,871 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: summary_record
+2023-08-09 10:47:15,872 INFO    SenderThread:75272 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 10:47:15,882 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: check_version
+2023-08-09 10:47:15,883 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: check_version
+2023-08-09 10:47:15,985 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: run_start
+2023-08-09 10:47:16,008 DEBUG   HandlerThread:75272 [system_info.py:__init__():31] System info init
+2023-08-09 10:47:16,008 DEBUG   HandlerThread:75272 [system_info.py:__init__():46] System info init done
+2023-08-09 10:47:16,009 INFO    HandlerThread:75272 [system_monitor.py:start():181] Starting system monitor
+2023-08-09 10:47:16,009 INFO    SystemMonitor:75272 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-08-09 10:47:16,009 INFO    HandlerThread:75272 [system_monitor.py:probe():201] Collecting system info
+2023-08-09 10:47:16,028 INFO    SystemMonitor:75272 [interfaces.py:start():190] Started cpu monitoring
+2023-08-09 10:47:16,028 INFO    SystemMonitor:75272 [interfaces.py:start():190] Started disk monitoring
+2023-08-09 10:47:16,029 INFO    SystemMonitor:75272 [interfaces.py:start():190] Started gpu monitoring
+2023-08-09 10:47:16,046 INFO    SystemMonitor:75272 [interfaces.py:start():190] Started memory monitoring
+2023-08-09 10:47:16,080 INFO    SystemMonitor:75272 [interfaces.py:start():190] Started network monitoring
+2023-08-09 10:47:16,097 DEBUG   HandlerThread:75272 [system_info.py:probe():195] Probing system
+2023-08-09 10:47:16,099 DEBUG   HandlerThread:75272 [system_info.py:_probe_git():180] Probing git
+2023-08-09 10:47:16,101 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:16,184 DEBUG   HandlerThread:75272 [system_info.py:_probe_git():188] Probing git done
+2023-08-09 10:47:16,185 DEBUG   HandlerThread:75272 [system_info.py:probe():240] Probing system done
+2023-08-09 10:47:16,185 DEBUG   HandlerThread:75272 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.7.16', 'heartbeatAt': '2023-08-09T00:47:16.097919', 'startedAt': '2023-08-09T00:47:15.133208', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'Train.py', 'codePath': 'DataScience\\Models\\Action Recognition\\Train.py', 'git': {'remote': 'https://github.com/whosthis-svg/Project_Orion.git', 'commit': '03e2b9c7894f505a9fafb3faf2f18f6d564d243c'}, 'email': '68013561+whosthis-svg@users.noreply.github.com', 'root': 'E:/Dev/Deakin/Project_Orion', 'host': 'sky', 'username': '61493', 'executable': 'C:\\Users\\61493\\.conda\\envs\\Test\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2688.0, 'min': 0.0, 'max': 2688.0}, 'cpu_freq_per_core': [{'current': 2688.0, 'min': 0.0, 'max': 2688.0}], 'disk': {'total': 931.4960899353027, 'used': 216.12216186523438}, 'gpu': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'memory_total': 4294967296}], 'memory': {'total': 31.64645767211914}}
+2023-08-09 10:47:16,185 INFO    HandlerThread:75272 [system_monitor.py:probe():211] Finished collecting system info
+2023-08-09 10:47:16,185 INFO    HandlerThread:75272 [system_monitor.py:probe():214] Publishing system info
+2023-08-09 10:47:16,185 DEBUG   HandlerThread:75272 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-08-09 10:47:16,186 DEBUG   HandlerThread:75272 [system_info.py:_save_pip():67] Saving pip packages done
+2023-08-09 10:47:16,187 DEBUG   HandlerThread:75272 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-08-09 10:47:16,190 ERROR   HandlerThread:75272 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\61493\.conda\envs\Test\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 82, in _save_conda
+    ["conda", "env", "export"], stdout=f, stderr=subprocess.DEVNULL
+  File "C:\Users\61493\.conda\envs\Test\lib\subprocess.py", line 339, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\61493\.conda\envs\Test\lib\subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\61493\.conda\envs\Test\lib\subprocess.py", line 1207, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2023-08-09 10:47:16,191 DEBUG   HandlerThread:75272 [system_info.py:_save_conda():86] Saving conda packages done
+2023-08-09 10:47:16,192 INFO    HandlerThread:75272 [system_monitor.py:probe():216] Finished publishing system info
+2023-08-09 10:47:16,202 DEBUG   SenderThread:75272 [sender.py:send():379] send: files
+2023-08-09 10:47:16,202 INFO    SenderThread:75272 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-08-09 10:47:16,210 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 10:47:16,210 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 10:47:16,473 DEBUG   SenderThread:75272 [sender.py:send():379] send: telemetry
+2023-08-09 10:47:16,879 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_created():271] file/dir created: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\conda-environment.yaml
+2023-08-09 10:47:16,879 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_created():271] file/dir created: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\requirements.txt
+2023-08-09 10:47:16,879 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_created():271] file/dir created: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-metadata.json
+2023-08-09 10:47:16,879 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_created():271] file/dir created: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-summary.json
+2023-08-09 10:47:16,879 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_created():271] file/dir created: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:17,251 INFO    wandb-upload_0:75272 [upload_job.py:push():131] Uploaded file C:\Users\61493\AppData\Local\Temp\tmptt04zffnwandb\h5rlb8ur-wandb-metadata.json
+2023-08-09 10:47:18,125 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:18,896 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:20,178 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:20,509 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:22,225 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:24,265 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:25,557 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:26,322 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:28,361 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:30,400 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:30,604 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:31,224 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 10:47:31,225 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 10:47:32,444 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:34,491 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:36,530 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:36,580 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:38,580 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:40,632 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:41,097 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:42,136 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:42,407 DEBUG   SenderThread:75272 [sender.py:send():379] send: telemetry
+2023-08-09 10:47:42,408 DEBUG   SenderThread:75272 [sender.py:send():379] send: metric
+2023-08-09 10:47:42,408 DEBUG   SenderThread:75272 [sender.py:send():379] send: telemetry
+2023-08-09 10:47:42,408 DEBUG   SenderThread:75272 [sender.py:send():379] send: metric
+2023-08-09 10:47:42,408 WARNING SenderThread:75272 [sender.py:send_metric():1326] Seen metric with glob (shouldn't happen)
+2023-08-09 10:47:42,408 DEBUG   SenderThread:75272 [sender.py:send():379] send: telemetry
+2023-08-09 10:47:42,681 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:44,728 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:45,136 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:46,237 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 10:47:46,238 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 10:47:46,906 ERROR   gpu       :75272 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 10:47:47,528 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:47,825 DEBUG   SenderThread:75272 [sender.py:send():379] send: exit
+2023-08-09 10:47:47,825 INFO    SenderThread:75272 [sender.py:send_exit():584] handling exit code: 1
+2023-08-09 10:47:47,825 INFO    SenderThread:75272 [sender.py:send_exit():586] handling runtime: 31
+2023-08-09 10:47:47,826 INFO    SenderThread:75272 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 10:47:47,826 INFO    SenderThread:75272 [sender.py:send_exit():592] send defer
+2023-08-09 10:47:47,826 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,826 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 0
+2023-08-09 10:47:47,827 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,827 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 0
+2023-08-09 10:47:47,827 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 1
+2023-08-09 10:47:47,827 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,827 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 1
+2023-08-09 10:47:47,827 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,827 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 1
+2023-08-09 10:47:47,827 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 2
+2023-08-09 10:47:47,827 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,828 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 2
+2023-08-09 10:47:47,828 INFO    HandlerThread:75272 [system_monitor.py:finish():190] Stopping system monitor
+2023-08-09 10:47:47,828 INFO    HandlerThread:75272 [interfaces.py:finish():202] Joined cpu monitor
+2023-08-09 10:47:47,828 DEBUG   SystemMonitor:75272 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-08-09 10:47:47,851 INFO    HandlerThread:75272 [interfaces.py:finish():202] Joined disk monitor
+2023-08-09 10:47:47,852 DEBUG   SystemMonitor:75272 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-08-09 10:47:47,852 DEBUG   SystemMonitor:75272 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-08-09 10:47:47,985 INFO    HandlerThread:75272 [interfaces.py:finish():202] Joined gpu monitor
+2023-08-09 10:47:47,986 INFO    HandlerThread:75272 [interfaces.py:finish():202] Joined memory monitor
+2023-08-09 10:47:47,986 INFO    HandlerThread:75272 [interfaces.py:finish():202] Joined network monitor
+2023-08-09 10:47:47,986 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,986 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 2
+2023-08-09 10:47:47,986 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 3
+2023-08-09 10:47:47,986 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,987 DEBUG   SenderThread:75272 [sender.py:send():379] send: stats
+2023-08-09 10:47:47,987 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 3
+2023-08-09 10:47:47,987 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,987 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 3
+2023-08-09 10:47:47,987 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 4
+2023-08-09 10:47:47,987 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,987 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 4
+2023-08-09 10:47:47,987 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,987 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 4
+2023-08-09 10:47:47,987 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 5
+2023-08-09 10:47:47,988 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,988 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 5
+2023-08-09 10:47:47,988 DEBUG   SenderThread:75272 [sender.py:send():379] send: summary
+2023-08-09 10:47:47,989 INFO    SenderThread:75272 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 10:47:47,989 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,989 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 5
+2023-08-09 10:47:47,989 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 6
+2023-08-09 10:47:47,989 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,990 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 6
+2023-08-09 10:47:47,990 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,990 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 6
+2023-08-09 10:47:47,990 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 7
+2023-08-09 10:47:47,990 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:47,990 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:47,990 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 7
+2023-08-09 10:47:47,990 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:47,990 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 7
+2023-08-09 10:47:48,164 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\config.yaml
+2023-08-09 10:47:48,164 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-summary.json
+2023-08-09 10:47:48,863 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: poll_exit
+2023-08-09 10:47:48,960 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 8
+2023-08-09 10:47:48,960 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: poll_exit
+2023-08-09 10:47:48,961 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:48,961 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 8
+2023-08-09 10:47:48,961 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:48,962 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 8
+2023-08-09 10:47:48,962 INFO    SenderThread:75272 [job_builder.py:build():281] Attempting to build job artifact
+2023-08-09 10:47:48,962 INFO    SenderThread:75272 [job_builder.py:_get_source_type():400] is repo sourced job
+2023-08-09 10:47:48,965 INFO    SenderThread:75272 [job_builder.py:build():374] adding wandb-job metadata file
+2023-08-09 10:47:48,978 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 9
+2023-08-09 10:47:48,978 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:48,978 DEBUG   SenderThread:75272 [sender.py:send():379] send: artifact
+2023-08-09 10:47:48,978 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 9
+2023-08-09 10:47:49,174 INFO    Thread-16 :75272 [dir_watcher.py:_on_file_modified():288] file/dir modified: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:49,872 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: poll_exit
+2023-08-09 10:47:50,317 INFO    wandb-upload_1:75272 [upload_job.py:push():86] Skipped uploading C:\Users\61493\AppData\Local\wandb\wandb\artifacts\staging\tmp9dhlhkmf
+2023-08-09 10:47:50,878 INFO    wandb-upload_0:75272 [upload_job.py:push():89] Uploaded file C:\Users\61493\AppData\Local\wandb\wandb\artifacts\staging\tmpvp8u2trx
+2023-08-09 10:47:52,603 INFO    SenderThread:75272 [sender.py:send_artifact():1475] sent artifact job-https___github.com_whosthis-svg_Project_Orion.git_DataScience_Models_Action_Recognition_Train.py - {'id': 'QXJ0aWZhY3Q6NTM3MTE4OTc1', 'digest': '96790c51613f0cf2275482854ef5bead', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg4OTQ1MDI2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTM2OTczNzkz', 'versionIndex': 4}}, 'version': 'latest'}
+2023-08-09 10:47:52,604 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:52,604 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 9
+2023-08-09 10:47:52,604 INFO    SenderThread:75272 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-08-09 10:47:53,212 INFO    SenderThread:75272 [dir_watcher.py:finish():388] scan: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files
+2023-08-09 10:47:53,212 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\conda-environment.yaml conda-environment.yaml
+2023-08-09 10:47:53,213 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\config.yaml config.yaml
+2023-08-09 10:47:53,213 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log output.log
+2023-08-09 10:47:53,215 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\requirements.txt requirements.txt
+2023-08-09 10:47:53,218 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-metadata.json wandb-metadata.json
+2023-08-09 10:47:53,218 INFO    SenderThread:75272 [dir_watcher.py:finish():402] scan save: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-summary.json wandb-summary.json
+2023-08-09 10:47:53,221 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 10
+2023-08-09 10:47:53,222 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: poll_exit
+2023-08-09 10:47:53,222 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:53,224 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 10
+2023-08-09 10:47:53,224 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 10:47:53,224 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:53,224 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 10
+2023-08-09 10:47:53,224 INFO    SenderThread:75272 [file_pusher.py:finish():159] shutting down file pusher
+2023-08-09 10:47:53,871 INFO    wandb-upload_0:75272 [upload_job.py:push():131] Uploaded file E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\output.log
+2023-08-09 10:47:53,977 INFO    wandb-upload_2:75272 [upload_job.py:push():131] Uploaded file E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\config.yaml
+2023-08-09 10:47:54,053 INFO    wandb-upload_4:75272 [upload_job.py:push():131] Uploaded file E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\wandb-summary.json
+2023-08-09 10:47:54,075 INFO    wandb-upload_1:75272 [upload_job.py:push():131] Uploaded file E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\files\requirements.txt
+2023-08-09 10:47:54,282 INFO    Thread-15 :75272 [sender.py:transition_state():612] send defer: 11
+2023-08-09 10:47:54,282 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:54,282 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 11
+2023-08-09 10:47:54,283 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:54,283 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 11
+2023-08-09 10:47:54,283 INFO    SenderThread:75272 [file_pusher.py:join():164] waiting for file pusher
+2023-08-09 10:47:54,283 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 12
+2023-08-09 10:47:54,283 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:54,283 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 12
+2023-08-09 10:47:54,283 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:54,283 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 12
+2023-08-09 10:47:54,283 INFO    SenderThread:75272 [file_stream.py:finish():593] file stream finish called
+2023-08-09 10:47:54,545 INFO    SenderThread:75272 [file_stream.py:finish():597] file stream finish is done
+2023-08-09 10:47:54,545 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 13
+2023-08-09 10:47:54,545 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:54,545 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 13
+2023-08-09 10:47:54,545 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:54,546 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 13
+2023-08-09 10:47:54,546 INFO    SenderThread:75272 [sender.py:transition_state():612] send defer: 14
+2023-08-09 10:47:54,546 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: defer
+2023-08-09 10:47:54,546 INFO    HandlerThread:75272 [handler.py:handle_request_defer():170] handle defer: 14
+2023-08-09 10:47:54,546 DEBUG   SenderThread:75272 [sender.py:send():379] send: final
+2023-08-09 10:47:54,547 DEBUG   SenderThread:75272 [sender.py:send():379] send: footer
+2023-08-09 10:47:54,547 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: defer
+2023-08-09 10:47:54,547 INFO    SenderThread:75272 [sender.py:send_request_defer():608] handle sender defer: 14
+2023-08-09 10:47:54,548 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: poll_exit
+2023-08-09 10:47:54,548 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: server_info
+2023-08-09 10:47:54,548 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: get_summary
+2023-08-09 10:47:54,548 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: poll_exit
+2023-08-09 10:47:54,548 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: sampled_history
+2023-08-09 10:47:54,549 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: server_info
+2023-08-09 10:47:54,549 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: job_info
+2023-08-09 10:47:54,768 DEBUG   SenderThread:75272 [sender.py:send_request():406] send_request: job_info
+2023-08-09 10:47:54,769 INFO    MainThread:75272 [wandb_run.py:_footer_history_summary_info():3481] rendering history
+2023-08-09 10:47:54,769 INFO    MainThread:75272 [wandb_run.py:_footer_history_summary_info():3513] rendering summary
+2023-08-09 10:47:54,769 INFO    MainThread:75272 [wandb_run.py:_footer_sync_info():3440] logging synced files
+2023-08-09 10:47:54,769 DEBUG   HandlerThread:75272 [handler.py:handle_request():144] handle_request: shutdown
+2023-08-09 10:47:54,770 INFO    HandlerThread:75272 [handler.py:finish():857] shutting down handler
+2023-08-09 10:47:55,555 INFO    WriterThread:75272 [datastore.py:close():294] close: E:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\wandb\run-20230809_104715-tidylhi0\run-tidylhi0.wandb
+2023-08-09 10:47:55,772 INFO    SenderThread:75272 [sender.py:finish():1552] shutting down sender
+2023-08-09 10:47:55,773 INFO    SenderThread:75272 [file_pusher.py:finish():159] shutting down file pusher
+2023-08-09 10:47:55,773 INFO    SenderThread:75272 [file_pusher.py:join():164] waiting for file pusher
