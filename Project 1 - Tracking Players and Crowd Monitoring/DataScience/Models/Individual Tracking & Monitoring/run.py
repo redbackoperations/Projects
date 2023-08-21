@@ -15,30 +15,65 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error
 
 class RealTimeTracking:
     def __init__(self,user_id):
+        """
+        Initializes the RealTimeTracking class with user_id.
+        :param user_id: Unique identifier for the user
+        """
         self.user_id = user_id
         self.seq_length = 20
         self.train_date=None
-        self.model_path = f"IndiMods/model_{user_id}.h5"
+        self.model_path = f"Models/Individual Tracking & Monitoring/IndiMods/model_{user_id}.h5"
         self.predictive_model=None
        
 
     def get_trajectory(self, gps_data):
+        """
+        Filters the GPS data to return only the trajectory for the given user.
+        :param gps_data: DataFrame containing GPS data
+        :return: DataFrame containing the trajectory for the user
+        """
         return gps_data[gps_data['user_id'] == self.user_id]
 
     def get_direction(self, point1, point2):
+        """
+        Calculates the direction from point1 to point2.
+        :param point1: Dictionary containing the 'Latitude' and 'Longitude' of the first point
+        :param point2: Dictionary containing the 'Latitude' and 'Longitude' of the second point
+        :return: Direction angle in radians
+        """
 
         return np.arctan2(point2['Longitude'] - point1['Longitude'], point2['Latitude'] - point1['Latitude'])
 
     def get_distance(self, point1, point2):
+        """
+        Calculates the distance between two geographical points.
+        :param point1: Dictionary containing the 'Latitude' and 'Longitude' of the first point
+        :param point2: Dictionary containing the 'Latitude' and 'Longitude' of the second point
+        :return: Distance in meters
+        """
         return distance.distance((point1['Latitude'],point1['Longitude']),(point2['Latitude'],point2['Longitude'])).meters
 
     def get_speed(self, initialpoint,finalpoint,initialtime,finaltime):
-       
+        """
+        Calculates the speed between two points given the time taken to travel.
+        :param initialpoint: Starting point as a dictionary with 'Latitude' and 'Longitude'
+        :param finalpoint: Ending point as a dictionary with 'Latitude' and 'Longitude'
+        :param initialtime: Start time as a datetime object
+        :param finaltime: End time as a datetime object
+        :return: Speed in meters per second
+        """
         return self.get_distance(initialpoint,finalpoint) / (finaltime - initialtime).seconds
 
 
     def get_acceleration(self, initialspeed,finalspeed,initialtime,finaltime):       
-       
+        """
+        Calculates the acceleration given the initial and final speeds and the time taken.
+        :param initialspeed: Initial speed in meters per second
+        :param finalspeed: Final speed in meters per second
+        :param initialtime: Start time as a datetime object
+        :param finaltime: End time as a datetime object
+        :return: Acceleration in meters per second squared
+        """ 
 
         return (finalspeed - initialspeed) / (finaltime - initialtime).seconds
     
@@ -220,9 +255,11 @@ class RealTimeTracking:
     def train_personalised_model(self, trajectory_data, retrain=False):        
         preprocessed_data = self.preprocess_data(trajectory_data)
         
-    
-       
-        model=load_model(self.model_path)
+        try:       
+            model=load_model(self.model_path)
+            
+        except:
+            model=None
         if retrain and model is not None:
             print("Retraining model......")
             self.predictive_model = PredictiveTracking(self.user_id, preprocessed_data,'train')
@@ -254,6 +291,12 @@ class RealTimeTracking:
 
 # this should only be used during testing --some modifications needed to use it in production
 def read_plt(file_path, user_id):
+    """
+    Reads a plt file and returns it as a DataFrame, adding a user_id column.
+    :param file_path: Path to the plt file
+    :param user_id: Unique identifier for the user
+    :return: DataFrame containing the plt file data with added user_id
+    """
     columns = ['Latitude', 'Longitude', 'Reserved', 'Altitude', 'NumDays', 'Date', 'Time']
     data = pd.read_csv(file_path, skiprows=6, header=None, names=columns)
     data['Altitude'] = data['Altitude'] * 0.3048
@@ -279,7 +322,7 @@ def read_plt(file_path, user_id):
 
 
 
-directory_path = r"E:\Dev\Deakin\Project_Orion\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\000\Trajectory\*.plt"
+directory_path = r"E:\Dev\Deakin\Project_Orion\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\076\Trajectory\*.plt"
 
 # Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")
 user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))

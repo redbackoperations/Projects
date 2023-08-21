@@ -9,6 +9,11 @@ import folium
 from folium.plugins import HeatMap
 
 def process_data(gps_data):
+    """
+    Processes the GPS data using DBSCAN clustering and plots the clusters.
+
+    :param gps_data: A numpy array with GPS coordinates in the format [[latitude1, longitude1], [latitude2, longitude2], ...].
+    """
     # Using DBSCAN to cluster the data
     dbscan = DBSCAN(eps=0.1, min_samples=7)
     clusters = dbscan.fit_predict(gps_data)
