@@ -10,7 +10,7 @@ const mqtt = require('mqtt');
 const cors = require('cors');
 const data = require('./models/sensor');
 
-//This is just for demonstration purposes
+//This is just for demonstration purposes //
 
 
 // Initialize Express
