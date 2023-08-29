@@ -9,7 +9,7 @@ import glob
 import os
 from datetime import datetime,timedelta
 from tensorflow.keras.models import load_model
-from train import PredictiveTracking
+from PMT_run import PredictiveTracking
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import mean_squared_error,mean_absolute_error
 
@@ -321,8 +321,8 @@ def read_plt(file_path, user_id):
 
 
 
-
-directory_path = r"E:\Dev\Deakin\Project_Orion\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\076\Trajectory\*.plt"
+'''-----------------------------------------------------------------------------------------------------------------------------------------------------------the number 00x is the user id, it should be changed to the user id of the user whose data is being processed'''
+directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\021\Trajectory\*.plt"
 
 # Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")
 user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))
@@ -335,10 +335,12 @@ for file_path in glob.glob(directory_path):
     trajectory_data = read_plt(file_path, user_id)
     user_trajectory = real_time_tracking.get_trajectory(trajectory_data)
     
-    # Train the model
-real_time_tracking.train_personalised_model(user_trajectory,True)
+# Train the model
+real_time_tracking.train_personalised_model(user_trajectory,False)
 print(user_id)
 
 # Predict the future coordinates
 predicted_coordinates = real_time_tracking.generate_future_coordinates(user_trajectory)
 print(predicted_coordinates)
+
+

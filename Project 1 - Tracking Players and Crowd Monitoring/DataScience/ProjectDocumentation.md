@@ -44,18 +44,25 @@ Project Orion’s architecture combines computer vision and IoT modeling.
 ### 2.1.1 Visual Component
 - **Object Detection**: YOLO v7.
 - **Pose Estimation**: MediaPipe.
-- **Crowd Counting**: Algorithms for people counting.
+- **Crowd Counting**: Counting extracted bounding boxes from YOLO v7.
 - **Collision Prediction Module**: Uses Kalman Filters.
 
 ### 2.1.2 IoT Component
 - **Heart Rate Monitoring**: Integrates with wearable devices.
-- **GPS Tracking**: Uses global positioning systems.
-- **Sensor Data Processing**: Uses Kalman Filters.
+- **GPS Tracking**: Uses global positioning systems and intergrates with wearable devices.
+- **Sensor Data Processing**: 
+- **Collision Prediction**: Uses Custom Kalman Filter
+- **Contact Tracing**:
 
 ### 2.1.3 Fusion Module
 - **Data Alignment**: Aligns data through timestamps.
 - **Feature Fusion**: Combines features using a fusion layer.
 - **Decision Making**: Uses fused data for decisions.
+
+### 2.1.4 Alert and Navigation Module
+- **
+-
+
 
 ## 2.2 Technologies and Tools
 - **Deep Learning Frameworks**: TensorFlow
