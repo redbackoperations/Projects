@@ -25,6 +25,7 @@ Project Orion is a sophisticated ensemble model combining both visual and IoT da
 - **Contact Tracing**: Uses proximity data for tracing.
 
 ## 1.4 Additional Components
+- **Data Manager**:Manages the data pipeline to and from the model. 
 - **Alert System**: Provides notifications.
 - **Historical Analysis**: Allows retrospective studies using stored data.
 - **Emergency Evacuation Planning**: Uses Multi-Agent Reinforcement Learning (optional).
@@ -52,7 +53,7 @@ Project Orion’s architecture combines computer vision and IoT modeling.
 - **GPS Tracking**: Uses global positioning systems and intergrates with wearable devices.
 - **Sensor Data Processing**: 
 - **Collision Prediction**: Uses Custom Kalman Filter
-- **Contact Tracing**:
+- **Contact Tracing**:TBD
 
 ### 2.1.3 Fusion Module
 - **Data Alignment**: Aligns data through timestamps.

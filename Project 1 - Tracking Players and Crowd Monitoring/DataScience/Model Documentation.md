@@ -896,298 +896,6 @@ TC.train_model()
 TC.save_model()
 ```
 
-# wandb
-
-# run-20230809_061315-avgeq2ts
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_061434-btfi664p
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_062208-zdc8mnmd
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_062449-7kzatvzc
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_062622-spkmop9f
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_063304-8h46m5wn
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_063457-jx3jul42
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_064048-kg0jur2q
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_064407-fmnzruya
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_064945-qfa906fe
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_070512-7ik6vys6
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_070638-icwzik1g
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_071114-wy4xrw5i
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_072012-73iwgej6
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_072220-8fpwkwaw
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_073627-z2pnkf0g
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_073747-ryefrpxb
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_074535-znduwc5w
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_080025-jph5s1js
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_104715-tidylhi0
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_104827-0ht095oz
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_105007-1cjijypb
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_110414-57v0rq7k
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_111300-gxgwuuu4
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230809_113308-6zf3n5xq
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230811_113843-y4ebtsw8
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230811_123730-8h4s1f69
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230811_125111-g69jldxp
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
-# run-20230811_134242-alk723iv
-
-# files
-
-# logs
-
-# tmp
-
-# code
-
 # __pycache__
 
 # assets
@@ -1218,7 +926,7 @@ from math import atan2
 class CustomKalmanFilter:
 ```
 
-*[Same as provided]*
+*[Needs Adjustments for complex features]*
 
 ```python
 def __init__(self, process_variance, measurement_variance, initial_value=(0, 0),
@@ -1320,11 +1028,11 @@ self.process_variance = process_variance
 self.measurement_variance = measurement_variance
 ```
 
+*Store the latest collision predictions*
+
 ```python
 self.latest_collisions = []
 ```
-
-*Store the latest collision predictions*
 
 ```python
 def update_user(self, user_id, coordinates, speed, direction, acceleration):
@@ -1364,23 +1072,225 @@ self.users[user_id].update(coordinates)
 
 *Update the latest collision predictions each time user details are updated*
 
+*Using a default prediction_time of 5*
+
 ```python
 self.latest_collisions = self.predict_collisions(5)
 ```
-
-*Using a default prediction_time of 5*
 
 ```python
 def predict_collisions(self, prediction_time, interval=1):
 ```
 
-Predict collisions at regular intervals within the prediction time.""" collisions = set()  # Check for collisions at regular intervals for t in range(0, prediction_time + 1, interval): user_ids = list(self.users.keys()) future_positions = {} for user_id in user_ids: kf = self.users[user_id] future_x = kf.estimate[0] + kf.velocity[0]*t future_y = kf.estimate[1] + kf.velocity[1]*t future_positions[user_id] = (future_x, future_y) for i in range(len(user_ids)): for j in range(i + 1, len(user_ids)): pos1 = future_positions[user_ids[i]] pos2 = future_positions[user_ids[j]] distance = sqrt((pos1[0] - pos2[0])**2 + (pos1[1] - pos2[1])**2) if distance < 5: collisions.add((user_ids[i], user_ids[j]))  return list(collisions)    class EnhancedVisualizeMovements: # [As we implemented above] def __init__(self, collision_prediction): self.collision_prediction = collision_prediction  def generate_random_color(self): return (random.random(), random.random(), random.random())  # @staticmethod def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
+Predict collisions at regular intervals within the prediction time.
 
 ```python
-Compute the intersection point of two trajectories given their initial positions and velocities.
+collisions = set()
 ```
 
-# Unpack the initial positions and velocities x1, y1 = initial_position1 vx1, vy1 = velocity1 x2, y2 = initial_position2 vx2, vy2 = velocity2  # Handle the special cases where the trajectories are vertical if vx1 == 0 and vx2 == 0:  # Both trajectories are vertical return None  # No unique intersection point elif vx1 == 0:  # Only the first trajectory is vertical x = x1 y = vy2/vx2 * (x - x2) + y2 return (x, y) elif vx2 == 0:  # Only the second trajectory is vertical x = x2 y = vy1/vx1 * (x - x1) + y1 return (x, y)  # Calculate the slopes for the trajectories m1 = vy1 / vx1 m2 = vy2 / vx2  # If the slopes are equal, the trajectories are parallel and do not intersect if m1 == m2: return None  # Compute x-coordinate of intersection x = (y2 - y1 + m1*x1 - m2*x2) / (m1 - m2)  # Compute corresponding y-coordinate using one of the trajectory equations y = m1 * (x - x1) + y1  return (x, y)  def plot_enhanced_movements(self, ax, prediction_time):
+*Check for collisions at regular intervals*
+
+```python
+for t in range(0, prediction_time + 1, interval):
+```
+
+```python
+user_ids = list(self.users.keys())
+```
+
+```python
+future_positions = {}
+```
+
+```python
+for user_id in user_ids:
+```
+
+```python
+kf = self.users[user_id]
+```
+
+```python
+future_x = kf.estimate[0] + kf.velocity[0]*t
+```
+
+```python
+future_y = kf.estimate[1] + kf.velocity[1]*t
+```
+
+```python
+future_positions[user_id] = (future_x, future_y)
+```
+
+```python
+for i in range(len(user_ids)):
+```
+
+```python
+for j in range(i + 1, len(user_ids)):
+```
+
+```python
+pos1 = future_positions[user_ids[i]]
+```
+
+```python
+pos2 = future_positions[user_ids[j]]
+```
+
+```python
+distance = sqrt((pos1[0] - pos2[0])**2 + (pos1[1] - pos2[1])**2)
+```
+
+```python
+if distance < 5:
+```
+
+```python
+collisions.add((user_ids[i], user_ids[j]))
+```
+
+```python
+return list(collisions)
+```
+
+```python
+class EnhancedVisualizeMovements:
+```
+
+*[Needs Adjustments for complex features]*
+
+```python
+def __init__(self, collision_prediction):
+```
+
+```python
+self.collision_prediction = collision_prediction
+```
+
+```python
+def generate_random_color(self):
+```
+
+```python
+return (random.random(), random.random(), random.random())
+```
+
+```python
+def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
+```
+
+Compute the intersection point of two trajectories given their initial positions and velocities.
+
+*Unpack the initial positions and velocities*
+
+```python
+x1, y1 = initial_position1
+```
+
+```python
+vx1, vy1 = velocity1
+```
+
+```python
+x2, y2 = initial_position2
+```
+
+```python
+vx2, vy2 = velocity2
+```
+
+*Handle the special cases where the trajectories are vertical*
+
+```python
+if vx1 == 0 and vx2 == 0:
+```
+
+*Both trajectories are vertical*
+
+```python
+return None
+```
+
+*No unique intersection point*
+
+```python
+elif vx1 == 0:
+```
+
+*Only the first trajectory is vertical*
+
+```python
+x = x1
+```
+
+```python
+y = vy2/vx2 * (x - x2) + y2
+```
+
+```python
+return (x, y)
+```
+
+```python
+elif vx2 == 0:
+```
+
+*Only the second trajectory is vertical*
+
+```python
+x = x2
+```
+
+```python
+y = vy1/vx1 * (x - x1) + y1
+```
+
+```python
+return (x, y)
+```
+
+*Calculate the slopes for the trajectories*
+
+```python
+m1 = vy1 / vx1
+```
+
+```python
+m2 = vy2 / vx2
+```
+
+*If the slopes are equal, the trajectories are parallel and do not intersect*
+
+```python
+if m1 == m2:
+```
+
+```python
+return None
+```
+
+*Compute x-coordinate of intersection*
+
+```python
+x = (y2 - y1 + m1*x1 - m2*x2) / (m1 - m2)
+```
+
+*Compute corresponding y-coordinate using one of the trajectory equations*
+
+```python
+y = m1 * (x - x1) + y1
+```
+
+```python
+return (x, y)
+```
+
+```python
+def plot_enhanced_movements(self, ax, prediction_time):
+```
+
+Visualize user trajectories and potential collisions.
 
 *Plot initial and predicted positions with intervals*
 
