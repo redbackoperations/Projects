@@ -896,6 +896,9 @@ TC.train_model()
 TC.save_model()
 ```
 
+# __pycache__
+
+# assets
 
 # Collision Prediction
 
@@ -904,16 +907,34 @@ from math import sqrt, sin, cos, radians
 ```
 
 ```python
+import matplotlib.pyplot as plt
+```
+
+```python
+import random
+```
+
+```python
+from matplotlib.animation import FuncAnimation
+```
+
+```python
+from math import atan2
+```
+
+```python
 class CustomKalmanFilter:
 ```
 
-Implementation of a custom Kalman Filter for estimating object's position and velocity.
+*[Needs Adjustments for complex features]*
 
 ```python
-def __init__(self, process_variance, measurement_variance, initial_value=(0, 0), initial_velocity=(0, 0), initial_estimate_error=1):
+def __init__(self, process_variance, measurement_variance, initial_value=(0, 0),
 ```
 
-Initialize the Kalman filter with given parameters.  **Parameter:** process_variance: float, variance in the process **Parameter:** measurement_variance: float, variance in the measurements **Parameter:** initial_value: tuple, initial position (x, y) **Parameter:** initial_velocity: tuple, initial velocity (vx, vy) **Parameter:** initial_estimate_error: float, initial estimate error
+```python
+initial_velocity=(0, 0), initial_estimate_error=1):
+```
 
 ```python
 self.process_variance = process_variance
@@ -939,13 +960,9 @@ self.estimate_error = initial_estimate_error
 def predict(self, acceleration, direction, dt=1.0):
 ```
 
-Prediction step of the Kalman filter.  **Parameter:** acceleration: float, acceleration **Parameter:** direction: float, direction in degrees **Parameter:** dt: float, time step (default is 1.0)
-
 ```python
 direction_rad = radians(direction)
 ```
-
-*Calculate changes in velocity components*
 
 ```python
 delta_vx = acceleration * cos(direction_rad) * dt
@@ -954,8 +971,6 @@ delta_vx = acceleration * cos(direction_rad) * dt
 ```python
 delta_vy = acceleration * sin(direction_rad) * dt
 ```
-
-*Update velocity and position estimates*
 
 ```python
 self.velocity = (self.velocity[0] + delta_vx, self.velocity[1] + delta_vy)
@@ -969,8 +984,6 @@ self.estimate = (self.estimate[0] + self.velocity[0]*dt + 0.5*delta_vx*dt**2,
 self.estimate[1] + self.velocity[1]*dt + 0.5*delta_vy*dt**2)
 ```
 
-*Update estimate error*
-
 ```python
 self.estimate_error += self.process_variance
 ```
@@ -979,15 +992,9 @@ self.estimate_error += self.process_variance
 def update(self, measurement):
 ```
 
-Update step of the Kalman filter.  **Parameter:** measurement: tuple, measured position (x, y)
-
-*Calculate Kalman gain*
-
 ```python
 kalman_gain = self.estimate_error / (self.estimate_error + self.measurement_variance)
 ```
-
-*Update estimate and error*
 
 ```python
 self.estimate = (self.estimate[0] + kalman_gain * (measurement[0] - self.estimate[0]),
@@ -1005,13 +1012,9 @@ self.estimate_error *= (1 - kalman_gain)
 class CollisionPrediction:
 ```
 
-Collision prediction system using custom Kalman Filters for tracking users.
-
 ```python
 def __init__(self, process_variance, measurement_variance):
 ```
-
-Initialize the system with given parameters.  **Parameter:** process_variance: float, variance in the process **Parameter:** measurement_variance: float, variance in the measurements
 
 ```python
 self.users = {}
@@ -1025,13 +1028,15 @@ self.process_variance = process_variance
 self.measurement_variance = measurement_variance
 ```
 
+*Store the latest collision predictions*
+
+```python
+self.latest_collisions = []
+```
+
 ```python
 def update_user(self, user_id, coordinates, speed, direction, acceleration):
 ```
-
-Update user's position, velocity, and acceleration.  **Parameter:** user_id: int, unique identifier for the user **Parameter:** coordinates: tuple, user's coordinates (x, y) **Parameter:** speed: float, user's speed **Parameter:** direction: float, user's direction in degrees **Parameter:** acceleration: float, user's acceleration
-
-*Calculate velocity components*
 
 ```python
 vx = speed * cos(radians(direction))
@@ -1040,8 +1045,6 @@ vx = speed * cos(radians(direction))
 ```python
 vy = speed * sin(radians(direction))
 ```
-
-*Create or update Kalman Filter for user*
 
 ```python
 if user_id not in self.users:
@@ -1067,14 +1070,28 @@ self.users[user_id].predict(acceleration, direction)
 self.users[user_id].update(coordinates)
 ```
 
+*Update the latest collision predictions each time user details are updated*
+
+*Using a default prediction_time of 5*
+
 ```python
-def predict_collisions(self, prediction_time):
+self.latest_collisions = self.predict_collisions(5)
 ```
 
-Predict collisions among users in given prediction time.  **Parameter:** prediction_time: float, time in future to predict **Returns:** list, pairs of user_ids predicted to collide
+```python
+def predict_collisions(self, prediction_time, interval=1):
+```
+
+Predict collisions at regular intervals within the prediction time.
 
 ```python
-collisions = []
+collisions = set()
+```
+
+*Check for collisions at regular intervals*
+
+```python
+for t in range(0, prediction_time + 1, interval):
 ```
 
 ```python
@@ -1085,8 +1102,6 @@ user_ids = list(self.users.keys())
 future_positions = {}
 ```
 
-*Predict future positions*
-
 ```python
 for user_id in user_ids:
 ```
@@ -1096,18 +1111,16 @@ kf = self.users[user_id]
 ```
 
 ```python
-future_x = kf.estimate[0] + kf.velocity[0]*prediction_time
+future_x = kf.estimate[0] + kf.velocity[0]*t
 ```
 
 ```python
-future_y = kf.estimate[1] + kf.velocity[1]*prediction_time
+future_y = kf.estimate[1] + kf.velocity[1]*t
 ```
 
 ```python
 future_positions[user_id] = (future_x, future_y)
 ```
-
-*Check for collisions*
 
 ```python
 for i in range(len(user_ids)):
@@ -1129,18 +1142,454 @@ pos2 = future_positions[user_ids[j]]
 distance = sqrt((pos1[0] - pos2[0])**2 + (pos1[1] - pos2[1])**2)
 ```
 
-*If distance is less than 5 units, append to collisions*
-
 ```python
 if distance < 5:
 ```
 
 ```python
-collisions.append((user_ids[i], user_ids[j]))
+collisions.add((user_ids[i], user_ids[j]))
 ```
 
 ```python
-return collisions
+return list(collisions)
+```
+
+```python
+class EnhancedVisualizeMovements:
+```
+
+*[Needs Adjustments for complex features]*
+
+```python
+def __init__(self, collision_prediction):
+```
+
+```python
+self.collision_prediction = collision_prediction
+```
+
+```python
+def generate_random_color(self):
+```
+
+```python
+return (random.random(), random.random(), random.random())
+```
+
+```python
+def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
+```
+
+Compute the intersection point of two trajectories given their initial positions and velocities.
+
+*Unpack the initial positions and velocities*
+
+```python
+x1, y1 = initial_position1
+```
+
+```python
+vx1, vy1 = velocity1
+```
+
+```python
+x2, y2 = initial_position2
+```
+
+```python
+vx2, vy2 = velocity2
+```
+
+*Handle the special cases where the trajectories are vertical*
+
+```python
+if vx1 == 0 and vx2 == 0:
+```
+
+*Both trajectories are vertical*
+
+```python
+return None
+```
+
+*No unique intersection point*
+
+```python
+elif vx1 == 0:
+```
+
+*Only the first trajectory is vertical*
+
+```python
+x = x1
+```
+
+```python
+y = vy2/vx2 * (x - x2) + y2
+```
+
+```python
+return (x, y)
+```
+
+```python
+elif vx2 == 0:
+```
+
+*Only the second trajectory is vertical*
+
+```python
+x = x2
+```
+
+```python
+y = vy1/vx1 * (x - x1) + y1
+```
+
+```python
+return (x, y)
+```
+
+*Calculate the slopes for the trajectories*
+
+```python
+m1 = vy1 / vx1
+```
+
+```python
+m2 = vy2 / vx2
+```
+
+*If the slopes are equal, the trajectories are parallel and do not intersect*
+
+```python
+if m1 == m2:
+```
+
+```python
+return None
+```
+
+*Compute x-coordinate of intersection*
+
+```python
+x = (y2 - y1 + m1*x1 - m2*x2) / (m1 - m2)
+```
+
+*Compute corresponding y-coordinate using one of the trajectory equations*
+
+```python
+y = m1 * (x - x1) + y1
+```
+
+```python
+return (x, y)
+```
+
+```python
+def plot_enhanced_movements(self, ax, prediction_time):
+```
+
+Visualize user trajectories and potential collisions.
+
+*Plot initial and predicted positions with intervals*
+
+```python
+for user_id, kf in self.collision_prediction.users.items():
+```
+
+```python
+color = user_colors[user_id]
+```
+
+*Use predefined colors for consistency*
+
+```python
+initial_x, initial_y = kf.estimate
+```
+
+```python
+for t in range(0, prediction_time + 1, 1):
+```
+
+*Recompute direction at each step*
+
+```python
+dx = random.randint(-10, 10)
+```
+
+```python
+dy = random.randint(-10, 10)
+```
+
+```python
+predicted_x = initial_x + dx * prediction_time
+```
+
+```python
+predicted_y = initial_y + dy * prediction_time
+```
+
+```python
+ax.plot(initial_x, initial_y, 's', color=color, markersize=8)
+```
+
+```python
+ax.annotate('Start', (initial_x, initial_y), textcoords="offset points", xytext=(0,5), ha='center')
+```
+
+```python
+ax.plot(predicted_x, predicted_y, 'o', color=color, markersize=8)
+```
+
+```python
+ax.annotate('End', (predicted_x, predicted_y), textcoords="offset points", xytext=(0,5), ha='center')
+```
+
+```python
+ax.plot([initial_x, predicted_x], [initial_y, predicted_y], color=color, linestyle='-')
+```
+
+```python
+ax.arrow(initial_x, initial_y, predicted_x - initial_x, predicted_y - initial_y, head_width=1, head_length=1, fc=color, ec=color)
+```
+
+```python
+collisions = self.collision_prediction.predict_collisions(prediction_time)
+```
+
+```python
+for user1, user2 in collisions:
+```
+
+```python
+future_position1 = self.collision_prediction.users[user1].estimate
+```
+
+```python
+velocity1 = self.collision_prediction.users[user1].velocity
+```
+
+```python
+future_position2 = self.collision_prediction.users[user2].estimate
+```
+
+```python
+velocity2 = self.collision_prediction.users[user2].velocity
+```
+
+```python
+collision_point = self.compute_intersection(future_position1, velocity1, future_position2, velocity2)
+```
+
+```python
+if collision_point:
+```
+
+*If there's a unique intersection point*
+
+```python
+collision_x, collision_y = collision_point
+```
+
+```python
+ax.plot(collision_x, collision_y, 'ro', markersize=10)
+```
+
+```python
+ax.set_title(f"User Movements: Initial to {prediction_time} Time Units")
+```
+
+```python
+ax.set_xlabel("X Coordinate")
+```
+
+```python
+ax.set_ylabel("Y Coordinate")
+```
+
+```python
+ax.grid(True)
+```
+
+```python
+ax.legend(loc="upper right")
+```
+
+```python
+plt.tight_layout()
+```
+
+```python
+plt.show()
+```
+
+*Testing the User class with natural movement*
+
+```python
+NUM_USERS = 10
+```
+
+```python
+NUM_ITERATIONS = 100
+```
+
+*Initialize the collision prediction system and visualizer*
+
+```python
+collision_prediction = CollisionPrediction(0.1,0.1)
+```
+
+```python
+visualizer = EnhancedVisualizeMovements(collision_prediction)
+```
+
+*Create the initial plot*
+
+```python
+fig, ax = plt.subplots()
+```
+
+```python
+ax.set_xlim(-50, 50)
+```
+
+```python
+ax.set_ylim(-50, 50)
+```
+
+```python
+ax.set_title("User Movements Animation")
+```
+
+```python
+ax.set_xlabel("X Coordinate")
+```
+
+```python
+ax.set_ylabel("Y Coordinate")
+```
+
+*Initialize user_positions dictionary outside the update function to persist positions across frames*
+
+```python
+user_positions = {}
+```
+
+*Assigning a fixed color to each user to ensure consistent coloring across frames*
+
+```python
+user_colors = {user_id: plt.cm.jet(i/NUM_USERS) for i, user_id in enumerate(range(1, NUM_USERS + 1))}
+```
+
+```python
+def update(frame):
+```
+
+```python
+ax.clear()
+```
+
+```python
+ax.set_xlim(-100, 100)
+```
+
+*Adjusting limits to match the earlier defined space*
+
+```python
+ax.set_ylim(-100, 100)
+```
+
+```python
+for user_id in range(1, NUM_USERS + 1):
+```
+
+*Check the current position of the user*
+
+```python
+current_position = user_positions.get(user_id, (random.randint(0, 100), random.randint(0, 100)))
+```
+
+*Generate incremental movement parameters*
+
+```python
+dx = random.randint(-1, 1)
+```
+
+```python
+dy = random.randint(-1, 1)
+```
+
+```python
+x = current_position[0] + dx
+```
+
+```python
+y = current_position[1] + dy
+```
+
+```python
+user_positions[user_id] = (x, y)
+```
+
+*Update the new position in the dictionary*
+
+```python
+speed = (dx**2 + dy**2)**0.5
+```
+
+```python
+direction = (180 / 3.14159) * atan2(dy, dx)
+```
+
+```python
+direction = (180 / 3.14159) * atan2(dy, dx)
+```
+
+*Introduce a random direction shift*
+
+```python
+angle_shift = random.uniform(-90, 90)
+```
+
+*Random shift between -30 and 30 degrees*
+
+```python
+direction += angle_shift
+```
+
+```python
+acceleration = 0
+```
+
+*Assuming no acceleration for simplicity*
+
+*Update user's movement in the collision prediction system*
+
+```python
+collision_prediction.update_user(user_id, (x, y), speed, direction, acceleration)
+```
+
+*Plot the user's position with a fixed color*
+
+```python
+ax.plot(x, y, 'o', color=user_colors[user_id],label=f"User {user_id}")
+```
+
+*Visualize the movements and potential collisions*
+
+```python
+visualizer.plot_enhanced_movements(ax, 10)
+```
+
+*Create the animation*
+
+```python
+ani = FuncAnimation(fig, update, frames=range(NUM_ITERATIONS), repeat=False)
+```
+
+```python
+plt.show()
 ```
 
 # __pycache__
@@ -1307,9 +1756,757 @@ df.to_csv(file_name, index=False)
 generate_ppg_data(number_of_individuals=100, sample_frequency=100, duration=600)
 ```
 
+```python
+import math
+```
+
+```python
+import numpy as np
+```
+
+```python
+import datetime
+```
+
+```python
+import pandas as pd
+```
+
+```python
+import numpy as np
+```
+
+```python
+import pandas as pd
+```
+
+```python
+from scipy.fft import fft
+```
+
+```python
+from scipy.stats import skew, kurtosis, zscore
+```
+
+```python
+from sklearn.preprocessing import StandardScaler
+```
+
+The HRMonitoring class is meant to manage the data input and output of the system. It is the main class that calls the other classes and functions.
+
+```python
+class HRmonitoring():
+```
+
+```python
+def __init__(self,userID):
+```
+
+```python
+self.userID = userID
+```
+
+```python
+self.data = None
+```
+
+```python
+self.features = None
+```
+
+```python
+self.model = None
+```
+
+```python
+self.prediction = None
+```
+
+```python
+self.analysis = None
+```
+
+```python
+self.mode = None
+```
+
+```python
+def get_data(self, source, mode='offline'):
+```
+
+*Fetch data from the source*
+
+*For demonstration purposes, assuming data is fetched into a DataFrame*
+
+```python
+self.data = pd.read_csv(source)
+```
+
+```python
+self.mode = mode
+```
+
+```python
+def create_sequences(data, window_size):
+```
+
+```python
+sequences = []
+```
+
+```python
+for i in range(len(data) - window_size + 1):
+```
+
+```python
+sequences.append(data[i:i+window_size])
+```
+
+```python
+return np.array(sequences)
+```
+
+```python
+def extract_features(self):
+```
+
+*Ensure data is present*
+
+```python
+if self.data is None:
+```
+
+```python
+print("Data not loaded.")
+```
+
+```python
+return
+```
+
+*Baseline Heart Rate*
+
+```python
+baseline_hr = np.mean(self.data['heart_rate'])
+```
+
+*Heart Rate Variability (HRV)*
+
+```python
+rr_intervals = np.diff(self.data['heart_rate'].values)
+```
+
+*Difference between successive heart rates*
+
+```python
+hrv = np.std(rr_intervals)
+```
+
+*Outliers using IQR*
+
+```python
+Q1 = np.percentile(self.data['heart_rate'], 25)
+```
+
+```python
+Q3 = np.percentile(self.data['heart_rate'], 75)
+```
+
+```python
+IQR = Q3 - Q1
+```
+
+```python
+outlier_count = np.sum((self.data['heart_rate'] < (Q1 - 1.5 * IQR)) | (self.data['heart_rate'] > (Q3 + 1.5 * IQR)))
+```
+
+*Frequency Domain Features using Fourier Transform*
+
+```python
+yf = fft(self.data['heart_rate'])
+```
+
+```python
+power_spectrum = np.abs(yf)
+```
+
+```python
+dominant_frequency = np.argmax(power_spectrum)
+```
+
+*Z-score compared to all users (assuming self.data contains data from all users)*
+
+```python
+user_mean = np.mean(self.data[self.data['userID'] == self.userID]['heart_rate'])
+```
+
+```python
+overall_mean = np.mean(self.data['heart_rate'])
+```
+
+```python
+overall_std = np.std(self.data['heart_rate'])
+```
+
+```python
+z = (user_mean - overall_mean) / overall_std
+```
+
+*Moving Average (7-day window as an example)*
+
+```python
+moving_avg = self.data['heart_rate'].rolling(window=7).mean()
+```
+
+*Skewness and Kurtosis*
+
+```python
+skewness = skew(self.data['heart_rate'])
+```
+
+```python
+kurt = kurtosis(self.data['heart_rate'])
+```
+
+*Store features*
+
+```python
+self.features = {
+```
+
+```python
+'baseline_hr': baseline_hr,
+```
+
+```python
+'hrv': hrv,
+```
+
+```python
+'outlier_count': outlier_count,
+```
+
+```python
+'dominant_frequency': dominant_frequency,
+```
+
+```python
+'z_score': z,
+```
+
+```python
+'moving_avg': moving_avg,
+```
+
+```python
+'skewness': skewness,
+```
+
+```python
+'kurtosis': kurt
+```
+
+```python
+}
+```
+
+```python
+def process(mode='predict'):
+```
+
+```python
+pass
+```
+
+```python
+def predict():
+```
+
+```python
+pass
+```
+
+```python
+def analyse():
+```
+
+```python
+pass
+```
+
+```python
+import tensorflow as tf
+```
+
+```python
+import numpy as np
+```
+
+```python
+import pandas as pd
+```
+
+```python
+import matplotlib.pyplot as plt
+```
+
+```python
+import seaborn as sns
+```
+
+```python
+import os
+```
+
+```python
+import datetime
+```
+
+The predictor class is meant to use the data generated by the data generator class and predict the heart rate of the individual. It is a personalised LSTM for each individual. It captures the unique features of the individual and predicts the heart rate.
+
+```python
+class HeartRatePredictor:
+```
+
+```python
+def create_dataset():
+```
+
+```python
+pass
+```
+
+```python
+def create_model():
+```
+
+```python
+pass
+```
+
+```python
+def train_model():
+```
+
+```python
+pass
+```
+
+```python
+def save_model():
+```
+
+```python
+pass
+```
+
+```python
+def load_model():
+```
+
+```python
+pass
+```
+
+```python
+def predict():
+```
+
+```python
+pass
+```
+
+The analyse class is meant to analyse the data generated by the data generator class and predict the presence of any heart disease. It is a generalised LSTM+ Cluster for all individuals. It captures the common features of the individuals and predicts the presence of heart disease.
+
+```python
+class Analyser:
+```
+
+```python
+def create_dataset():
+```
+
+```python
+pass
+```
+
+```python
+def create_model():
+```
+
+```python
+pass
+```
+
+```python
+def train_model():
+```
+
+```python
+pass
+```
+
+```python
+def save_model():
+```
+
+```python
+pass
+```
+
+```python
+def load_model():
+```
+
+```python
+pass
+```
+
+```python
+def analyse():
+```
+
+```python
+pass
+```
+
 # HRD
 
 # Individual Tracking & Monitoring
+
+```python
+import pandas as pd
+```
+
+```python
+import numpy as np
+```
+
+```python
+import json
+```
+
+```python
+from sklearn.model_selection import train_test_split
+```
+
+```python
+from datetime import datetime
+```
+
+```python
+from tensorflow.keras.models import Sequential
+```
+
+```python
+from tensorflow.keras.layers import LSTM, Bidirectional, Dropout, Dense, Reshape, Masking
+```
+
+```python
+from tensorflow import keras
+```
+
+```python
+from keras.callbacks import EarlyStopping
+```
+
+```python
+class PredictiveTracking:
+```
+
+A class for training and handling predictive tracking models for individual users.  Attributes: user_id (str): Unique identifier for the user. model_path (str): Path to the model file. seq_length (int): Length of the input sequence. pred_length (int): Length of the prediction sequence. last_trained_date (datetime): Timestamp of the last model training.
+
+```python
+def __init__(self, user_id, preprocessed_data, mode, seq_length=20, pred_length=10):
+```
+
+Initializes the PredictiveTracking class.  **Parameter:** user_id: Unique identifier for the user. **Parameter:** preprocessed_data: Preprocessed data for training or testing. **Parameter:** mode: Mode of operation, either 'train' or 'test'. **Parameter:** seq_length: Length of the input sequence, defaults to 20. **Parameter:** pred_length: Length of the prediction sequence, defaults to 10.
+
+```python
+self.user_id = user_id
+```
+
+```python
+self.model_path = f"Models/Individual Tracking & Monitoring/IndiMods/model_{user_id}.h5"
+```
+
+```python
+self.seq_length = seq_length
+```
+
+```python
+self.pred_length = pred_length
+```
+
+```python
+if preprocessed_data is not None:
+```
+
+```python
+self.load_data(preprocessed_data, mode)
+```
+
+```python
+def calculate_epochs(self, min_epochs=20, max_epochs=250):
+```
+
+Calculates the number of epochs based on the training samples.  **Parameter:** min_epochs: Minimum number of epochs, defaults to 20. **Parameter:** max_epochs: Maximum number of epochs, defaults to 250. **Returns:** Calculated number of epochs.
+
+*Get the number of training samples*
+
+```python
+num_samples = self.X_train.shape[0]
+```
+
+*Apply a sigmoid scaling factor*
+
+```python
+scaling_factor = 1 / (1 + np.exp(-0.5 * (num_samples - 800)))
+```
+
+*Reverse the scaling factor to get an inverse sigmoid*
+
+```python
+reverse_scaling_factor = 1 - scaling_factor
+```
+
+*Scale the value to the desired range of epochs*
+
+```python
+epochs = int(min_epochs + (max_epochs - min_epochs) * reverse_scaling_factor)
+```
+
+*Ensure the calculated epochs are within the defined bounds*
+
+```python
+epochs = max(min_epochs, min(epochs, max_epochs))
+```
+
+```python
+return epochs
+```
+
+```python
+def load_data(self, preprocessed_data, mode='train'):
+```
+
+Loads the training and testing data.  **Parameter:** preprocessed_data: Preprocessed data for training or testing. **Parameter:** mode: Mode of operation, either 'train' or 'test', defaults to 'train'.
+
+```python
+if mode == 'train':
+```
+
+```python
+self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(*preprocessed_data, test_size=0.2, random_state=42)
+```
+
+```python
+print(self.X_train.shape, self.X_test.shape, self.y_train.shape, self.y_test.shape)
+```
+
+```python
+elif mode == 'test':
+```
+
+```python
+self.X_test, self.y_test = preprocessed_data
+```
+
+```python
+print(self.X_test.shape, self.y_test.shape)
+```
+
+```python
+else:
+```
+
+```python
+print("Invalid mode. Use 'train' or 'test'.")
+```
+
+```python
+def load_model(self):
+```
+
+Loads a pre-trained model from the file system.  **Returns:** Loaded model and the last trained date, or None if not found.
+
+```python
+try:
+```
+
+```python
+model=keras.models.load_model(self.model_path)
+```
+
+```python
+with open(f"{str(self.model_path).replace('h5','json')}", "r") as read_file:
+```
+
+```python
+data = json.load(read_file)
+```
+
+```python
+self.last_trained_date = datetime.strptime(data['last_trained_date'], "%d-%m-%Y %H:%M:%S.%f")
+```
+
+```python
+return model, self.last_trained_date
+```
+
+```python
+except Exception as e:
+```
+
+```python
+print("No model found --{e}")
+```
+
+```python
+self.model = None
+```
+
+```python
+self.last_trained_date = None
+```
+
+```python
+return
+```
+
+```python
+def train_model(self):
+```
+
+Trains the model using the loaded training data.
+
+```python
+try:
+```
+
+```python
+self.model = Sequential()
+```
+
+```python
+self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27)))
+```
+
+*Masking layer*
+
+```python
+self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17)))
+```
+
+*18 features*
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(256, return_sequences=False)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Dense(self.pred_length * 2))
+```
+
+```python
+self.model.add(Reshape((self.pred_length, 2)))
+```
+
+*Reshape to (pred_length, 2)*
+
+*Compile with a custom learning rate*
+
+```python
+optimizer = keras.optimizers.Adam(learning_rate=0.001)
+```
+
+```python
+self.model.compile(optimizer=optimizer, loss='mse')
+```
+
+*Calculate the number of epochs*
+
+```python
+epochs = self.calculate_epochs()
+```
+
+*Implement early stopping*
+
+```python
+early_stopping = EarlyStopping(monitor='val_loss', patience=10)
+```
+
+*Fit the model with validation split*
+
+```python
+self.model.fit(self.X_train, self.y_train, epochs=epochs, validation_split=0.2, callbacks=[early_stopping])
+```
+
+```python
+self.last_trained_date = datetime.now()
+```
+
+```python
+except Exception as e:
+```
+
+```python
+print(e)
+```
+
+```python
+def save_model(self):
+```
+
+Saves the trained model to the file system and logs the training date.
+
+```python
+self.model.save(self.model_path)
+```
+
+```python
+print("Model saved")
+```
+
+```python
+data= self.last_trained_date.strftime("%d/%m/%Y %H:%M:%S")
+```
+
+```python
+with open(f"{str(self.model_path).replace('h5','json')}", "w") as write_file:
+```
+
+```python
+json.dump(data, write_file)
+```
+
+```python
+print("Model logged")
+```
 
 ```python
 import pandas as pd
@@ -1356,7 +2553,7 @@ from tensorflow.keras.models import load_model
 ```
 
 ```python
-from train import PredictiveTracking
+from PMT_run import PredictiveTracking
 ```
 
 ```python
@@ -2069,390 +3266,6 @@ return data
 
 *common_areas = [(lat1, lon1), (lat2, lon2), ...] # Example common areas i.e. landmarks,coffee shops*
 
-```python
-directory_path = r"E:\Dev\Deakin\Project_Orion\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\076\Trajectory\*.plt"
-```
-
-*Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")*
-
-```python
-user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))
-```
-
-*Initialize the RealTimeTracking object with the extracted user ID*
-
-```python
-real_time_tracking = RealTimeTracking(user_id)
-```
-
-*Loop through the .plt files and process the trajectory data*
-
-```python
-for file_path in glob.glob(directory_path):
-```
-
-```python
-trajectory_data = read_plt(file_path, user_id)
-```
-
-```python
-user_trajectory = real_time_tracking.get_trajectory(trajectory_data)
-```
-
-*Train the model*
-
-```python
-real_time_tracking.train_personalised_model(user_trajectory,True)
-```
-
-```python
-print(user_id)
-```
-
-*Predict the future coordinates*
-
-```python
-predicted_coordinates = real_time_tracking.generate_future_coordinates(user_trajectory)
-```
-
-```python
-print(predicted_coordinates)
-```
-
-```python
-import pandas as pd
-```
-
-```python
-import numpy as np
-```
-
-```python
-import json
-```
-
-```python
-from sklearn.model_selection import train_test_split
-```
-
-```python
-from datetime import datetime
-```
-
-```python
-from tensorflow.keras.models import Sequential
-```
-
-```python
-from tensorflow.keras.layers import LSTM, Bidirectional, Dropout, Dense, Reshape, Masking
-```
-
-```python
-from tensorflow import keras
-```
-
-```python
-from keras.callbacks import EarlyStopping
-```
-
-```python
-class PredictiveTracking:
-```
-
-A class for training and handling predictive tracking models for individual users.  Attributes: user_id (str): Unique identifier for the user. model_path (str): Path to the model file. seq_length (int): Length of the input sequence. pred_length (int): Length of the prediction sequence. last_trained_date (datetime): Timestamp of the last model training.
-
-```python
-def __init__(self, user_id, preprocessed_data, mode, seq_length=20, pred_length=10):
-```
-
-Initializes the PredictiveTracking class.  **Parameter:** user_id: Unique identifier for the user. **Parameter:** preprocessed_data: Preprocessed data for training or testing. **Parameter:** mode: Mode of operation, either 'train' or 'test'. **Parameter:** seq_length: Length of the input sequence, defaults to 20. **Parameter:** pred_length: Length of the prediction sequence, defaults to 10.
-
-```python
-self.user_id = user_id
-```
-
-```python
-self.model_path = f"Models/Individual Tracking & Monitoring/IndiMods/model_{user_id}.h5"
-```
-
-```python
-self.seq_length = seq_length
-```
-
-```python
-self.pred_length = pred_length
-```
-
-```python
-if preprocessed_data is not None:
-```
-
-```python
-self.load_data(preprocessed_data, mode)
-```
-
-```python
-def calculate_epochs(self, min_epochs=20, max_epochs=250):
-```
-
-Calculates the number of epochs based on the training samples.  **Parameter:** min_epochs: Minimum number of epochs, defaults to 20. **Parameter:** max_epochs: Maximum number of epochs, defaults to 250. **Returns:** Calculated number of epochs.
-
-*Get the number of training samples*
-
-```python
-num_samples = self.X_train.shape[0]
-```
-
-*Apply a sigmoid scaling factor*
-
-```python
-scaling_factor = 1 / (1 + np.exp(-0.5 * (num_samples - 800)))
-```
-
-*Reverse the scaling factor to get an inverse sigmoid*
-
-```python
-reverse_scaling_factor = 1 - scaling_factor
-```
-
-*Scale the value to the desired range of epochs*
-
-```python
-epochs = int(min_epochs + (max_epochs - min_epochs) * reverse_scaling_factor)
-```
-
-*Ensure the calculated epochs are within the defined bounds*
-
-```python
-epochs = max(min_epochs, min(epochs, max_epochs))
-```
-
-```python
-return epochs
-```
-
-```python
-def load_data(self, preprocessed_data, mode='train'):
-```
-
-Loads the training and testing data.  **Parameter:** preprocessed_data: Preprocessed data for training or testing. **Parameter:** mode: Mode of operation, either 'train' or 'test', defaults to 'train'.
-
-```python
-if mode == 'train':
-```
-
-```python
-self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(*preprocessed_data, test_size=0.2, random_state=42)
-```
-
-```python
-print(self.X_train.shape, self.X_test.shape, self.y_train.shape, self.y_test.shape)
-```
-
-```python
-elif mode == 'test':
-```
-
-```python
-self.X_test, self.y_test = preprocessed_data
-```
-
-```python
-print(self.X_test.shape, self.y_test.shape)
-```
-
-```python
-else:
-```
-
-```python
-print("Invalid mode. Use 'train' or 'test'.")
-```
-
-```python
-def load_model(self):
-```
-
-Loads a pre-trained model from the file system.  **Returns:** Loaded model and the last trained date, or None if not found.
-
-```python
-try:
-```
-
-```python
-model=keras.models.load_model(self.model_path)
-```
-
-```python
-with open(f"{str(self.model_path).replace('h5','json')}", "r") as read_file:
-```
-
-```python
-data = json.load(read_file)
-```
-
-```python
-self.last_trained_date = datetime.strptime(data['last_trained_date'], "%d-%m-%Y %H:%M:%S.%f")
-```
-
-```python
-return model, self.last_trained_date
-```
-
-```python
-except Exception as e:
-```
-
-```python
-print("No model found --{e}")
-```
-
-```python
-self.model = None
-```
-
-```python
-self.last_trained_date = None
-```
-
-```python
-return
-```
-
-```python
-def train_model(self):
-```
-
-Trains the model using the loaded training data.
-
-```python
-try:
-```
-
-```python
-self.model = Sequential()
-```
-
-```python
-self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27)))
-```
-
-*Masking layer*
-
-```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17)))
-```
-
-*18 features*
-
-```python
-self.model.add(Dropout(0.2))
-```
-
-```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
-```
-
-```python
-self.model.add(Dropout(0.2))
-```
-
-```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
-```
-
-```python
-self.model.add(Dropout(0.2))
-```
-
-```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=False)))
-```
-
-```python
-self.model.add(Dropout(0.2))
-```
-
-```python
-self.model.add(Dense(self.pred_length * 2))
-```
-
-```python
-self.model.add(Reshape((self.pred_length, 2)))
-```
-
-*Reshape to (pred_length, 2)*
-
-*Compile with a custom learning rate*
-
-```python
-optimizer = keras.optimizers.Adam(learning_rate=0.001)
-```
-
-```python
-self.model.compile(optimizer=optimizer, loss='mse')
-```
-
-*Calculate the number of epochs*
-
-```python
-epochs = self.calculate_epochs()
-```
-
-*Implement early stopping*
-
-```python
-early_stopping = EarlyStopping(monitor='val_loss', patience=10)
-```
-
-*Fit the model with validation split*
-
-```python
-self.model.fit(self.X_train, self.y_train, epochs=epochs, validation_split=0.2, callbacks=[early_stopping])
-```
-
-```python
-self.last_trained_date = datetime.now()
-```
-
-```python
-except Exception as e:
-```
-
-```python
-print(e)
-```
-
-```python
-def save_model(self):
-```
-
-Saves the trained model to the file system and logs the training date.
-
-```python
-self.model.save(self.model_path)
-```
-
-```python
-print("Model saved")
-```
-
-```python
-data= self.last_trained_date.strftime("%d/%m/%Y %H:%M:%S")
-```
-
-```python
-with open(f"{str(self.model_path).replace('h5','json')}", "w") as write_file:
-```
-
-```python
-json.dump(data, write_file)
-```
-
-```python
-print("Model logged")
-```
-
 # IndiMods
 
 # __pycache__
@@ -2622,7 +3435,7 @@ longitudes += list(np.random.normal(lon_center, std_dev, points_per_cluster))
 *reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv*
 
 ```python
-df = pd.read_csv(r'E:\Dev\Deakin\Project_Orion\DataScience\Clean Datasets\VirtualCrowd_Test_Cleaned.csv')
+df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VirtualCrowd_Test_Cleaned.csv')
 ```
 
 ```python
@@ -2724,7 +3537,8 @@ HeatMap(heatmap_data).add_to(base_map)
 *Save the map to an HTML file (optional)*
 
 ```python
-base_map.save('heatmap.html')
+base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding Detection\heatmap.html')
 ```
 
+# variables
 

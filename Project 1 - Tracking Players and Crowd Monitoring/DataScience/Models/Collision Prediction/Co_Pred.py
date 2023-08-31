@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 from math import atan2
 
 class CustomKalmanFilter:
-    # [Same as provided]
+    # [Needs Adjustments for complex features]
     def __init__(self, process_variance, measurement_variance, initial_value=(0, 0), 
                  initial_velocity=(0, 0), initial_estimate_error=1):
         self.process_variance = process_variance
@@ -35,7 +35,8 @@ class CollisionPrediction:
         self.users = {}
         self.process_variance = process_variance
         self.measurement_variance = measurement_variance
-        self.latest_collisions = []  # Store the latest collision predictions
+        # Store the latest collision predictions
+        self.latest_collisions = [] 
 
     def update_user(self, user_id, coordinates, speed, direction, acceleration):
         vx = speed * cos(radians(direction))
@@ -48,13 +49,16 @@ class CollisionPrediction:
             self.users[user_id].update(coordinates)
         
         # Update the latest collision predictions each time user details are updated
-        self.latest_collisions = self.predict_collisions(5)  # Using a default prediction_time of 5
+        # Using a default prediction_time of 5
+        self.latest_collisions = self.predict_collisions(5)  
 
     def predict_collisions(self, prediction_time, interval=1):
-        """Predict collisions at regular intervals within the prediction time."""
+        '''
+        Predict collisions at regular intervals within the prediction time.
+        '''
         collisions = set()
 
-        # Check for collisions at regular intervals
+        #Check for collisions at regular intervals
         for t in range(0, prediction_time + 1, interval):
             user_ids = list(self.users.keys())
             future_positions = {}
@@ -76,18 +80,18 @@ class CollisionPrediction:
 
 
 class EnhancedVisualizeMovements:
-    # [As we implemented above]
+    # [Needs Adjustments for complex features]
     def __init__(self, collision_prediction):
         self.collision_prediction = collision_prediction
 
     def generate_random_color(self):
         return (random.random(), random.random(), random.random())
     
-    # @staticmethod
+   
     def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
-        """
+        '''
         Compute the intersection point of two trajectories given their initial positions and velocities.
-        """
+        '''
 
         # Unpack the initial positions and velocities
         x1, y1 = initial_position1
@@ -124,7 +128,9 @@ class EnhancedVisualizeMovements:
         return (x, y)
     
     def plot_enhanced_movements(self, ax, prediction_time):
-        """Visualize user trajectories and potential collisions."""
+        '''
+        Visualize user trajectories and potential collisions.
+        '''
         
         # Plot initial and predicted positions with intervals
         for user_id, kf in self.collision_prediction.users.items():
