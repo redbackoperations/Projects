@@ -9,6 +9,11 @@ const mongoose = require("mongoose");
 const mqtt = require('mqtt');
 const cors = require('cors');
 const data = require('./models/sensor');
+const Temp = require('./models/temprature.model');
+const HeartRate = require('./models/heart.model');
+const AccelerometerData = require('./models/accelerometer.model');
+const BluetoothData = require('./models/bluetooth.model');
+const LocationData = require('./models/gps.model');
 
 //This is just for demonstration purposes //
 

@@ -1,7 +1,8 @@
 import pandas as pd
 import paho.mqtt.client as mqtt
 import json
-import time
+import time 
+import ssl  # Importing ssl certificates - ensures data transmitted is encrypted
 
 class MQTTDataFrameHandler:
     def __init__(self, broker_address, topic, max_retries=3, retry_interval=5):
@@ -68,6 +69,10 @@ def main():
     topic = "test/topic"
 
     handler = MQTTDataFrameHandler(broker_address, topic)
+
+    # SSL setup for client
+    handler.client.tls_set(ca_certs="ca.crt", certfile="client.crt", keyfile="client.key", tls_version=ssl.PROTOCOL_TLS) # Path should be rewritten to find actual files
+    handler.client.username_pw_set("client_username", "client_password")  # 'client_username' and 'cliet_password' should be replaced with client's actual username and password
 
     # Receiving data and converting it to DataFrame
     df_received = handler.receive_data()
