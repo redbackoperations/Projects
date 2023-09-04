@@ -1,4 +1,3 @@
-//Particle code to read GPS sensor data and publish via MQTT
 #include <Adafruit_GPS.h>
 #include <MQTT.h>
 
@@ -18,7 +17,7 @@ const char* device_id = "**DEVICE_ID**";
 const char* mqtt_topic = "iot/gps/gps_data";
 const char* mqtt_response_topic = "iot/gps/gps_response";
 const char* mqtt_control_topic = "iot/gps/gps_control";
-const char* mqtt_dump_topic = "iot/gps/gps_dump";
+const char* mqtt_republish_topic = "iot/gps/gps_republish";
 
 // Create instances
 Adafruit_GPS GPS(&Serial1); // Create an Adafruit GPS object
@@ -106,21 +105,21 @@ void callback(char* topic, byte* payload, unsigned int length) {
         // Stop publishing GPS data
         publishingEnabled = false;
         //Publish MQTT response to acknowledge GPS data publishing paused
-        client.publish(mqtt_response_topic, "Publishing paused.");
+        client.publish(mqtt_response_topic, "Publishing paused by " + String(device_id) + ".");
         //Debugging line
         Serial.println("Data publishing paused.");
       } else if (strcmp(command, "resume_publishing") == 0) {
         // Resume publishing GPS data
         publishingEnabled = true;
         //Publish MQTT response to acknowledge GPS data publishing resumed
-        client.publish(mqtt_response_topic, "Publishing resumed.");
+        client.publish(mqtt_response_topic, "Publishing resumed by " + String(device_id) + ".");
         //Debugging line
         Serial.println("Data publishing resumed."); 
-      } else if (strcmp(command, "dump_data") == 0) {
-        // Received a dump request message
+      } else if (strcmp(command, "republish_current") == 0) {
+        // Received a current republish message
         if (client.isConnected()) {
-          // Publish all GPS data under a different topic
-          client.publish(mqtt_dump_topic, lastGpsData);
+          // Publish current GPS data in related topic
+          client.publish(mqtt_republish_topic, lastGpsData);
           //Debugging line
           Serial.println("GPS data dumped.");
         }
