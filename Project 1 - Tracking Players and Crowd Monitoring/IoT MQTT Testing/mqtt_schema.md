@@ -5,9 +5,11 @@ This serves to provide an explanation to the structure of MQTT messages publishe
 ## Main published message
 
 The device will publish its main message whenever the GPS location of the device changes based on readings from the GPS sensor.
+
 The changes will be published in the **iot/gps/gps_data** topic and will have a payload consisting on the device ID as specified on the device, the latitude and longitude readings, as well as the time of the reading.
 
 A sample of this is seen below:
+
 DeviceID: RedbackGPS0001, Lat: 37.123456, Lon: -122.987654, Time: 13:45:30
 
 ## Control messages
@@ -24,9 +26,10 @@ Control messages sent to the device should be formatted as a JSON message and sh
 
 ### Toggle Publishing Command
 
-There is an included command that can be sent to the device to turn the publishing of GPS location updates on or off as needed. These commands should be sent on the **iot/gps/gps_control** topic and should be formatted as described above. The commands seen bellow are used to achieve the desired effect:
+There is an included command that can be sent to the device to turn the publishing of GPS location updates on or off as needed. These commands should be sent on the **iot/gps/gps_control** topic and should be formatted as described above. The commands seen below are used to achieve the desired effect:
 
 To pause publishing make use of the command **pause_publishing**
+
 To resume publishing make use of the command **resume_publishing**
 
 ### Republish current GPS data
