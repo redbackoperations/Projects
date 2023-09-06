@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="20000" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>bq-results-20230321-215404-1679435672783.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="timestamp" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="tiemstamp_AEST" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="date_AEST" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="distance" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="enhanced_altitude" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="ascent" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="grade" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="calories" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="enhanced_speed" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="heart_rate" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="temperature" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="cadence" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="power" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="gps_accuracy" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="sessionID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="userID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="age" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="gender" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="weight" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+            <Field name="FTP" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings>
+        <Position x="234" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"tiemstamp_AEST","userID"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output26">
+          <RecordInfo>
+            <Field name="timestamp" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="tiemstamp_AEST" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="date_AEST" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="distance" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="enhanced_altitude" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="ascent" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="grade" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="calories" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="enhanced_speed" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="heart_rate" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="temperature" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="cadence" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="power" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="gps_accuracy" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="sessionID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="userID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="age" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="gender" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="weight" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="FTP" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="450" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="timestamp" selected="True" type="DateTime" size="19" />
+            <SelectField field="tiemstamp_AEST" selected="True" rename="timestamp_AEST" />
+            <SelectField field="date_AEST" selected="True" type="Date" size="10" />
+            <SelectField field="distance" selected="True" type="Double" size="8" />
+            <SelectField field="enhanced_altitude" selected="True" type="Double" size="8" />
+            <SelectField field="ascent" selected="True" type="Int64" size="8" />
+            <SelectField field="grade" selected="True" type="Double" size="8" />
+            <SelectField field="calories" selected="True" type="Int64" size="8" />
+            <SelectField field="enhanced_speed" selected="True" type="Double" size="8" />
+            <SelectField field="heart_rate" selected="True" type="Int64" size="8" />
+            <SelectField field="temperature" selected="True" type="Int64" size="8" />
+            <SelectField field="cadence" selected="True" type="Int64" size="8" />
+            <SelectField field="power" selected="True" type="Int64" size="8" />
+            <SelectField field="gps_accuracy" selected="True" type="Int64" size="8" />
+            <SelectField field="age" selected="True" type="Int64" size="8" />
+            <SelectField field="weight" selected="True" type="Int64" size="8" />
+            <SelectField field="FTP" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="timestamp" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="DateTime" />
+            <Field name="timestamp_AEST" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="date_AEST" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="distance" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="enhanced_altitude" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="ascent" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="grade" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="calories" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="enhanced_speed" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="heart_rate" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="temperature" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="cadence" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="power" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="gps_accuracy" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="sessionID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="userID" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="age" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="gender" size="254" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="weight" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+            <Field name="FTP" source="File: C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv (BatchMacro) (BatchMacro)" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="174" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input11</Name>
+          <Abbrev />
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="test" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>test</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Input</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="test" size="4" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="330" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output12</Name>
+          <Abbrev>1</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Output</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="606" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">odbc:DSN=Redback;UID=PRASTUT;PWD=__EncPwd1__|||rw_fitness_data</File>
+          <Passwords>4AF336AF2C658F0F3DBEBEA64C4F0BF5C26E14108D815F634025F</Passwords>
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="ByName" />
+            </AppendMap>
+            <PreSQL>USE SCHEMA FITNESS_DATA.RW_FITNESS_DATA;
+create TABLE IF NOT EXISTS FITNESS_DATA.RW_FITNESS_DATA."rw_fitness_data" (
+	"timestamp" TIMESTAMP_NTZ(9),
+	"timestamp_AEST" VARCHAR(254),
+	"date_AEST" DATE,
+	"distance" FLOAT,
+	"enhanced_altitude" FLOAT,
+	"ascent" NUMBER(20,0),
+	"grade" FLOAT,
+	"calories" NUMBER(20,0),
+	"enhanced_speed" FLOAT,
+	"heart_rate" NUMBER(20,0),
+	"temperature" NUMBER(20,0),
+	"cadence" NUMBER(20,0),
+	"power" NUMBER(20,0),
+	"gps_accuracy" NUMBER(20,0),
+	"sessionID" VARCHAR(254),
+	"userID" VARCHAR(254),
+	"age" NUMBER(20,0),
+	"gender" VARCHAR(254),
+	"weight" NUMBER(20,0),
+	FTP NUMBER(20,0)
+);</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=Redback
+Query=rw_fitness_data</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output26" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (11)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (12)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Alteryx_RAW</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="932e58a0-cd31-47b6-9f58-e289f9ebbc75" />
+      <Telemetry>
+        <PreviousWorkflowId value="6a0ce9f6-29d5-4199-a1de-749e9f8d1882" />
+        <OriginWorkflowId value="1c0ad27b-fde0-414e-b836-0fff966e452e" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (10)</Name>
+          <ToolId value="10" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (11)</Description>
+              <Name>Macro Input (11)</Name>
+              <ToolId value="11" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (12)</Description>
+              <Name>Macro Output (12)</Name>
+              <ToolId value="12" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
