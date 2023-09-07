@@ -15,7 +15,7 @@ const AccelerometerData = require('./models/accelerometer.model');
 const BluetoothData = require('./models/bluetooth.model');
 const LocationData = require('./models/gps.model');
 
-//This is just for demonstration purposes //
+//This is just for demonstration purposes //Testing//
 
 
 // Initialize Express
