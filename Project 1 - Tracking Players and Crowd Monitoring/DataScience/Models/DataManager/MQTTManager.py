@@ -30,7 +30,7 @@ class MQTTDataFrameHandler:
             # Convert received message payload to DataFrame
             data_json = message.payload.decode('utf-8')
             self.data = pd.read_json(data_json)
-            # Add a timestamp column to the DataFrame
+            # Add a timestamp column to the DataFrame to allow tracking of data age
             self.data['timestamp'] = time.time()
         except Exception as e:
             self.error = str(e)
