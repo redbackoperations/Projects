@@ -4,6 +4,17 @@ import matplotlib.pyplot as plt
 import random
 from matplotlib.animation import FuncAnimation
 from math import atan2
+import pandas as pd
+
+import sys
+
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+
+broker_address="test.mosquitto.org"
+topic="Orion_test/collision prediction"
+
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
+Handler=MQDH(broker_address, topic)
 
 class CustomKalmanFilter:
     # [Needs Adjustments for complex features]
@@ -165,11 +176,25 @@ class EnhancedVisualizeMovements:
             velocity2 = self.collision_prediction.users[user2].velocity
                     
             collision_point = self.compute_intersection(future_position1, velocity1, future_position2, velocity2)
+            
             if collision_point:  # If there's a unique intersection point
                 collision_x, collision_y = collision_point
-                ax.plot(collision_x, collision_y, 'ro', markersize=10)
-
+                ax.plot(collision_x, collision_y, 'ro', markersize=10)               
             
+            try:
+                data={'user1':user1,'user2':user2,'collision_point':collision_point}
+                df=pd.DataFrame(data)
+                if df is not None or isinstance(df, pd.DataFrame):
+                    Handler.send_data(df)
+                    print("Data Sent to Orion:", df)
+                        
+            except:
+                print("Error Sending Data to Orion, current data:",df)
+                continue
+
+
+
+          
             ax.set_title(f"User Movements: Initial to {prediction_time} Time Units")
             ax.set_xlabel("X Coordinate")
             ax.set_ylabel("Y Coordinate")
@@ -177,6 +202,7 @@ class EnhancedVisualizeMovements:
             ax.legend(loc="upper right")
             plt.tight_layout()
             plt.show()
+            ## Send Collision Data to Orion Broker
 
 
 
@@ -210,8 +236,8 @@ user_colors = {user_id: plt.cm.jet(i/NUM_USERS) for i, user_id in enumerate(rang
 
 def update(frame):
     ax.clear()
-    ax.set_xlim(-100, 100)  # Adjusting limits to match the earlier defined space
-    ax.set_ylim(-100, 100)
+    ax.set_xlim(-1000, 1000)  # Adjusting limits to match the earlier defined space
+    ax.set_ylim(-1000, 1000)
     
     for user_id in range(1, NUM_USERS + 1):
         # Check the current position of the user
@@ -239,10 +265,10 @@ def update(frame):
         
         # Plot the user's position with a fixed color
         ax.plot(x, y, 'o', color=user_colors[user_id],label=f"User {user_id}")
-    
+   
     # Visualize the movements and potential collisions
     visualizer.plot_enhanced_movements(ax, 10)
-
+    
 
 
 # Create the animation

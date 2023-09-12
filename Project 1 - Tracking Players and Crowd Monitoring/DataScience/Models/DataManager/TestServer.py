@@ -76,10 +76,16 @@ class DataHandler:
             cursor = self.conn.execute('SELECT * FROM user_data WHERE Agent_ID = ? ORDER BY Time DESC LIMIT 1', (user_id,))
             return cursor.fetchone()
 
-    def get_all_user_coordinates(self):
+    def get_all_user_coordinates(self,user_id):
         with self.conn:
-            cursor = self.conn.execute('SELECT Agent_ID, Latitude_Degrees, Longitude_Degrees FROM user_data')
+            cursor = self.conn.execute('SELECT Time, Altitude, Latitude_Degrees, Longitude_Degrees FROM user_data WHERE Agent_ID = ?', (user_id,))
             return cursor.fetchall()
+        
+    def get_all_orentation_data_for_user(self, user_id):
+        with self.conn:
+            cursor = self.conn.execute('SELECT Time,Acceleremoter_X,Acceleremoter_Y,Acceleremoter_Z,Gyroscope_X,Gyroscope_Y,Gyroscope_Z FROM user_data WHERE Agent_ID = ?', (user_id,))
+            data = cursor.fetchall()
+            return data
 
 
 
