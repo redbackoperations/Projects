@@ -56,7 +56,8 @@ for center in cluster_centers:
     latitudes += list(np.random.normal(lat_center, std_dev, points_per_cluster))
     longitudes += list(np.random.normal(lon_center, std_dev, points_per_cluster))
 
-# reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv
+# reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv 
+#change this line depending on the file path
 df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD2.csv')
 
 time = df[df["Time"].isin(['9:25:47'])].reset_index(drop=True)
@@ -98,6 +99,7 @@ heatmap_data = [[lat, lon] for lat, lon in zip(latitudes, longitudes)]
 HeatMap(heatmap_data).add_to(base_map)
 
 # Save the map to an HTML file (optional)
+#change this line depending on the file path
 base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding Detection\heatmap.html')
 
 
