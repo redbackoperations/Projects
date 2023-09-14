@@ -44,8 +44,4 @@ app.get("/", function (req,res)
 app.listen(port, function () {
     console.log(`\n Listening on port {3001} \n \n \t to access cmd+click on this link ====>\n \n \t \t \t \t \t http://localhost:${port}/`);
   });
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> 3219affd8e7009a86d647fffe8330bb4ebfc3869
