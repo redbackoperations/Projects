@@ -108,7 +108,7 @@ class PredictiveTracking:
         try:
             self.model = Sequential()
             self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27))) # Masking layer
-            self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17))) # 18 features
+            self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17))) # 17 features
             self.model.add(Dropout(0.2))
             self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
             self.model.add(Dropout(0.2))

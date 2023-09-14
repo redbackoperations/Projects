@@ -61,7 +61,7 @@ Project Orion’s architecture combines computer vision and IoT modeling.
 - **Decision Making**: Uses fused data for decisions.
 
 ### 2.1.4 Alert and Navigation Module
-- **
+*TBD*
 -
 
 
@@ -70,8 +70,8 @@ Project Orion’s architecture combines computer vision and IoT modeling.
 - **Data Processing**: Apache Kafka, Apache Spark.
 - **Data Storage**: MongoDB.
 - **Cloud Services**: Cloud platforms for IoT management.
-- **Visualization Tools**: Tableau, Power BI.
-- **Deployment Platforms**: Kubernetes, Docker.
+- **Visualization Tools**: Panel.
+- **Deployment Platforms**:  Docker.
 
 ## 2.3 Data Security
 - **Encryption**: Data is encrypted at rest and in transit.

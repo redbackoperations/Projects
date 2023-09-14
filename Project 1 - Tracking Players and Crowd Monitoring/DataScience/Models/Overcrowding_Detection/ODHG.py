@@ -15,7 +15,7 @@ def process_data(gps_data):
     :param gps_data: A numpy array with GPS coordinates in the format [[latitude1, longitude1], [latitude2, longitude2], ...].
     """
     # Using DBSCAN to cluster the data
-    dbscan = DBSCAN(eps=0.1, min_samples=7)
+    dbscan = DBSCAN(eps=0.01, min_samples=5)
     clusters = dbscan.fit_predict(gps_data)
     
     df = pd.DataFrame({'Latitude': gps_data[:, 0], 'Longitude': gps_data[:, 1], 'Cluster': clusters})
@@ -57,11 +57,11 @@ for center in cluster_centers:
     longitudes += list(np.random.normal(lon_center, std_dev, points_per_cluster))
 
 # reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv
-df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VirtualCrowd_Test_Cleaned.csv')
+df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD2.csv')
 
-time = df[df["Time"].isin(['11:30:49'])].reset_index(drop=True)
-latitudes_list = time[" Longitude Degrees"].tolist()
-longitudes_list = time[" Latitude Degrees"].tolist()
+time = df[df["Time"].isin(['9:25:47'])].reset_index(drop=True)
+latitudes_list = df[" Longitude Degrees"].tolist()
+longitudes_list = df[" Latitude Degrees"].tolist()
 
 # remove "Time" to facilitate the processing
 df.drop("Time", axis=1)
