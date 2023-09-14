@@ -12,8 +12,6 @@ const cors = require('cors');
 app.use(bodyParser.json());
 
 
-//My name is carla
-
 // Enable CORS
 app.use(cors());
 
@@ -29,4 +27,4 @@ app.get("/", function (req,res)
 app.listen(port, function () {
     console.log(`\n Listening on port {3001} \n \n \t to access cmd+click on this link ====>\n \n \t \t \t \t \t http://localhost:${port}/`);
   });
-  
+   
