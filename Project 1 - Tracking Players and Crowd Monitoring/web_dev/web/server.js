@@ -32,6 +32,7 @@ app.get("/welcome", (req, res) => {
 });
 
 setupLoginRoute(app);
+
 setupAddRoute(app);
 
 app.get("/", function (req,res)
