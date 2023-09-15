@@ -5,6 +5,12 @@ import time
 import ssl  # Importing ssl certificates - ensures data transmitted is encrypted
 import datetime
 from datetime import datetime
+from cryptography.fernet import Fernet #importing cryptogtaphy library
+
+
+# adding an encryption and decryption key
+encryption_key = Fernet.generate_key()
+cipher_suite = Fernet(encryption_key)
 class MQTTDataFrameHandler:
     def __init__(self, broker_address, topic, max_retries=3, retry_interval=5):
         self.broker_address = broker_address
@@ -19,9 +25,12 @@ class MQTTDataFrameHandler:
     def _on_message(self, client, userdata, message):
         try:
             # Convert received message payload to DataFrame
+            encrypted_data = message.payload # decrypt and convert received message
+            data_json = cipher_suite.decrypt(encrypted_data).decode('utf-8') # uses key to decrypt data
+            # Convert received message payload to DataFrame
             data_json = message.payload.decode('utf-8')
             self.data = pd.read_json(data_json)
-            # Add a timestamp column to the DataFrame
+            # Add a timestamp column to the DataFrame to allow tracking of data age
             self.data['timestamp'] = time.time()
         except Exception as e:
             self.error = str(e)
@@ -85,17 +94,7 @@ def main():
     handler.client.tls_set(ca_certs="ca.crt", certfile="client.crt", keyfile="client.key", tls_version=ssl.PROTOCOL_TLS) # Path should be rewritten to find actual files
     handler.client.username_pw_set("client_username", "client_password")  # 'client_username' and 'cliet_password' should be replaced with client's actual username and password
 
-    # Receiving data and converting it to DataFrame
-    df_received = handler.receive_data()
-    if df_received is not None:
-        print(df_received)
 
-    # Sending DataFrame data through MQTT
-    df_to_send = pd.DataFrame({
-        'A': [7, 8, 9],
-        'B': [10, 11, 12]
-    })
-    handler.send_data(df_to_send)
 
 if __name__ == "__main__":
     main()
