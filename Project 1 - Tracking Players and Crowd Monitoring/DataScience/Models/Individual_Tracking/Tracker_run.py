@@ -12,8 +12,8 @@ from tensorflow.keras.models import load_model
 from PMT_run import PredictiveTracking
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import mean_squared_error,mean_absolute_error
-
-
+import matplotlib.pyplot as plt
+import pandas as pd
 import sys
 
 sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
@@ -237,7 +237,7 @@ class RealTimeTracking:
         print(trajectory.head(-5))
         # Get the latest data point from the trajectory
         latest_data_point = trajectory.iloc[-1]
-
+      
         # Create a list of future datetimes
         future_datetimes = [latest_data_point['Datetime'] + timedelta(minutes=i * time_interval_minutes) for i in range(1, number_of_future_points + 1)]
 
@@ -328,7 +328,8 @@ def read_plt(file_path, user_id):
 
 
 
-# common_areas = [(lat1, lon1), (lat2, lon2), ...] # Example common areas i.e. landmarks,coffee shops
+# common_areas = [(lat1, lon1), (lat2, lon2), ...] 
+# Example common areas i.e. landmarks,coffee shops
 
 
 
@@ -338,7 +339,7 @@ def read_plt(file_path, user_id):
 
 
 '''-----------------------------------------------------------------------------------------------------------------------------------------------------------the number 00x is the user id, it should be changed to the user id of the user whose data is being processed'''
-directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\021\Trajectory\*.plt"
+directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\002\Trajectory\*.plt"
 
 # Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")
 user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))
@@ -358,9 +359,31 @@ print(user_id)
 # Predict the future coordinates
 predicted_coordinates = real_time_tracking.generate_future_coordinates(user_trajectory)
 print(predicted_coordinates)
-
+print(user_trajectory)
 #data=Handler.receive_data()
-#user_id=dReciever.receive_data()
+#user_id=Reciever.receive_data()
+def plot_trajectory_and_predictions(trajectory_data, predicted_coordinates):
+    fig, ax = plt.subplots()
+    df=pd.DataFrame(round(trajectory_data[['Longitude', 'Latitude']],4))
+    df=df.tail(100)
+    
+    
+    
+    ax.scatter(round(df['Longitude'],4),round( df['Latitude'],4), label='Initial Trajectory')
+    for i, coords in enumerate(predicted_coordinates):
+        label = f"Predicted Point {i+1}"
+        ax.scatter(coords[1], coords[0], label=label, marker='x')
+    
+    ax.set_title('User Trajectory and Predictions')
+    ax.set_xlabel('Longitude')
+    ax.set_ylabel('Latitude')
+    ax.legend()
+    
+    plt.show()
+    
+  
 
-
-Handler.send_data(predicted_coordinates, user_id)
+data=list()
+plot_trajectory_and_predictions(user_trajectory, predicted_coordinates)
+data.append(predicted_coordinates)
+Handler.send_data(pd.DataFrame(data),user_id)

@@ -1,6 +1,6 @@
 # Models
 
-# Action Recognition
+# Action_Recognition
 
 *from your_sensor_class import SensorHandler  # Assuming the class is in a separate module*
 
@@ -805,7 +805,7 @@ self.model.add(Masking(mask_value=0., input_shape=(self.X_train.shape[1], self.X
 ```
 
 ```python
-self.model.add(Bidirectional(LSTM(120, return_sequences=True)))
+self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
 ```
 
 ```python
@@ -813,7 +813,7 @@ self.model.add(Dropout(0.2))
 ```
 
 ```python
-self.model.add(Bidirectional(LSTM(60, return_sequences=True)))
+self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
 ```
 
 ```python
@@ -821,11 +821,11 @@ self.model.add(Dropout(0.2))
 ```
 
 ```python
-self.model.add(Bidirectional(LSTM(12, return_sequences=False)))
+self.model.add(Bidirectional(LSTM(128, return_sequences=False)))
 ```
 
 ```python
-self.model.add(Dense(12, activation='tanh'))
+self.model.add(Dense(128, activation='tanh'))
 ```
 
 ```python
@@ -849,7 +849,7 @@ class_weights = dict(enumerate(class_weights))
 ```
 
 ```python
-optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.01)
+optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.001)
 ```
 
 ```python
@@ -900,7 +900,7 @@ TC.save_model()
 
 # assets
 
-# Collision Prediction
+# Collision_Prediction
 
 ```python
 from math import sqrt, sin, cos, radians
@@ -920,6 +920,40 @@ from matplotlib.animation import FuncAnimation
 
 ```python
 from math import atan2
+```
+
+```python
+import pandas as pd
+```
+
+```python
+import sys
+```
+
+The following code is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org" The data is sent in the json format but requires the following format:pandas dataframe Adjust the path to the Models accordingly to ensure the modules are used correctly
+
+```python
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+```
+
+```python
+broker_address="test.mosquitto.org"
+```
+
+```python
+topic="Orion_test/collision prediction"
+```
+
+```python
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH
+```
+
+```python
+Handler=MQDH(broker_address, topic)
+```
+
+```python
+from Dashboard import Dashboard as DB
 ```
 
 ```python
@@ -1386,7 +1420,7 @@ collision_point = self.compute_intersection(future_position1, velocity1, future_
 if collision_point:
 ```
 
-*If there's a unique intersection point*
+*If there's a unique intersection point plot it*
 
 ```python
 collision_x, collision_y = collision_point
@@ -1394,6 +1428,42 @@ collision_x, collision_y = collision_point
 
 ```python
 ax.plot(collision_x, collision_y, 'ro', markersize=10)
+```
+
+```python
+try:
+```
+
+```python
+data={'user1':user1,'user2':user2,'collision_point':collision_point}
+```
+
+```python
+df=pd.DataFrame(data)
+```
+
+```python
+if df is not None or isinstance(df, pd.DataFrame):
+```
+
+```python
+Handler.send_data(df)
+```
+
+```python
+print("Data Sent to Orion:", df)
+```
+
+```python
+except:
+```
+
+```python
+print("Error Sending Data to Orion, current data:",df)
+```
+
+```python
+continue
 ```
 
 ```python
@@ -1423,6 +1493,8 @@ plt.tight_layout()
 ```python
 plt.show()
 ```
+
+*# Send Collision Data to Orion Broker*
 
 *Testing the User class with natural movement*
 
@@ -1491,13 +1563,13 @@ ax.clear()
 ```
 
 ```python
-ax.set_xlim(-100, 100)
+ax.set_xlim(-1000, 1000)
 ```
 
 *Adjusting limits to match the earlier defined space*
 
 ```python
-ax.set_ylim(-100, 100)
+ax.set_ylim(-1000, 1000)
 ```
 
 ```python
@@ -1592,9 +1664,1071 @@ ani = FuncAnimation(fig, update, frames=range(NUM_ITERATIONS), repeat=False)
 plt.show()
 ```
 
+*Empty to allow this folder to be treated as a package and allow communication between files*
+
 # __pycache__
 
-# HeartRate Monitoring
+# Contact_Tracing
+
+```python
+import pandas as pd
+```
+
+```python
+from datetime import datetime,timedelta
+```
+
+```python
+import matplotlib.pyplot as plt
+```
+
+```python
+import numpy as np
+```
+
+```python
+import json
+```
+
+```python
+import sys
+```
+
+The following code before the class is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org" The data is sent in the json format but requires the following format:pandas dataframe Adjust the path to the Models accordingly to ensure the modules are used correctly
+
+```python
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+```
+
+```python
+broker_address="test.mosquitto.org"
+```
+
+```python
+topic="Orion_test/contact tracing"
+```
+
+```python
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH
+```
+
+```python
+Handler=MQDH(broker_address, topic)
+```
+
+The class below is used for contact tracing it requires the following inputs: UserID: The user ID of the user Coordinates: The coordinates of the user Timestamp: The timestamp of the user at the coordinates  The class has the following functions: add_record: Adds a new record to the dataframe get_time_based_contacts: Gets the contacts of the user based on the time window and radius   It can be extended to include more functions as required for example a function to get the contacts of the user based on the location or a neural network to predict the contacts of the user based on the location and time
+
+```python
+class ContactTracer:
+```
+
+```python
+def __init__(self):
+```
+
+```python
+self.data = pd.DataFrame(columns=["UserID", "Coordinates", "Timestamp"])
+```
+
+```python
+def add_record(self, user_id, coordinates, timestamp=None):
+```
+
+Add a new location record for a user using pandas.concat.""" if timestamp is None: timestamp = datetime.now() new_record = pd.DataFrame({"UserID": [user_id], "Coordinates": [coordinates], "Timestamp": [timestamp]}) self.data = pd.concat([self.data, new_record], ignore_index=True)  def get_time_based_contacts(self, user_id, radius, time_window=timedelta(minutes=30)):
+
+```python
+user_data = self.data[self.data["UserID"] == user_id]
+```
+
+```python
+potential_contacts = pd.DataFrame()
+```
+
+```python
+for _, record in user_data.iterrows():
+```
+
+```python
+lat1, lon1 = record["Coordinates"]
+```
+
+```python
+timestamp = record["Timestamp"]
+```
+
+```python
+contacts = self.data[
+```
+
+```python
+(self.data["Timestamp"] - timestamp).abs() <= time_window
+```
+
+*time condition*
+
+```python
+]
+```
+
+```python
+for _, contact in contacts.iterrows():
+```
+
+```python
+lat2, lon2 = contact["Coordinates"]
+```
+
+```python
+distance = ((lat1 - lat2)**2 + (lon1 - lon2)**2)**0.5
+```
+
+*simple distance formula*
+
+```python
+if distance <= radius and contact["UserID"] != user_id:
+```
+
+```python
+potential_contacts = pd.concat([potential_contacts, contact.to_frame().T], ignore_index=True)
+```
+
+*Drop duplicate rows*
+
+```python
+potential_contacts = potential_contacts.drop_duplicates()
+```
+
+```python
+return potential_contacts
+```
+
+*Re-populate the ContactTracer instance with the previously generated data (with timestamps)*
+
+*Repopulating the ContactTracer instance with the provided data and adding timestamps*
+
+*Resetting the ContactTracer instance*
+
+```python
+tracer = ContactTracer()
+```
+
+*Adding records with timestamps*
+
+```python
+records = [
+```
+
+```python
+("UserA", (1, 2)),
+```
+
+```python
+("UserB", (2, 2)),
+```
+
+```python
+("UserC", (10, 10)),
+```
+
+```python
+("UserA", (3, 2)),
+```
+
+```python
+("UserA", (4, 3)),
+```
+
+```python
+("UserA", (4, 4)),
+```
+
+```python
+("UserD", (4, 5)),
+```
+
+```python
+("UserD", (5, 5)),
+```
+
+```python
+("UserD", (4, 7)),
+```
+
+```python
+("UserD", (4, 8)),
+```
+
+```python
+("UserD", (5, 9)),
+```
+
+```python
+("UserD", (6, 10)),
+```
+
+```python
+("UserD", (8, 11)),
+```
+
+```python
+("UserE", (9, 12)),
+```
+
+```python
+("UserE", (10, 12))
+```
+
+```python
+]
+```
+
+*Assigning a unique timestamp for each record*
+
+```python
+base_timestamp = datetime.now()
+```
+
+```python
+for i, (user, coords) in enumerate(records):
+```
+
+```python
+timestamp = base_timestamp + timedelta(minutes=i)
+```
+
+*Each record is 1 minute apart*
+
+```python
+tracer.add_record(user, coords, timestamp)
+```
+
+*getting all user contacts to send to the Orion broker*
+
+```python
+for user in tracer.data["UserID"].unique():
+```
+
+```python
+contacts = tracer.get_time_based_contacts(user, 2)
+```
+
+```python
+print(f"Contacts of {user}:")
+```
+
+```python
+print(contacts)
+```
+
+```python
+df=pd.DataFrame(contacts)
+```
+
+```python
+Handler.send_data(df, user_id=user)
+```
+
+*Getting contacts of UserA within a radius of 2 units*
+
+```python
+contacts = tracer.get_time_based_contacts("UserA", 2)
+```
+
+```python
+def plot_spatial_temporal_contacts(central_user, contacts_df):
+```
+
+```python
+plt.figure(figsize=(12, 10))
+```
+
+*Plot the central user at (0,0) for simplicity*
+
+```python
+plt.scatter(0, 0, color="red", label=central_user, s=200, zorder=5)
+```
+
+```python
+plt.text(0, 0, central_user, fontsize=12, ha='right')
+```
+
+*Plot the contacts*
+
+```python
+colors = plt.cm.rainbow(np.linspace(0, 1, len(contacts_df["UserID"].unique())))
+```
+
+```python
+color_map = dict(zip(contacts_df["UserID"].unique(), colors))
+```
+
+```python
+for _, row in contacts_df.iterrows():
+```
+
+```python
+x, y = row["Coordinates"]
+```
+
+```python
+user = row["UserID"]
+```
+
+```python
+plt.scatter(x, y, color=color_map[user], s=100)
+```
+
+```python
+plt.text(x, y, user, fontsize=12, ha='right')
+```
+
+*Draw a line between the central user and the contact*
+
+```python
+plt.plot([0, x], [0, y], color=color_map[user], linestyle='--', linewidth=1)
+```
+
+*Annotate the line with the timestamp of contact*
+
+```python
+midpoint = ((x+0)/2, (y+0)/2)
+```
+
+```python
+plt.annotate(row["Timestamp"].strftime('%H:%M:%S'),
+```
+
+```python
+xy=midpoint,
+```
+
+```python
+xytext=midpoint,
+```
+
+```python
+fontsize=10,
+```
+
+```python
+arrowprops=dict(facecolor='black', arrowstyle='-'),
+```
+
+```python
+ha='center')
+```
+
+```python
+plt.xlabel("Longitude")
+```
+
+```python
+plt.ylabel("Latitude")
+```
+
+```python
+plt.title(f"Spatial-Temporal Contacts of {central_user}")
+```
+
+```python
+plt.grid(True)
+```
+
+```python
+plt.show()
+```
+
+*Plotting the contacts of "UserA"*
+
+```python
+plot_spatial_temporal_contacts("UserA", contacts)
+```
+
+*Empty to allow this folder to be treated as a package and allow communication between files*
+
+# Dashboard
+
+```python
+import panel as pn
+```
+
+This is the Dashboard class that will be used to create the dashboard. It has the following functions: add_plot: Adds a plot to the dashboard add_widget: Adds a widget to the dashboard add_detail: Adds a detail to the dashboard construct_dashboard: Constructs the dashboard show: Displays the dashboard   The dashboard class can be used in conjuction with other modules to create a dashboard. For example, the dashboard can be used with the MQTTManager to display the data received from the MQTT broker. The dashboard can also be used with the ContactTracer to display the contacts of the user based on the time and location
+
+```python
+class Dashboard:
+```
+
+```python
+def __init__(self):
+```
+
+```python
+self.plots = []
+```
+
+```python
+self.widgets = []
+```
+
+```python
+self.details = []
+```
+
+```python
+def add_plot(self, plot):
+```
+
+Add a plot to the dashboard.""" self.plots.append(plot)  def add_widget(self, widget):
+
+```python
+self.widgets.append(widget)
+```
+
+```python
+def add_detail(self, detail):
+```
+
+Add a detail (like text or HTML) to the dashboard.""" self.details.append(detail)  def construct_dashboard(self):
+
+```python
+dashboard = pn.Column(
+```
+
+```python
+pn.Row(*self.widgets),
+```
+
+*Place widgets at the top*
+
+```python
+pn.Row(*self.details),
+```
+
+*Details below widgets*
+
+```python
+pn.Row(*self.plots)
+```
+
+*Plots at the bottom or you can arrange as needed*
+
+```python
+)
+```
+
+```python
+return dashboard
+```
+
+```python
+def show(self):
+```
+
+# DataManager
+
+```python
+import pandas as pd
+```
+
+```python
+import paho.mqtt.client as mqtt
+```
+
+```python
+import json
+```
+
+```python
+import time
+```
+
+```python
+import ssl
+```
+
+*Importing ssl certificates - ensures data transmitted is encrypted*
+
+```python
+import datetime
+```
+
+```python
+from datetime import datetime
+```
+
+```python
+from cryptography.fernet import Fernet
+```
+
+*importing cryptogtaphy library*
+
+The class below is used to send and receive data from the MQTT broker. The data is sent in the form of a JSON file. The data is sent to the topic "test/topic" on the broker "test.mosquitto.org"/any other broker
+
+*adding an encryption and decryption key*
+
+```python
+encryption_key = Fernet.generate_key()
+```
+
+```python
+cipher_suite = Fernet(encryption_key)
+```
+
+```python
+class MQTTDataFrameHandler:
+```
+
+```python
+def __init__(self, broker_address, topic, max_retries=3, retry_interval=5):
+```
+
+```python
+self.broker_address = broker_address
+```
+
+```python
+self.topic = topic
+```
+
+```python
+self.client = mqtt.Client()
+```
+
+```python
+self.client.on_message = self._on_message
+```
+
+```python
+self.data = None
+```
+
+```python
+self.error = None
+```
+
+```python
+self.max_retries = max_retries
+```
+
+```python
+self.retry_interval = retry_interval
+```
+
+```python
+def _on_message(self, client, userdata, message):
+```
+
+```python
+try:
+```
+
+*Convert received message payload to DataFrame*
+
+```python
+encrypted_data = message.payload
+```
+
+*decrypt and convert received message*
+
+```python
+data_json = cipher_suite.decrypt(encrypted_data).decode('utf-8')
+```
+
+*uses key to decrypt data*
+
+*Convert received message payload to DataFrame*
+
+```python
+data_json = message.payload.decode('utf-8')
+```
+
+```python
+self.data = pd.read_json(data_json)
+```
+
+*Add a timestamp column to the DataFrame to allow tracking of data age*
+
+```python
+self.data['timestamp'] = time.time()
+```
+
+```python
+except Exception as e:
+```
+
+```python
+self.error = str(e)
+```
+
+```python
+def create_json_payload(self, dataframe, user_id=None):
+```
+
+*Convert dataframe to JSON format*
+
+```python
+data_json = dataframe.to_json(orient='split')
+```
+
+```python
+payload = {
+```
+
+```python
+'timestamp': datetime.utcnow().isoformat(),
+```
+
+```python
+'data': json.loads(data_json)
+```
+
+```python
+}
+```
+
+```python
+if user_id:
+```
+
+```python
+payload['user_id'] = user_id
+```
+
+```python
+return json.dumps(payload)
+```
+
+```python
+def receive_data(self, timeout=10):
+```
+
+```python
+retries = 0
+```
+
+```python
+while retries < self.max_retries:
+```
+
+```python
+try:
+```
+
+```python
+self.client.connect(self.broker_address, 1883, 60)
+```
+
+```python
+self.client.subscribe(self.topic)
+```
+
+```python
+self.client.loop_start()
+```
+
+```python
+start_time = time.time()
+```
+
+```python
+while self.data is None and (time.time() - start_time) < timeout:
+```
+
+```python
+if self.error:
+```
+
+```python
+print(f"Error while receiving data: {self.error}")
+```
+
+```python
+break
+```
+
+```python
+self.client.loop_stop()
+```
+
+```python
+return self.data
+```
+
+```python
+except Exception as e:
+```
+
+```python
+print(f"Connection error: {e}. Retrying in {self.retry_interval} seconds...")
+```
+
+```python
+retries += 1
+```
+
+```python
+time.sleep(self.retry_interval)
+```
+
+```python
+print("Max retries reached. Failed to receive data.")
+```
+
+```python
+return None
+```
+
+```python
+def send_data(self, df , user_id=None):
+```
+
+```python
+retries = 0
+```
+
+```python
+while retries < self.max_retries:
+```
+
+```python
+try:
+```
+
+```python
+json_payload = self.create_json_payload(df,user_id)
+```
+
+```python
+self.client.connect(self.broker_address, 1883, 60)
+```
+
+```python
+self.client.publish(self.topic, json_payload)
+```
+
+```python
+self.client.disconnect()
+```
+
+```python
+return
+```
+
+```python
+except Exception as e:
+```
+
+```python
+print(f"Error while sending data: {e}. Retrying in {self.retry_interval} seconds...")
+```
+
+```python
+retries += 1
+```
+
+```python
+time.sleep(self.retry_interval)
+```
+
+```python
+print("Max retries reached. Failed to send data.")
+```
+
+```python
+def main():
+```
+
+*placeholders*
+
+```python
+broker_address = "test.mosquitto.org"
+```
+
+```python
+topic = "test/topic"
+```
+
+```python
+handler = MQTTDataFrameHandler(broker_address, topic)
+```
+
+*SSL setup for client*
+
+```python
+handler.client.tls_set(ca_certs="ca.crt", certfile="client.crt", keyfile="client.key", tls_version=ssl.PROTOCOL_TLS)
+```
+
+*Path should be rewritten to find actual files*
+
+```python
+handler.client.username_pw_set("client_username", "client_password")
+```
+
+*'client_username' and 'cliet_password' should be replaced with client's actual username and password*
+
+```python
+if __name__ == "__main__":
+```
+
+```python
+main()
+```
+
+```python
+from flask import Flask, request
+```
+
+```python
+app = Flask(__name__)
+```
+
+```python
+@app.route('/receive_data', methods=['POST'])
+```
+
+```python
+def receive_data():
+```
+
+```python
+data = request.json
+```
+
+```python
+handler = DataHandler()
+```
+
+```python
+handler.save_data(data)
+```
+
+```python
+print("data saved")
+```
+
+```python
+return "Data received", 200
+```
+
+The class below is used in conjuction with the provided unity virtual environment  to recieve virtual data in realtime to simulate a live service. The data recieved is in a static format so any changes made here should be reflected in the code within unity  This class act as a server to recieve the data, this data can then be used to populate the database and evaluate the models/modules, this data can also be used to populate the dashboard  The data is completely random and is not based on any real world data and also with every run the unity environment creates a new set of data but the format remains the same, the current setting is San Francisco, USA for gps data
+
+```python
+if __name__ == '__main__':
+```
+
+```python
+app.run(port=5000)
+```
+
+```python
+import sqlite3
+```
+
+```python
+class DataHandler:
+```
+
+```python
+def __init__(self):
+```
+
+```python
+self.conn = sqlite3.connect('data.db')
+```
+
+```python
+self.create_table()
+```
+
+```python
+def create_table(self):
+```
+
+```python
+with self.conn:
+```
+
+```python
+self.conn.execute('''
+```
+
+```python
+CREATE TABLE IF NOT EXISTS user_data (
+```
+
+```python
+Time TEXT,
+```
+
+```python
+Agent_ID TEXT,
+```
+
+```python
+Device_Type TEXT,
+```
+
+```python
+Accelerometer_X TEXT,
+```
+
+```python
+Accelerometer_Y TEXT,
+```
+
+```python
+Accelerometer_Z TEXT,
+```
+
+```python
+Gyroscope_X TEXT,
+```
+
+```python
+Gyroscope_Y TEXT,
+```
+
+```python
+Gyroscope_Z TEXT,
+```
+
+```python
+Longitude_Degrees TEXT,
+```
+
+```python
+Longitude_Minutes TEXT,
+```
+
+```python
+Latitude_Degrees TEXT,
+```
+
+```python
+Latitude_Minutes TEXT,
+```
+
+```python
+Altitude TEXT
+```
+
+```python
+)
+```
+
+)  def save_data(self, data): with self.conn: self.conn.execute(''' INSERT INTO user_data ( Time, Agent_ID, Device_Type, Accelerometer_X, Accelerometer_Y, Accelerometer_Z, Gyroscope_X, Gyroscope_Y, Gyroscope_Z, Longitude_Degrees, Longitude_Minutes, Latitude_Degrees, Latitude_Minutes, Altitude ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+```python
+data['Time'], data['Agent ID'], data['Device Type'],
+```
+
+```python
+data['Accelerometer X'], data['Accelerometer Y'], data['Accelerometer Z'],
+```
+
+```python
+data['Gyroscope X'], data['Gyroscope Y'], data['Gyroscope Z'],
+```
+
+```python
+data['Longitude Degrees'], data['Longitude Minutes'],
+```
+
+```python
+data['Latitude Degrees'], data['Latitude Minutes'], data['Altitude']
+```
+
+```python
+))
+```
+
+```python
+def get_all_data_for_user(self, user_id, minimum_entries=500):
+```
+
+```python
+with self.conn:
+```
+
+```python
+cursor = self.conn.execute('SELECT * FROM user_data WHERE Agent_ID = ?', (user_id,))
+```
+
+```python
+data = cursor.fetchall()
+```
+
+```python
+if len(data) < minimum_entries:
+```
+
+```python
+return None
+```
+
+*or return an empty list*
+
+```python
+return data
+```
+
+```python
+def get_latest_data_for_user(self, user_id):
+```
+
+```python
+with self.conn:
+```
+
+```python
+cursor = self.conn.execute('SELECT * FROM user_data WHERE Agent_ID = ? ORDER BY Time DESC LIMIT 1', (user_id,))
+```
+
+```python
+return cursor.fetchone()
+```
+
+```python
+def get_all_user_coordinates(self,user_id):
+```
+
+```python
+with self.conn:
+```
+
+```python
+cursor = self.conn.execute('SELECT Time, Altitude, Latitude_Degrees, Longitude_Degrees FROM user_data WHERE Agent_ID = ?', (user_id,))
+```
+
+```python
+return cursor.fetchall()
+```
+
+```python
+def get_all_orentation_data_for_user(self, user_id):
+```
+
+```python
+with self.conn:
+```
+
+```python
+cursor = self.conn.execute('SELECT Time,Acceleremoter_X,Acceleremoter_Y,Acceleremoter_Z,Gyroscope_X,Gyroscope_Y,Gyroscope_Z FROM user_data WHERE Agent_ID = ?', (user_id,))
+```
+
+```python
+data = cursor.fetchall()
+```
+
+```python
+return data
+```
+
+*Empty to allow this folder to be treated as a package and allow communication between files*
+
+# __pycache__
+
+# HeartRate_Monitoring
 
 ```python
 from datetime import datetime, timedelta
@@ -2170,9 +3304,11 @@ def analyse():
 pass
 ```
 
+*Empty to allow this folder to be treated as a package and allow communication between files*
+
 # HRD
 
-# Individual Tracking & Monitoring
+# Individual_Tracking
 
 ```python
 import pandas as pd
@@ -2398,7 +3534,7 @@ self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27)))
 self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17)))
 ```
 
-*18 features*
+*17 features*
 
 ```python
 self.model.add(Dropout(0.2))
@@ -2562,6 +3698,42 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 ```python
 from sklearn.metrics import mean_squared_error,mean_absolute_error
+```
+
+```python
+import sys
+```
+
+```python
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+```
+
+```python
+broker_address="test.mosquitto.org"
+```
+
+```python
+topic="Orion_test/Individual Tracking & Monitoring"
+```
+
+```python
+topic="Orion_test/UTP"
+```
+
+```python
+from Dashboard import Dashboard as DB
+```
+
+```python
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH
+```
+
+```python
+Handler=MQDH(broker_address, topic)
+```
+
+```python
+Reciever=MQDH(broker_address, "Orion_test/UTP")
 ```
 
 ```python
@@ -3266,11 +4438,13 @@ return data
 
 *common_areas = [(lat1, lon1), (lat2, lon2), ...] # Example common areas i.e. landmarks,coffee shops*
 
+*Empty to allow this folder to be treated as a package and allow communication between files*
+
 # IndiMods
 
 # __pycache__
 
-# Overcrowding Detection
+# Overcrowding_Detection
 
 ```python
 import numpy as np
@@ -3305,6 +4479,34 @@ from folium.plugins import HeatMap
 ```
 
 ```python
+import sys
+```
+
+```python
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+```
+
+```python
+broker_address="test.mosquitto.org"
+```
+
+```python
+topic="Orion_test/Overcrowding Detection"
+```
+
+```python
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH
+```
+
+```python
+Handler=MQDH(broker_address, topic)
+```
+
+```python
+from Dashboard import Dashboard as DB
+```
+
+```python
 def process_data(gps_data):
 ```
 
@@ -3313,7 +4515,7 @@ Processes the GPS data using DBSCAN clustering and plots the clusters.  **Parame
 *Using DBSCAN to cluster the data*
 
 ```python
-dbscan = DBSCAN(eps=0.1, min_samples=7)
+dbscan = DBSCAN(eps=0.01, min_samples=5)
 ```
 
 ```python
@@ -3376,6 +4578,10 @@ plt.legend()
 plt.show()
 ```
 
+```python
+return  df
+```
+
 *Initialize empty arrays for latitudes and longitudes*
 
 ```python
@@ -3434,20 +4640,22 @@ longitudes += list(np.random.normal(lon_center, std_dev, points_per_cluster))
 
 *reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv*
 
+*change this line depending on the file path*
+
 ```python
-df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VirtualCrowd_Test_Cleaned.csv')
+df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD2.csv')
 ```
 
 ```python
-time = df[df["Time"].isin(['11:30:49'])].reset_index(drop=True)
+time = df[df["Time"].isin(['9:25:47'])].reset_index(drop=True)
 ```
 
 ```python
-latitudes_list = time[" Longitude Degrees"].tolist()
+latitudes_list = df[" Longitude Degrees"].tolist()
 ```
 
 ```python
-longitudes_list = time[" Latitude Degrees"].tolist()
+longitudes_list = df[" Latitude Degrees"].tolist()
 ```
 
 *remove "Time" to facilitate the processing*
@@ -3471,7 +4679,7 @@ gps_data = np.array([latitudes, longitudes]).T
 ```
 
 ```python
-process_data(gps_data)
+cluster_data=process_data(gps_data)
 ```
 
 *Creating a DataFrame with the latitude and longitude data*
@@ -3536,9 +4744,17 @@ HeatMap(heatmap_data).add_to(base_map)
 
 *Save the map to an HTML file (optional)*
 
+*change this line depending on the file path*
+
 ```python
 base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding Detection\heatmap.html')
 ```
+
+```python
+Handler.send_data(cluster_data)
+```
+
+*Empty to allow this folder to be treated as a package and allow communication between files*
 
 # variables
 

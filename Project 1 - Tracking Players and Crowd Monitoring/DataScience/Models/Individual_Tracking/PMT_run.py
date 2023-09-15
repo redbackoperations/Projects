@@ -41,7 +41,7 @@ class PredictiveTracking:
 
 
 
-    def calculate_epochs(self, min_epochs=20, max_epochs=250):
+    def calculate_epochs(self, min_epochs=100, max_epochs=1000):
         """
         Calculates the number of epochs based on the training samples.
 
@@ -108,13 +108,17 @@ class PredictiveTracking:
         try:
             self.model = Sequential()
             self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27))) # Masking layer
-            self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17))) # 17 features
+            self.model.add(Bidirectional(LSTM(1024, return_sequences=True), input_shape=(self.seq_length, 17))) # 17 features
+            self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))       
+            self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))
             self.model.add(Dropout(0.2))
-            self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
+            self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))
             self.model.add(Dropout(0.2))
-            self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
+            self.model.add(Bidirectional(LSTM(512, return_sequences=True)))
             self.model.add(Dropout(0.2))
-            self.model.add(Bidirectional(LSTM(256, return_sequences=False)))
+            self.model.add(Bidirectional(LSTM(512, return_sequences=True)))
+            self.model.add(Dropout(0.2))
+            self.model.add(Bidirectional(LSTM(512, return_sequences=False)))
             self.model.add(Dropout(0.2))
             self.model.add(Dense(self.pred_length * 2))
             self.model.add(Reshape((self.pred_length, 2))) # Reshape to (pred_length, 2)
@@ -124,7 +128,7 @@ class PredictiveTracking:
             # Calculate the number of epochs
             epochs = self.calculate_epochs()
             # Implement early stopping
-            early_stopping = EarlyStopping(monitor='val_loss', patience=10)
+            early_stopping = EarlyStopping(monitor='val_loss', patience=100)
             # Fit the model with validation split
             self.model.fit(self.X_train, self.y_train, epochs=epochs, validation_split=0.2, callbacks=[early_stopping])
 

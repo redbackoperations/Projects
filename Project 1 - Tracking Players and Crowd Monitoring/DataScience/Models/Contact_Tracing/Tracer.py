@@ -5,6 +5,12 @@ import numpy as np
 import json
 import sys
 
+
+'''
+The following code before the class is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org"
+The data is sent in the json format but requires the following format:pandas dataframe
+Adjust the path to the Models accordingly to ensure the modules are used correctly
+'''
 sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
 broker_address="test.mosquitto.org"
 topic="Orion_test/contact tracing"
@@ -12,6 +18,20 @@ topic="Orion_test/contact tracing"
 
 from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
 Handler=MQDH(broker_address, topic)
+
+'''
+The class below is used for contact tracing it requires the following inputs:
+UserID: The user ID of the user
+Coordinates: The coordinates of the user
+Timestamp: The timestamp of the user at the coordinates
+
+The class has the following functions:
+add_record: Adds a new record to the dataframe
+get_time_based_contacts: Gets the contacts of the user based on the time window and radius
+
+
+It can be extended to include more functions as required for example a function to get the contacts of the user based on the location or a neural network to predict the contacts of the user based on the location and time
+'''
 
 class ContactTracer:
     def __init__(self):
@@ -95,7 +115,8 @@ contacts = tracer.get_time_based_contacts("UserA", 2)
 
 
 def plot_spatial_temporal_contacts(central_user, contacts_df):
-    plt.figure(figsize=(12, 10))
+    figure=plt.figure(figsize=(12, 10))
+ 
     
     # Plot the central user at (0,0) for simplicity
     plt.scatter(0, 0, color="red", label=central_user, s=200, zorder=5)
@@ -127,7 +148,9 @@ def plot_spatial_temporal_contacts(central_user, contacts_df):
     plt.ylabel("Latitude")
     plt.title(f"Spatial-Temporal Contacts of {central_user}")
     plt.grid(True)
+    
     plt.show()
+    return figure
 
 # Plotting the contacts of "UserA"
 plot_spatial_temporal_contacts("UserA", contacts)

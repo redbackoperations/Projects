@@ -8,6 +8,13 @@ import pandas as pd
 
 import sys
 
+
+'''
+The following code is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org"
+The data is sent in the json format but requires the following format:pandas dataframe
+Adjust the path to the Models accordingly to ensure the modules are used correctly
+'''
+
 sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
 
 broker_address="test.mosquitto.org"
@@ -145,7 +152,7 @@ class EnhancedVisualizeMovements:
         '''
         Visualize user trajectories and potential collisions.
         '''
-        
+        figure= plt.figure()
         # Plot initial and predicted positions with intervals
         for user_id, kf in self.collision_prediction.users.items():
             color = user_colors[user_id]  # Use predefined colors for consistency
@@ -180,7 +187,7 @@ class EnhancedVisualizeMovements:
                     
             collision_point = self.compute_intersection(future_position1, velocity1, future_position2, velocity2)
             
-            if collision_point:  # If there's a unique intersection point
+            if collision_point:  # If there's a unique intersection point plot it
                 collision_x, collision_y = collision_point
                 ax.plot(collision_x, collision_y, 'ro', markersize=10)               
             
@@ -204,10 +211,11 @@ class EnhancedVisualizeMovements:
             ax.grid(True)
             ax.legend(loc="upper right")
             plt.tight_layout()
+            figure.add_subfigure(ax)
             plt.show()
             ## Send Collision Data to Orion Broker
-
-
+    
+       
 
 
 # Testing the User class with natural movement
@@ -272,8 +280,11 @@ def update(frame):
     # Visualize the movements and potential collisions
     visualizer.plot_enhanced_movements(ax, 10)
     
-    
+def send_figure(fig):
+    return fig
 
+
+send_figure(fig)
 
 # Create the animation
 ani = FuncAnimation(fig, update, frames=range(NUM_ITERATIONS), repeat=False)

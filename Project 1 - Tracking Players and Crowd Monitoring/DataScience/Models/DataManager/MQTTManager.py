@@ -7,7 +7,9 @@ import datetime
 from datetime import datetime
 from cryptography.fernet import Fernet #importing cryptogtaphy library
 
-
+'''
+The class below is used to send and receive data from the MQTT broker. The data is sent in the form of a JSON file. The data is sent to the topic "test/topic" on the broker "test.mosquitto.org"/any other broker
+'''
 # adding an encryption and decryption key
 encryption_key = Fernet.generate_key()
 cipher_suite = Fernet(encryption_key)

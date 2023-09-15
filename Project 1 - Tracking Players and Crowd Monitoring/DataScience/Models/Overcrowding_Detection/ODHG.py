@@ -34,7 +34,7 @@ def process_data(gps_data):
     num_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
     colors = cm.rainbow(np.linspace(0, 1, num_clusters))
 
-    plt.figure(figsize=(10, 10))
+    figure=plt.figure(figsize=(10, 10))
     for cluster_id, color in zip(set(clusters), colors):
         if cluster_id == -1:
             continue
@@ -46,7 +46,7 @@ def process_data(gps_data):
     plt.ylabel('Latitude')
     plt.legend()
     plt.show()
-    return  df
+    return  df,figure
 
 # Initialize empty arrays for latitudes and longitudes
 latitudes = []
@@ -85,13 +85,13 @@ longitudes = longitudes_list
 
 # Processing the data and plotting
 gps_data = np.array([latitudes, longitudes]).T
-cluster_data=process_data(gps_data)
+cluster_data,fig1=process_data(gps_data)
 
 # Creating a DataFrame with the latitude and longitude data
 heatmap_data = pd.DataFrame({'Latitude': latitudes, 'Longitude': longitudes})
 
 # Plotting the heatmap using Seaborn's kdeplot function
-plt.figure(figsize=(10, 10))
+figure2=plt.figure(figsize=(10, 10))
 sns.kdeplot(x='Longitude', y='Latitude', data=heatmap_data, cmap='Reds', fill=True)
 plt.title('Heatmap of Points')
 plt.xlabel('Longitude')
