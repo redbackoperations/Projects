@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\bike_store\customer_raw - customers.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\bike_store\customers.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>True</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -24,7 +24,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>customer_raw - customers.csv</DefaultAnnotationText>
+          <DefaultAnnotationText>customers.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <Dependencies>
@@ -32,29 +32,29 @@
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="first_name" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="last_name" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="gender" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="past_3_years_bike_related_purchases" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="DOB" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="job_title" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="job_industry_category" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="wealth_segment" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="deceased_indicator" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="owns_car" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="tenure" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="address" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="postcode" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="state" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="country" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="property_valuation" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="double_field_16" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="double_field_17" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="double_field_18" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="double_field_19" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="int64_field_20" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="Rank" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
-            <Field name="Value" size="254" source="File: D:\bike_store\customer_raw - customers.csv" type="V_String" />
+            <Field name="first_name" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="last_name" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="gender" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="past_3_years_bike_related_purchases" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="DOB" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="job_title" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="job_industry_category" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="wealth_segment" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="deceased_indicator" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="owns_car" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="tenure" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="address" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="postcode" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="state" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="country" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="property_valuation" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="double_field_16" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="double_field_17" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="double_field_18" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="double_field_19" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="int64_field_20" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="Rank" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
+            <Field name="Value" size="254" source="File: D:\bike_store\customers.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -91,34 +91,6 @@
         </Dependencies>
       </Properties>
       <EngineSettings Macro="Cleanse.yxmc" />
-    </Node>
-    <Node ToolID="3">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="594" y="6" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\DELL\AppData\Local\Temp\Engine_17080_1776b9d64c4d0a44841547624daf8e84_\Engine_17080_c2d0ed377ec8034687e461d3ebc2895f~.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
@@ -254,13 +226,13 @@ Query=rw_customer_data</DefaultAnnotationText>
           <IsFrom value="False" />
           <InputFieldName>DOB</InputFieldName>
           <Language>English</Language>
-          <Format>MM/dd/yyyy</Format>
+          <Format>yyyy-MM-dd</Format>
           <OutputFieldName>dob</OutputFieldName>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Convert DOB From:
-MM/dd/yyyy</DefaultAnnotationText>
+yyyy-MM-dd</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -275,10 +247,6 @@ MM/dd/yyyy</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="2" Connection="Output26" />
       <Destination ToolID="7" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="3" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />

@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="762" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File FileFormat="23" RecordLimit="">aka:SQL server|||"rw_data"."dbo"."rw_address_data"</File>
+          <FormatSpecificOptions>
+            <SingleRowFetch>False</SingleRowFetch>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <CacheData>False</CacheData>
+            <SessionReadOnly>True</SessionReadOnly>
+            <ReadUncommitted>False</ReadUncommitted>
+            <NoProgress>True</NoProgress>
+            <PostSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <PreSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>rw_customer_address_db</AnnotationText>
+          <DefaultAnnotationText>aka:SQL server
+Query="rw_data"."dbo"."rw_address_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="customer_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="Int32" />
+            <Field name="address" size="100" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="V_String" />
+            <Field name="postcode" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="Int32" />
+            <Field name="state" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="V_String" />
+            <Field name="country" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="V_String" />
+            <Field name="property_valuation" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_address_data&quot;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File FileFormat="23" RecordLimit="">aka:SQL server|||"rw_data"."dbo"."rw_customer_demo_data"</File>
+          <FormatSpecificOptions>
+            <SingleRowFetch>False</SingleRowFetch>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <CacheData>False</CacheData>
+            <SessionReadOnly>True</SessionReadOnly>
+            <ReadUncommitted>False</ReadUncommitted>
+            <NoProgress>True</NoProgress>
+            <PostSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <PreSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[rw_customer_demo_db
+]]></AnnotationText>
+          <DefaultAnnotationText>aka:SQL server
+Query="rw_data"."dbo"."rw_customer...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="customer_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="Int32" />
+            <Field name="first_name" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="last_name" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="gender" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="past_3_years_bike_related_purchases" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="Int32" />
+            <Field name="dob" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="Date" />
+            <Field name="job_title" size="50" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="job_industry_category" size="100" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="wealth_segment" size="100" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="deceased_indicator" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="owns_car" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="V_String" />
+            <Field name="tenure" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_customer_demo_data&quot;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="882" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File FileFormat="23" RecordLimit="">aka:SQL server|||"rw_data"."dbo"."rw_transaction_data"</File>
+          <FormatSpecificOptions>
+            <SingleRowFetch>False</SingleRowFetch>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <CacheData>False</CacheData>
+            <SessionReadOnly>True</SessionReadOnly>
+            <ReadUncommitted>False</ReadUncommitted>
+            <NoProgress>True</NoProgress>
+            <PostSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <PreSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>rw_transaction_db</AnnotationText>
+          <DefaultAnnotationText>aka:SQL server
+Query="rw_data"."dbo"."rw_transact...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="transaction_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Int32" />
+            <Field name="product_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Int32" />
+            <Field name="customer_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Int32" />
+            <Field name="transaction_date" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Date" />
+            <Field name="online_order" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="order_status" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="brand" size="50" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="product_line" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="product_class" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="product_size" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="V_String" />
+            <Field name="list_price" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Double" />
+            <Field name="standard_cost" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Double" />
+            <Field name="product_first_sold_date" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;rw_data&quot;.&quot;dbo&quot;.&quot;rw_transaction_data&quot;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+        <Position x="318" y="738" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinByRecPos value="False" />
+          <JoinFields>
+            <JoinInfo connection="#1">
+              <Field field="customer_id" />
+            </JoinInfo>
+            <JoinInfo connection="#2">
+              <Field field="customer_id" />
+            </JoinInfo>
+            <JoinInfo connection="#3">
+              <Field field="customer_id" />
+            </JoinInfo>
+          </JoinFields>
+          <CartesianMode>Error</CartesianMode>
+          <OutputJoinOnly value="False" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Input_#2_customer_id" selected="True" rename="customer_id_2" />
+                <SelectField field="Input_#3_customer_id" selected="True" rename="customer_id_3" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Full outer join 3 files by customer_id</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="438" y="738" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[!IsNull([customer_id])AND !IsNull([customer_id_2])AND
+!IsNull([customer_id_3])
+
+]]></Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Delete all rows with null values in customer_id column
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[!IsNull([customer_id])AND !IsNull([customer_id_2])AND
+!IsNull([customer_id_3])
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="618" y="726" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="customer_id" order="Ascending" />
+            <Field field="transaction_date" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>customer_id - Ascending
+transaction_date - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="762" y="726" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="customer_id_2" selected="False" />
+            <SelectField field="customer_id_3" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>select related fields</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="906" y="726" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:SQL server|||ms_bike_data</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <TransactionMessages>False</TransactionMessages>
+            <Geometry>True</Geometry>
+            <Projection />
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <OutputOption>Overwrite</OutputOption>
+            <PostSQL />
+            <TransactionSize>10000</TransactionSize>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>USE master_data;
+IF OBJECT_ID(N'master_data.dbo.ms_bike_data', N'U') IS NULL
+CREATE TABLE master_data.dbo.ms_bike_data
+(
+	id int primary key IDENTITY(1,1),
+	customer_id int,
+	first_name	varchar(30),
+	last_name varchar(30),
+	gender varchar(30),
+	past_3_years_bike_related_purchases int,
+	dob date,
+	job_title varchar(50),
+	job_industry_category varchar(100),
+	wealth_segment varchar(100),
+	deceased_indicator varchar(10),
+	owns_car varchar(10),
+	tenure int,
+	address varchar(100),
+	postcode int,
+	state varchar(10),
+	country varchar(20),
+	property_valuation int,
+	transaction_id int,
+	product_id int,
+	transaction_date date,
+	online_order varchar(30),
+	order_status varchar(30),
+	brand varchar(50),
+	product_line varchar(20),
+	product_class varchar(20),
+	product_size varchar(10),
+	list_price float,
+	standard_cost float,
+	product_first_sold_date int
+)</PreSQL>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:SQL server
+Query=ms_bike_data</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#2">
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="True" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>master_bike_store</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="1b3be67c-e9c7-41b4-89d2-8c320df71ad9" />
+      <Telemetry>
+        <PreviousWorkflowId value="77c4626c-05cd-4962-a463-50e8ce896175" />
+        <OriginWorkflowId value="77c4626c-05cd-4962-a463-50e8ce896175" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

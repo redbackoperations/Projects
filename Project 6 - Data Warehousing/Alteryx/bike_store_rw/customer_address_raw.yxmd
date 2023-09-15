@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\bike_store\customer_add_raw - customer_addresses.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\bike_store\customer_add.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>True</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -24,7 +24,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>customer_add_raw - customer_addresses.csv</DefaultAnnotationText>
+          <DefaultAnnotationText>customer_add.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <Dependencies>
@@ -32,12 +32,12 @@
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="customer_id" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
-            <Field name="address" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
-            <Field name="postcode" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
-            <Field name="state" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
-            <Field name="country" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
-            <Field name="property_valuation" size="254" source="File: D:\bike_store\customer_add_raw - customer_addresses.csv" type="V_String" />
+            <Field name="customer_id" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
+            <Field name="address" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
+            <Field name="postcode" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
+            <Field name="state" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
+            <Field name="country" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
+            <Field name="property_valuation" size="254" source="File: D:\bike_store\customer_add.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
