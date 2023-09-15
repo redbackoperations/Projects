@@ -8,6 +8,18 @@ import seaborn as sns
 import folium
 from folium.plugins import HeatMap
 
+import sys
+
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+
+broker_address="test.mosquitto.org"
+topic="Orion_test/Overcrowding Detection"
+
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
+Handler=MQDH(broker_address, topic)
+
+from Dashboard import Dashboard as DB
+
 def process_data(gps_data):
     """
     Processes the GPS data using DBSCAN clustering and plots the clusters.
@@ -34,6 +46,7 @@ def process_data(gps_data):
     plt.ylabel('Latitude')
     plt.legend()
     plt.show()
+    return  df
 
 # Initialize empty arrays for latitudes and longitudes
 latitudes = []
@@ -72,7 +85,7 @@ longitudes = longitudes_list
 
 # Processing the data and plotting
 gps_data = np.array([latitudes, longitudes]).T
-process_data(gps_data)
+cluster_data=process_data(gps_data)
 
 # Creating a DataFrame with the latitude and longitude data
 heatmap_data = pd.DataFrame({'Latitude': latitudes, 'Longitude': longitudes})
@@ -102,7 +115,7 @@ HeatMap(heatmap_data).add_to(base_map)
 #change this line depending on the file path
 base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding Detection\heatmap.html')
 
-
+Handler.send_data(cluster_data)
 
 
 

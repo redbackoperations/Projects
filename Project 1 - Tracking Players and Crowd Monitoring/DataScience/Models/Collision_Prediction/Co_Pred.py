@@ -16,6 +16,9 @@ topic="Orion_test/collision prediction"
 from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
 Handler=MQDH(broker_address, topic)
 
+from Dashboard import Dashboard as DB
+
+
 class CustomKalmanFilter:
     # [Needs Adjustments for complex features]
     def __init__(self, process_variance, measurement_variance, initial_value=(0, 0), 
@@ -268,6 +271,7 @@ def update(frame):
    
     # Visualize the movements and potential collisions
     visualizer.plot_enhanced_movements(ax, 10)
+    
     
 
 
