@@ -13,6 +13,23 @@ from PMT_run import PredictiveTracking
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics import mean_squared_error,mean_absolute_error
 
+
+import sys
+
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+
+broker_address="test.mosquitto.org"
+topic="Orion_test/Individual Tracking & Monitoring"
+
+
+topic="Orion_test/UTP"
+
+from Dashboard import Dashboard as DB
+
+from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
+Handler=MQDH(broker_address, topic)
+Reciever=MQDH(broker_address, "Orion_test/UTP")
+
 class RealTimeTracking:
     def __init__(self,user_id):
         """
@@ -278,7 +295,6 @@ class RealTimeTracking:
             self.predictive_model.save_model()
             return
 
-        
 
 
 
@@ -343,4 +359,8 @@ print(user_id)
 predicted_coordinates = real_time_tracking.generate_future_coordinates(user_trajectory)
 print(predicted_coordinates)
 
+#data=Handler.receive_data()
+#user_id=dReciever.receive_data()
 
+
+Handler.send_data(predicted_coordinates, user_id)
