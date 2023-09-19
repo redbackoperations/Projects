@@ -57,11 +57,11 @@ longitudes = []
 
 
 
-
 # reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv 
 #change this line depending on the file path
 df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD3.csv')
 
+selected_time_data = df[df["Time"] == '22:22:01']
 time = df[df["Time"].isin(['22:22:01'])].reset_index(drop=True)
 latitudes_list = time[" Longitude Degrees"].tolist()
 longitudes_list = time[" Latitude Degrees"].tolist()
@@ -87,18 +87,18 @@ plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.show()
 
-# Calculate the mean latitude and longitude
-mean_latitude = np.mean(latitudes)
-mean_longitude = np.mean(longitudes)
+# Calculate the mean latitude and longitude for centering the map
+mean_latitude = selected_time_data[" Latitude Degrees"].mean()
+mean_longitude = selected_time_data[" Longitude Degrees"].mean()
 
 # Create a base map, centered at the mean coordinates
 base_map = folium.Map(location=[mean_latitude, mean_longitude], zoom_start=13)
 
 # Create a list of [lat, lon] pairs for the heatmap
-heatmap_data = [[lat, lon] for lat, lon in zip(latitudes, longitudes)]
+heatmap_data = [[lat, lon] for lat, lon in zip(selected_time_data[" Latitude Degrees"], selected_time_data[" Longitude Degrees"])]
 
-# Add the heatmap layer to the base map
-HeatMap(heatmap_data).add_to(base_map)
+# Add the heatmap layer to the base map with adjusted parameters
+HeatMap(heatmap_data, radius=15, max_zoom=13, blur=15).add_to(base_map)
 
 # Save the map to an HTML file (optional)
 # change this line depending on the file path
