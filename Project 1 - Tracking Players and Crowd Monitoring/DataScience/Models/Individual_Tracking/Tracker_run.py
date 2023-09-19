@@ -15,6 +15,7 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
+import panel as pn
 
 sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
 
@@ -24,7 +25,7 @@ topic="Orion_test/Individual Tracking & Monitoring"
 
 topic="Orion_test/UTP"
 
-from Dashboard import Dashboard as DB
+
 
 from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
 Handler=MQDH(broker_address, topic)
@@ -39,7 +40,7 @@ class RealTimeTracking:
         self.user_id = user_id
         self.seq_length = 20
         self.train_date=None
-        self.model_path = f"Models/Individual Tracking & Monitoring/IndiMods/model_{user_id}.h5"
+        self.model_path = f"E:/Dev/Deakin/redbackoperations-T2_2023/Project 1 - Tracking Players and Crowd Monitoring/DataScience/IndividualLSTMs/model_{user_id}.h5"
         self.predictive_model=None
        
 
@@ -339,7 +340,7 @@ def read_plt(file_path, user_id):
 
 
 '''-----------------------------------------------------------------------------------------------------------------------------------------------------------the number 00x is the user id, it should be changed to the user id of the user whose data is being processed'''
-directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\002\Trajectory\*.plt"
+directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\004\Trajectory\*.plt"
 
 # Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")
 user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))
@@ -379,11 +380,16 @@ def plot_trajectory_and_predictions(trajectory_data, predicted_coordinates):
     ax.set_ylabel('Latitude')
     ax.legend()
     
-    plt.show()
+   
+    
+    return fig
     
   
 
 data=list()
-plot_trajectory_and_predictions(user_trajectory, predicted_coordinates)
+fig=plot_trajectory_and_predictions(user_trajectory, predicted_coordinates)
 data.append(predicted_coordinates)
-Handler.send_data(pd.DataFrame(data),user_id)
+plt.close(fig)
+#Uncomment the following line to send the data to the MQTT broker
+# Handler.send_data(pd.DataFrame(data),user_id)
+plot_panel = pn.pane.Matplotlib(fig, tight=True)

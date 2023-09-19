@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import sys
+import panel as pn
 
 
 '''
@@ -106,7 +107,7 @@ for user in tracer.data["UserID"].unique():
     print(f"Contacts of {user}:")
     print(contacts)
     df=pd.DataFrame(contacts)
-    Handler.send_data(df, user_id=user)
+    # Handler.send_data(df, user_id=user)#uncomment to send data to the broker
 
 
 # Getting contacts of UserA within a radius of 2 units
@@ -149,8 +150,11 @@ def plot_spatial_temporal_contacts(central_user, contacts_df):
     plt.title(f"Spatial-Temporal Contacts of {central_user}")
     plt.grid(True)
     
-    plt.show()
+    
     return figure
 
 # Plotting the contacts of "UserA"
-plot_spatial_temporal_contacts("UserA", contacts)
+
+fig=plot_spatial_temporal_contacts("UserA", contacts)
+plt.close(fig)
+plot_panel = pn.pane.Matplotlib(fig, tight=True)
