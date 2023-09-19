@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>4AF336AF2C658F0F3DBEBEA64C4F0BF5C26E14108D815F634025F</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from "FITNESS_DATA"."RW_FITNESS_DATA"."rw_fitness_data"</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <SessionReadOnly>True</SessionReadOnly>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=Redback
+Query=select * from "FITNESS_DATA"...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="timestamp" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="DateTime" />
+            <Field name="timestamp_AEST" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="date_AEST" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Date" />
+            <Field name="distance" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="enhanced_altitude" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="ascent" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="grade" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="calories" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="enhanced_speed" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="heart_rate" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="temperature" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="cadence" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="power" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gps_accuracy" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="sessionID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="userID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="age" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gender" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="weight" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="FTP" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="462" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="timestamp" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="DateTime" />
+            <Field name="timestamp_AEST" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="date_AEST" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Date" />
+            <Field name="distance" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="enhanced_altitude" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="ascent" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="grade" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="calories" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="enhanced_speed" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="heart_rate" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="temperature" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="cadence" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="power" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gps_accuracy" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="sessionID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="userID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="age" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gender" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="weight" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="FTP" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="654" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||"md_fitness_user"</File>
+          <Passwords>4AF336AF2C658F0F3DBEBEA64C4F0BF5C26E14108D815F634025F</Passwords>
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <TableStyle>None</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="ByName" />
+            </AppendMap>
+            <PreSQL>CREATE SCHEMA IF NOT EXISTS MD_FITNESS_USER;
+USE SCHEMA MD_FITNESS_USER;
+CREATE TABLE IF NOT EXISTS MD_FITNESS_USER."md_fitness_user"
+(
+id int not null primary key AUTOINCREMENT,
+	"userID" varchar(30),
+	"gender" varchar(30),
+	"age" int,
+	"weight" int,
+	"created_on" datetime default GETDATE(),
+	"created_by" varchar(30) default 'PSAPKOTA',
+	"modified_on" datetime,
+	"modified_by" varchar(30)
+)</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=Redback
+Query="md_fitness_user"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="258" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="userID" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Unique">
+          <RecordInfo>
+            <Field name="timestamp" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="DateTime" />
+            <Field name="timestamp_AEST" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="date_AEST" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Date" />
+            <Field name="distance" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="enhanced_altitude" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="ascent" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="grade" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="calories" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="enhanced_speed" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="heart_rate" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="temperature" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="cadence" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="power" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gps_accuracy" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="sessionID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="userID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="age" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gender" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="weight" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="FTP" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Duplicates">
+          <RecordInfo>
+            <Field name="timestamp" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="DateTime" />
+            <Field name="timestamp_AEST" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="date_AEST" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Date" />
+            <Field name="distance" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="enhanced_altitude" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="ascent" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="grade" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="calories" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="enhanced_speed" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
+            <Field name="heart_rate" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="temperature" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="cadence" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="power" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gps_accuracy" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="sessionID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="userID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="age" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="gender" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
+            <Field name="weight" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+            <Field name="FTP" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="126" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input6</Name>
+          <Abbrev />
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="test" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>test</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Input</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="test" size="2147483647" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="270" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output7</Name>
+          <Abbrev>2</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Output</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Unique" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (6)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (7)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Master_Fitness_Customer</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5e3432a1-92d1-4930-a2d6-1605c96b157b" />
+      <Telemetry>
+        <PreviousWorkflowId value="f0a3c8af-2a9a-4963-a04d-9e47a5ff7285" />
+        <OriginWorkflowId value="c24a5c0c-2b0d-46f2-8cde-c6886e10cad3" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (5)</Name>
+          <ToolId value="5" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (6)</Description>
+              <Name>Macro Input (6)</Name>
+              <ToolId value="6" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (7)</Description>
+              <Name>Macro Output (7)</Name>
+              <ToolId value="7" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
