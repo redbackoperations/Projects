@@ -62,6 +62,22 @@ Query=select * from "FITNESS_DATA"...</DefaultAnnotationText>
           <OrderChanged value="False" />
           <CommaDecimal value="False" />
           <SelectFields>
+            <SelectField field="timestamp" selected="False" />
+            <SelectField field="timestamp_AEST" selected="False" />
+            <SelectField field="date_AEST" selected="False" />
+            <SelectField field="distance" selected="False" />
+            <SelectField field="enhanced_altitude" selected="False" />
+            <SelectField field="ascent" selected="False" />
+            <SelectField field="grade" selected="False" />
+            <SelectField field="calories" selected="False" />
+            <SelectField field="enhanced_speed" selected="False" />
+            <SelectField field="heart_rate" selected="False" />
+            <SelectField field="temperature" selected="False" />
+            <SelectField field="cadence" selected="False" />
+            <SelectField field="power" selected="False" />
+            <SelectField field="gps_accuracy" selected="False" />
+            <SelectField field="sessionID" selected="False" />
+            <SelectField field="FTP" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -72,26 +88,10 @@ Query=select * from "FITNESS_DATA"...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="timestamp" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="DateTime" />
-            <Field name="timestamp_AEST" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
-            <Field name="date_AEST" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Date" />
-            <Field name="distance" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
-            <Field name="enhanced_altitude" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
-            <Field name="ascent" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="grade" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
-            <Field name="calories" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="enhanced_speed" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="Double" />
-            <Field name="heart_rate" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="temperature" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="cadence" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="power" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="gps_accuracy" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="sessionID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
             <Field name="userID" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
             <Field name="age" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
             <Field name="gender" size="254" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="V_WString" />
             <Field name="weight" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
-            <Field name="FTP" scale="0" size="22" source="File: odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||select * from &quot;FITNESS_DATA&quot;.&quot;RW_FITNESS_DATA&quot;.&quot;rw_fitness_data&quot;" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -103,22 +103,28 @@ Query=select * from "FITNESS_DATA"...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File MaxRecords="" FileFormat="23">odbc:DSN=Redback;UID=Redback;PWD=__EncPwd1__|||"md_fitness_user"</File>
-          <Passwords>4AF336AF2C658F0F3DBEBEA64C4F0BF5C26E14108D815F634025F</Passwords>
+          <File />
+          <Passwords />
           <Disable>False</Disable>
-          <FormatSpecificOptions>
-            <TransactionSize>10000</TransactionSize>
+          <FormatSpecificOptions UseDcm="true" MaxRecords="" Format="65">
+            <TableStyle>Quoted</TableStyle>
+            <Table>FITNESS_DATA.MD_FITNESS_USER."md_fitness_user"</Table>
+            <CompressionType>GZip</CompressionType>
             <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
-            <PostSQL />
-            <TableStyle>None</TableStyle>
+            <NumThreads>4</NumThreads>
+            <ChunkSize>64</ChunkSize>
+            <OutputOption>Delete</OutputOption>
             <AppendMap>
               <AppendMapping mode="ByName" />
             </AppendMap>
+            <PostSQL />
+            <AwsConnection DcmType="ConnectionId" />
+            <OdbcConnection DcmType="ConnectionId">97fdd9ac-3083-4611-80a0-2d8cecd428f4</OdbcConnection>
             <PreSQL>CREATE SCHEMA IF NOT EXISTS MD_FITNESS_USER;
 USE SCHEMA MD_FITNESS_USER;
 CREATE TABLE IF NOT EXISTS MD_FITNESS_USER."md_fitness_user"
 (
-id int not null primary key AUTOINCREMENT,
+"id" int not null primary key AUTOINCREMENT,
 	"userID" varchar(30),
 	"gender" varchar(30),
 	"age" int,
@@ -128,15 +134,13 @@ id int not null primary key AUTOINCREMENT,
 	"modified_on" datetime,
 	"modified_by" varchar(30)
 )</PreSQL>
-            <TransactionMessages>False</TransactionMessages>
-            <OutputOption>Overwrite</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>DSN=Redback
-Query="md_fitness_user"</DefaultAnnotationText>
+          <DefaultAnnotationText>dcm:rw_fitness_data – Redback
+Table=FITNESS_DATA.MD_FITNESS_USER...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
