@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="29" y="5" width="672" height="207" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>amazon_data</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="54" y="66" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>3000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Untitled spreadsheet - amazon_reviews.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="int64_field_0" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="reviewerName" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="overall" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="reviewText" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="reviewTime" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="day_diff" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="helpful_yes" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="helpful_no" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="total_vote" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="score_pos_neg_diff" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="score_average_rating" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+                <Field name="wilson_lower_bound" size="3000" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet - amazon_reviews.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings>
+            <Position x="138" y="65" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"reviewerName","reviewText","reviewTime"</Value>
+              <Value name="Check Box (84)">True</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">True</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+            <Position x="402" y="54" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <IsFrom value="False" />
+              <InputFieldName>reviewerName</InputFieldName>
+              <Language>English</Language>
+              <Format />
+              <OutputFieldName>reviewTime</OutputFieldName>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Convert reviewerName From:
+Custom</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="258" y="54" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="reviewerName" selected="True" />
+                <SelectField field="overall" selected="True" type="Int64" size="8" />
+                <SelectField field="reviewText" selected="True" />
+                <SelectField field="reviewTime" selected="True" />
+                <SelectField field="day_diff" selected="True" type="Int64" size="8" />
+                <SelectField field="helpful_yes" selected="True" rename="is_helpful" type="Bool" size="1" />
+                <SelectField field="helpful_no" selected="False" type="Bool" size="1" />
+                <SelectField field="total_vote" selected="True" type="Int64" size="8" />
+                <SelectField field="score_pos_neg_diff" selected="True" type="Int64" size="8" />
+                <SelectField field="score_average_rating" selected="True" type="Double" size="8" />
+                <SelectField field="wilson_lower_bound" selected="True" type="Double" size="8" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="570" y="54" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:Staging_amazon_data|||sw_amazon_data</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Create</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use sw_data;</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:Staging_amazon_data
+Query=sw_amazon_data</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="486" y="54" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="reviewerName" selected="True" />
+                <SelectField field="overall" selected="True" />
+                <SelectField field="reviewText" selected="True" />
+                <SelectField field="reviewTime" selected="True" />
+                <SelectField field="day_diff" selected="True" />
+                <SelectField field="is_helpful" selected="True" />
+                <SelectField field="total_vote" selected="True" />
+                <SelectField field="score_pos_neg_diff" selected="True" />
+                <SelectField field="score_average_rating" selected="True" />
+                <SelectField field="wilson_lower_bound" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output26" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>amazon</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="48658ca9-a733-41b8-afe0-33bdfdc1ba43" />
+      <Telemetry>
+        <PreviousWorkflowId value="fe001afb-b4a9-4e9b-bc0f-ac44ec2e9a1f" />
+        <OriginWorkflowId value="fe001afb-b4a9-4e9b-bc0f-ac44ec2e9a1f" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
