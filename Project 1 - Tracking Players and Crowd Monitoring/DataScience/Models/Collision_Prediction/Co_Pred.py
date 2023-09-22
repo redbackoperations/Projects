@@ -5,8 +5,15 @@ import random
 from matplotlib.animation import FuncAnimation
 from math import atan2
 import pandas as pd
-
+import panel as pn
 import sys
+
+import numpy as np
+'''
+The following code is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org"
+The data is sent in the json format but requires the following format:pandas dataframe
+Adjust the path to the Models accordingly to ensure the modules are used correctly
+'''
 
 sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
 
@@ -16,7 +23,6 @@ topic="Orion_test/collision prediction"
 from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
 Handler=MQDH(broker_address, topic)
 
-from Dashboard import Dashboard as DB
 
 
 class CustomKalmanFilter:
@@ -98,10 +104,16 @@ class EnhancedVisualizeMovements:
     def __init__(self, collision_prediction):
         self.collision_prediction = collision_prediction
 
-    def generate_random_color(self):
-        return (random.random(), random.random(), random.random())
-    
-   
+
+
+    def compute_distance(self,point1, point2):
+        return ((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)**0.5
+
+    def determine_markersize(self,distance):
+        return 100 / (distance + 1)  # Inverse relationship between distance and size
+
+ 
+
     def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
         '''
         Compute the intersection point of two trajectories given their initial positions and velocities.
@@ -140,36 +152,42 @@ class EnhancedVisualizeMovements:
         y = m1 * (x - x1) + y1
 
         return (x, y)
-    
+    def bezier_curve(self,ax, start, control, end, **kwargs):
+            t = np.linspace(0, 1, 100)
+            curve = np.outer((1 - t)**2, start) + np.outer(2 * (1 - t) * t, control) + np.outer(t**2, end)
+            ax.plot(curve[:, 0], curve[:, 1], **kwargs)
+        
     def plot_enhanced_movements(self, ax, prediction_time):
         '''
         Visualize user trajectories and potential collisions.
         '''
         
+        # Helper function to draw a quadratic Bezier curve
+    
         # Plot initial and predicted positions with intervals
         for user_id, kf in self.collision_prediction.users.items():
             color = user_colors[user_id]  # Use predefined colors for consistency
             
             initial_x, initial_y = kf.estimate
-            
             for t in range(0, prediction_time + 1, 1):
                 # Recompute direction at each step
                 dx = random.randint(-10, 10)
                 dy = random.randint(-10, 10)
-                
-            
-            
+
             predicted_x = initial_x + dx * prediction_time
             predicted_y = initial_y + dy * prediction_time
+            
+            # Use velocities (if available) or midpoints to determine control point
+            control_x = initial_x + dx / 2
+            control_y = initial_y + dy / 2
+            
+            self.bezier_curve(ax, (initial_x, initial_y), (control_x, control_y), (predicted_x, predicted_y), color=color, alpha=0.7)
             
             ax.plot(initial_x, initial_y, 's', color=color, markersize=8)
             ax.annotate('Start', (initial_x, initial_y), textcoords="offset points", xytext=(0,5), ha='center')
             
             ax.plot(predicted_x, predicted_y, 'o', color=color, markersize=8)
             ax.annotate('End', (predicted_x, predicted_y), textcoords="offset points", xytext=(0,5), ha='center')
-            
-            ax.plot([initial_x, predicted_x], [initial_y, predicted_y], color=color, linestyle='-')
-            ax.arrow(initial_x, initial_y, predicted_x - initial_x, predicted_y - initial_y, head_width=1, head_length=1, fc=color, ec=color)
         
         collisions = self.collision_prediction.predict_collisions(prediction_time)
         for user1, user2 in collisions:
@@ -180,9 +198,12 @@ class EnhancedVisualizeMovements:
                     
             collision_point = self.compute_intersection(future_position1, velocity1, future_position2, velocity2)
             
-            if collision_point:  # If there's a unique intersection point
+            if collision_point:  # If there's a unique intersection point plot it
                 collision_x, collision_y = collision_point
-                ax.plot(collision_x, collision_y, 'ro', markersize=10)               
+                distance = self.compute_distance((future_position1[0] + velocity1[0] * prediction_time, future_position1[1] + velocity1[1] * prediction_time),
+                                            (future_position2[0] + velocity2[0] * prediction_time, future_position2[1] + velocity2[1] * prediction_time))
+                size = self.determine_markersize(distance)
+                ax.plot(collision_x, collision_y, 'ro', markersize=size)            
             
             try:
                 data={'user1':user1,'user2':user2,'collision_point':collision_point}
@@ -204,9 +225,9 @@ class EnhancedVisualizeMovements:
             ax.grid(True)
             ax.legend(loc="upper right")
             plt.tight_layout()
+           
             plt.show()
             ## Send Collision Data to Orion Broker
-
 
 
 
@@ -224,8 +245,8 @@ visualizer = EnhancedVisualizeMovements(collision_prediction)
 
 # Create the initial plot
 fig, ax = plt.subplots()
-ax.set_xlim(-50, 50)
-ax.set_ylim(-50, 50)
+ax.set_xlim(-500, 500)
+ax.set_ylim(-500, 500)
 ax.set_title("User Movements Animation")
 ax.set_xlabel("X Coordinate")
 ax.set_ylabel("Y Coordinate")
@@ -233,14 +254,19 @@ ax.set_ylabel("Y Coordinate")
 # Initialize user_positions dictionary outside the update function to persist positions across frames
 user_positions = {}
 
-
+def adjusted_color_map(index, total):
+    # Adjust the index to skip the red portion of the jet colormap
+    # This can be fine-tuned based on the exact portion of the colormap you want to exclude
+    if index / total > 0.7:
+        index += int(0.2 * total)  # skip 20% of the colormap after the 70% mark
+    return plt.cm.jet(index / total)
 # Assigning a fixed color to each user to ensure consistent coloring across frames
-user_colors = {user_id: plt.cm.jet(i/NUM_USERS) for i, user_id in enumerate(range(1, NUM_USERS + 1))}
+user_colors = {user_id: adjusted_color_map(i, NUM_USERS) for i, user_id in enumerate(range(1, NUM_USERS + 1))}
 
 def update(frame):
     ax.clear()
-    ax.set_xlim(-1000, 1000)  # Adjusting limits to match the earlier defined space
-    ax.set_ylim(-1000, 1000)
+    ax.set_xlim(-100, 100)  # Adjusting limits to match the earlier defined space
+    ax.set_ylim(-100, 100)
     
     for user_id in range(1, NUM_USERS + 1):
         # Check the current position of the user
@@ -272,9 +298,7 @@ def update(frame):
     # Visualize the movements and potential collisions
     visualizer.plot_enhanced_movements(ax, 10)
     
-    
-
-
+plot_panel = pn.pane.Matplotlib(fig, tight=True)  # Create a Panel pane from the Matplotlib figure
 # Create the animation
 ani = FuncAnimation(fig, update, frames=range(NUM_ITERATIONS), repeat=False)
 

@@ -23,11 +23,15 @@ print("numpy version:", np.__version__)
 print("pandas version:", pd.__version__)
 print("scikit-learn version:", sklearn.__version__)
 
+'''
+The training below is tracked using wandb.ai, the hyperparameters and the model are tracked and can be viewed on the wandb dashboard
+you can choose not to use wandb by commenting out the wandb.init() and the WandbMetricsLogger and WandbModelCheckpoint callbacks
 
 
+'''
 wandb.init(
     # set the wandb project where this run will be logged
-    project="Project Orion",
+    project="--",
 
     # track hyperparameters and run metadata with wandb.config
     config={

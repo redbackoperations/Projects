@@ -98,11 +98,11 @@ Project Orion’s architecture combines computer vision and IoT modeling.
 ## 3.2 Development Phase
 - **Duration**: Undefined
 - **Milestones**:
-  - Object Detection and Pose Estimation: 2 weeks
-  - Crowd Counting and Collision Prediction: 4 weeks
-  - IoT modules: 6 weeks
-  - Cloud Services: 4 weeks
-  - Data Storage and Processing: 2 weeks
+  - Object Detection and Pose Estimation: --
+  - Crowd Counting and Collision Prediction: --
+  - IoT modules: --
+  - Cloud Services: --
+  - Data Storage and Processing: --
 
 ## 3.3 Deployment Phase
 - **Duration**: 1 month

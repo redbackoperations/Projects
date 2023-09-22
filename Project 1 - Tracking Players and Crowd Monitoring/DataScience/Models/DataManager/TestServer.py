@@ -12,7 +12,14 @@ def receive_data():
 
 
 
+'''
+The class below is used in conjuction with the provided unity virtual environment  to recieve virtual data in realtime to simulate a live service.
+The data recieved is in a static format so any changes made here should be reflected in the code within unity
 
+This class act as a server to recieve the data, this data can then be used to populate the database and evaluate the models/modules, this data can also be used to populate the dashboard
+
+The data is completely random and is not based on any real world data and also with every run the unity environment creates a new set of data but the format remains the same, the current setting is San Francisco, USA for gps data
+'''
 if __name__ == '__main__':
     app.run(port=5000)
 
