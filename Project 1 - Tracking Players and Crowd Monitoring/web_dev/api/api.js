@@ -1,21 +1,19 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const LocalStrategy = require("passport-local").Strategy;
-const multer = require('multer');
+import express from 'express';
+import bodyParser from 'body-parser';
+import session from 'express-session';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { memoryStorage } from 'multer';
+import multer from 'multer';
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
-const mongoose = require("mongoose");
-const mqtt = require('mqtt');
-const cors = require('cors');
-const data = require('./models/sensor');
-const Temp = require('./models/temprature.model');
-const HeartRate = require('./models/heart.model');
-const AccelerometerData = require('./models/accelerometer.model');
-const BluetoothData = require('./models/bluetooth.model');
-const LocationData = require('./models/gps.model');
+import mongoose from 'mongoose';
+import mqtt from 'mqtt';
+import cors from 'cors';
+import {HeartRate} from './models/heart.model.js';
 
-//This is just for demonstration purposes //Testing//
+
+import playerRoutes from './routes/playerRoutes.js';
+import crowdRoutes from './routes/crowd.routes.js';
 
 
 // Initialize Express
@@ -23,7 +21,7 @@ const app = express();
 const port = 5004;
 
 // MongoDB Connection URL
-const mongoURL = "mongodb+srv://saksham4801be21:A0CtKk4Axeecht6C@db1.dkyykac.mongodb.net/";
+const mongoURL = "mongodb+srv://saksham4801be21:A0CtKk4Axeecht6C@project_a.dkyykac.mongodb.net/";
 
 // Connect to MongoDB
 mongoose.connect(mongoURL, {
@@ -54,6 +52,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use('/players', playerRoutes);
+app.use('/crowd', crowdRoutes); 
 
 // Routes
 app.get("/test", (req, res) => {
