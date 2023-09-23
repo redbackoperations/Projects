@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="20000" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\prast\OneDrive\Documents\Assignments\SIT764\alteryx\bq-results-20230321-215404-1679435672783.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>True</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -246,18 +246,25 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File MaxRecords="" FileFormat="23">odbc:DSN=Redback;UID=PRASTUT;PWD=__EncPwd1__|||rw_fitness_data</File>
-          <Passwords>4AF336AF2C658F0F3DBEBEA64C4F0BF5C26E14108D815F634025F</Passwords>
+          <File />
+          <Passwords />
           <Disable>False</Disable>
-          <FormatSpecificOptions>
-            <TransactionSize>10000</TransactionSize>
-            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
-            <PostSQL />
+          <FormatSpecificOptions UseDcm="true" MaxRecords="" Format="65">
             <TableStyle>Quoted</TableStyle>
+            <Table>FITNESS_DATA.RW_FITNESS_DATA.rw_fitness_data</Table>
+            <CompressionType>GZip</CompressionType>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <NumThreads>4</NumThreads>
+            <ChunkSize>64</ChunkSize>
+            <OutputOption>Append</OutputOption>
             <AppendMap>
               <AppendMapping mode="ByName" />
             </AppendMap>
-            <PreSQL>USE SCHEMA FITNESS_DATA.RW_FITNESS_DATA;
+            <PostSQL />
+            <AwsConnection DcmType="ConnectionId" />
+            <OdbcConnection DcmType="ConnectionId">97fdd9ac-3083-4611-80a0-2d8cecd428f4</OdbcConnection>
+            <PreSQL>CREATE SCHEMA IF NOT EXISTS FITNESS_DATA.RW_FITNESS_DATA;
+USE SCHEMA FITNESS_DATA.RW_FITNESS_DATA;
 create TABLE IF NOT EXISTS FITNESS_DATA.RW_FITNESS_DATA."rw_fitness_data" (
 	"timestamp" TIMESTAMP_NTZ(9),
 	"timestamp_AEST" VARCHAR(254),
@@ -280,15 +287,13 @@ create TABLE IF NOT EXISTS FITNESS_DATA.RW_FITNESS_DATA."rw_fitness_data" (
 	"weight" NUMBER(20,0),
 	FTP NUMBER(20,0)
 );</PreSQL>
-            <TransactionMessages>False</TransactionMessages>
-            <OutputOption>Overwrite</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>DSN=Redback
-Query=rw_fitness_data</DefaultAnnotationText>
+          <DefaultAnnotationText>dcm:rw_fitness_data – Redback
+Table=FITNESS_DATA.RW_FITNESS_DATA...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
