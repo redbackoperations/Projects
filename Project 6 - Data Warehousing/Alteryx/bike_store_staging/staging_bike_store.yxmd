@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="114" y="126" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -29,9 +29,6 @@
 Query="master_data"."dbo"."ms_bike...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="customer_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=master_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;master_data&quot;.&quot;dbo&quot;.&quot;ms_bike_data&quot;" type="Int32" />
@@ -70,7 +67,7 @@ Query="master_data"."dbo"."ms_bike...</DefaultAnnotationText>
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="258" y="126" />
+        <Position x="198" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -83,7 +80,7 @@ Query="master_data"."dbo"."ms_bike...</DefaultAnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <AnnotationText>Encoded columns: gender(0 - Male,1 - Female, 2 - U), deceased_indicator, owns_car, online_order (0 - false, 1 - true)</AnnotationText>
+          <AnnotationText>encode categorical columns: gender(0 - Male,1 - Female, 2 - U), deceased_indicator, owns_car, online_order (0 - false, 1 - true)</AnnotationText>
           <DefaultAnnotationText>gender = IF [gender] == 'Male' or [gender] == 'M' THEN 0 ELSEIF [gender]== 'Fema...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
@@ -92,7 +89,7 @@ Query="master_data"."dbo"."ms_bike...</DefaultAnnotationText>
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="402" y="126" />
+        <Position x="606" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -106,7 +103,7 @@ Query="master_data"."dbo"."ms_bike...</DefaultAnnotationText>
             <Projection />
             <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
             <SpatialObjSize>8000</SpatialObjSize>
-            <OutputOption>Overwrite</OutputOption>
+            <OutputOption>Delete</OutputOption>
             <PostSQL />
             <TransactionSize>10000</TransactionSize>
             <TableStyle>Quoted</TableStyle>
@@ -116,24 +113,21 @@ CREATE TABLE staging_data.dbo.stg_bike_data
 (
 	id int primary key IDENTITY(1,1),
 	customer_id int,
-	first_name	varchar(30),
-	last_name varchar(30),
+	transaction_id int,
+	product_id int,
 	gender int,
 	past_3_years_bike_related_purchases int,
-	dob date,
+	age int,
 	job_title varchar(50),
 	job_industry_category varchar(100),
 	wealth_segment varchar(100),
 	deceased_indicator bit,
 	owns_car bit,
 	tenure int,
-	address varchar(100),
 	postcode int,
 	state varchar(10),
 	country varchar(20),
 	property_valuation int,
-	transaction_id int,
-	product_id int,
 	transaction_date date,
 	online_order bit,
 	order_status varchar(30),
@@ -160,6 +154,79 @@ Query=stg_bike_data</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="354" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeDiff(DateTimeNow(),[dob],&quot;years&quot;)" field="age" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[compute age column from d.o.b column
+]]></AnnotationText>
+          <DefaultAnnotationText><![CDATA[age = DateTimeDiff(DateTimeNow(),[dob],"years")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="474" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="customer_id" selected="True" />
+            <SelectField field="transaction_id" selected="True" />
+            <SelectField field="product_id" selected="True" />
+            <SelectField field="first_name" selected="False" />
+            <SelectField field="last_name" selected="False" />
+            <SelectField field="gender" selected="True" type="Byte" size="1" />
+            <SelectField field="past_3_years_bike_related_purchases" selected="True" />
+            <SelectField field="dob" selected="False" />
+            <SelectField field="age" selected="True" />
+            <SelectField field="job_title" selected="True" />
+            <SelectField field="job_industry_category" selected="True" />
+            <SelectField field="wealth_segment" selected="True" />
+            <SelectField field="deceased_indicator" selected="True" type="Byte" size="1" />
+            <SelectField field="owns_car" selected="True" type="Byte" size="1" />
+            <SelectField field="tenure" selected="True" />
+            <SelectField field="address" selected="False" />
+            <SelectField field="postcode" selected="True" />
+            <SelectField field="state" selected="True" />
+            <SelectField field="country" selected="True" />
+            <SelectField field="property_valuation" selected="True" />
+            <SelectField field="transaction_date" selected="True" />
+            <SelectField field="online_order" selected="True" type="Byte" size="1" />
+            <SelectField field="order_status" selected="True" />
+            <SelectField field="brand" selected="True" />
+            <SelectField field="product_line" selected="True" />
+            <SelectField field="product_class" selected="True" />
+            <SelectField field="product_size" selected="True" />
+            <SelectField field="list_price" selected="True" />
+            <SelectField field="standard_cost" selected="True" />
+            <SelectField field="product_first_sold_date" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[reorder and unselect some columns
+]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -168,6 +235,14 @@ Query=stg_bike_data</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
     </Connection>
   </Connections>
