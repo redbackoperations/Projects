@@ -1,0 +1,596 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="366" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File FileFormat="23" RecordLimit="">aka:SQL server|||"staging_data"."dbo"."stg_bike_data"</File>
+          <FormatSpecificOptions>
+            <SingleRowFetch>False</SingleRowFetch>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <CacheData>False</CacheData>
+            <SessionReadOnly>True</SessionReadOnly>
+            <ReadUncommitted>False</ReadUncommitted>
+            <NoProgress>True</NoProgress>
+            <PostSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <PreSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:SQL server
+Query="staging_data"."dbo"."stg_bi...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="customer_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="transaction_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="product_id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="gender" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int16" />
+            <Field name="past_3_years_bike_related_purchases" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="age" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="job_title" size="50" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="job_industry_category" size="100" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="wealth_segment" size="100" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="deceased_indicator" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int16" />
+            <Field name="owns_car" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int16" />
+            <Field name="tenure" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="postcode" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="state" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="country" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="property_valuation" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+            <Field name="transaction_date" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Date" />
+            <Field name="online_order" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int16" />
+            <Field name="order_status" size="30" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="brand" size="50" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="product_line" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="product_class" size="20" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="product_size" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="V_String" />
+            <Field name="list_price" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Double" />
+            <Field name="standard_cost" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Double" />
+            <Field name="product_first_sold_date" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=rw_data;SERVER=DESKTOP-OK4E7II\SQLEXPRESS;Trusted_Connection=yes|||&quot;staging_data&quot;.&quot;dbo&quot;.&quot;stg_bike_data&quot;" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="245" y="557" width="421" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Sales and Revenue Database</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="270" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="transaction_id" selected="True" />
+                <SelectField field="transaction_date" selected="True" />
+                <SelectField field="product_id" selected="True" />
+                <SelectField field="customer_id" selected="True" />
+                <SelectField field="first_name" selected="False" />
+                <SelectField field="last_name" selected="False" />
+                <SelectField field="gender" selected="False" />
+                <SelectField field="past_3_years_bike_related_purchases" selected="False" />
+                <SelectField field="dob" selected="False" />
+                <SelectField field="age" selected="False" />
+                <SelectField field="job_title" selected="False" />
+                <SelectField field="job_industry_category" selected="False" />
+                <SelectField field="wealth_segment" selected="False" />
+                <SelectField field="deceased_indicator" selected="False" />
+                <SelectField field="owns_car" selected="False" />
+                <SelectField field="tenure" selected="False" />
+                <SelectField field="address" selected="False" />
+                <SelectField field="postcode" selected="False" />
+                <SelectField field="state" selected="False" />
+                <SelectField field="country" selected="False" />
+                <SelectField field="property_valuation" selected="False" />
+                <SelectField field="online_order" selected="True" type="Byte" size="1" />
+                <SelectField field="order_status" selected="True" />
+                <SelectField field="brand" selected="False" />
+                <SelectField field="product_line" selected="False" />
+                <SelectField field="product_class" selected="False" />
+                <SelectField field="product_size" selected="False" />
+                <SelectField field="list_price" selected="True" />
+                <SelectField field="standard_cost" selected="True" />
+                <SelectField field="product_first_sold_date" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>select related fields</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="546" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:SQL server|||sales_db</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>USE report_data;
+IF OBJECT_ID(N'report_data.dbo.location_report', N'U') IS NULL
+CREATE TABLE report_data.dbo.location_report
+(
+	id int primary key IDENTITY(1,1),
+	transaction_id int,
+	transaction_date date,
+	product_id int,
+	customer_id int, 
+	online_order bit,
+	order_status varchar(30),
+	list_price float,
+	standard_cost float,
+	product_first_sold_date int
+)</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:SQL server
+Query=sales_db</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="402" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="transaction_id" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>transaction_id - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="245" y="316" width="549" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Customer Location Summary</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="270" y="365" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="state" action="GroupBy" rename="state" />
+                <SummarizeField field="customer_id" action="CountDistinct" rename="number_of_customers" />
+                <SummarizeField field="property_valuation" action="Avg" rename="avg_property_valuation" />
+                <SummarizeField field="age" action="Avg" rename="avg_age" />
+                <SummarizeField field="list_price" action="Avg" rename="avg_spending" />
+                <SummarizeField field="brand" action="Mode" rename="top_brand" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="666" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:SQL server|||location_report</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Delete</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>USE report_data;
+IF OBJECT_ID(N'report_data.dbo.location_report', N'U') IS NULL
+CREATE TABLE report_data.dbo.location_report
+(id int primary key IDENTITY(1,1),
+	state varchar(3),
+	number_of_customers int,
+	avg_property_valuation float,
+	avg_age float,
+	avg_spending float,
+	top_brand varchar(50)
+)</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:SQL server
+Query=location_report</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="390" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Round([Avg_age], 1)" field="Avg_age" size="8" type="Double" />
+                <FormulaField expression="Round([avg_property_valuation], .1)" field="avg_property_valuation" size="8" type="Double" />
+                <FormulaField expression="Round([avg_spending], .01)" field="avg_spending" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[round age values to the whole number
+]]></AnnotationText>
+              <DefaultAnnotationText>Avg_age = Round([Avg_age], 1)
+avg_property_valuation = Round([avg_property_valua...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="522" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="state" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>state - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="233" y="65" width="672" height="195" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Customer Transaction History</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="402" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="customer_id" action="GroupBy" rename="customer_id" />
+                <SummarizeField field="transaction_id" action="CountDistinct" rename="number_of_transactions" />
+                <SummarizeField field="list_price" action="Sum" rename="total_spending" />
+                <SummarizeField field="list_price" action="Avg" rename="avg_per_transaction" />
+                <SummarizeField field="transaction_date" action="Max" rename="latest_transaction_date" />
+                <SummarizeField field="brand" action="Mode" rename="favourite_brand" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="258" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>order_status</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2023-09-16 12:55:48</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>Approved</Operand>
+                  <StartDate>2023-09-16 12:55:48</StartDate>
+                  <EndDate>2023-09-16 12:55:48</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[order_status] = "Approved"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="522" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="customer_id" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>sort the table with ascending order based on customer_id</AnnotationText>
+              <DefaultAnnotationText>customer_id - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="774" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:SQL server|||tran_hist_report</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <AppendMap>
+                  <AppendMapping mode="ByName" />
+                </AppendMap>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>USE report_data;
+IF OBJECT_ID(N'report_data.dbo.tran_hist_report', N'U') IS NULL
+CREATE TABLE report_data.dbo.tran_hist_report
+(id int primary key IDENTITY(1,1),
+	customer_id int,
+	number_of_transactions int,
+	total_spending float,
+	avg_per_transaction float,
+	latest_transaction_date date,
+	favourite_brand varchar(50)
+)</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:SQL server
+Query=tran_hist_report</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="654" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Round([avg_per_transaction], .001)" field="avg_per_transaction" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[round values in avg_per_transaction column
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[avg_per_transaction = Round([avg_per_transaction], .001)
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>report_bike</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="d52cb80a-0c4c-49e5-af9e-704783804863" />
+      <Telemetry>
+        <PreviousWorkflowId value="8dacc4aa-00e7-4254-979b-2019587a3c22" />
+        <OriginWorkflowId value="8dacc4aa-00e7-4254-979b-2019587a3c22" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
