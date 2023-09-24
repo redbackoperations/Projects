@@ -380,6 +380,8 @@ print("pandas version:", pd.__version__)
 print("scikit-learn version:", sklearn.__version__)
 ```
 
+The training below is tracked using wandb.ai, the hyperparameters and the model are tracked and can be viewed on the wandb dashboard you can choose not to use wandb by commenting out the wandb.init() and the WandbMetricsLogger and WandbModelCheckpoint callbacks
+
 ```python
 wandb.init(
 ```
@@ -387,7 +389,7 @@ wandb.init(
 *set the wandb project where this run will be logged*
 
 ```python
-project="Project Orion",
+project="--",
 ```
 
 *track hyperparameters and run metadata with wandb.config*
@@ -927,7 +929,15 @@ import pandas as pd
 ```
 
 ```python
+import panel as pn
+```
+
+```python
 import sys
+```
+
+```python
+import numpy as np
 ```
 
 The following code is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org" The data is sent in the json format but requires the following format:pandas dataframe Adjust the path to the Models accordingly to ensure the modules are used correctly
@@ -950,10 +960,6 @@ from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH
 
 ```python
 Handler=MQDH(broker_address, topic)
-```
-
-```python
-from Dashboard import Dashboard as DB
 ```
 
 ```python
@@ -1203,12 +1209,22 @@ self.collision_prediction = collision_prediction
 ```
 
 ```python
-def generate_random_color(self):
+def compute_distance(self,point1, point2):
 ```
 
 ```python
-return (random.random(), random.random(), random.random())
+return ((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)**0.5
 ```
+
+```python
+def determine_markersize(self,distance):
+```
+
+```python
+return 100 / (distance + 1)
+```
+
+*Inverse relationship between distance and size*
 
 ```python
 def compute_intersection(self,initial_position1, velocity1, initial_position2, velocity2):
@@ -1321,10 +1337,28 @@ return (x, y)
 ```
 
 ```python
+def bezier_curve(self,ax, start, control, end, **kwargs):
+```
+
+```python
+t = np.linspace(0, 1, 100)
+```
+
+```python
+curve = np.outer((1 - t)**2, start) + np.outer(2 * (1 - t) * t, control) + np.outer(t**2, end)
+```
+
+```python
+ax.plot(curve[:, 0], curve[:, 1], **kwargs)
+```
+
+```python
 def plot_enhanced_movements(self, ax, prediction_time):
 ```
 
 Visualize user trajectories and potential collisions.
+
+*Helper function to draw a quadratic Bezier curve*
 
 *Plot initial and predicted positions with intervals*
 
@@ -1364,6 +1398,20 @@ predicted_x = initial_x + dx * prediction_time
 predicted_y = initial_y + dy * prediction_time
 ```
 
+*Use velocities (if available) or midpoints to determine control point*
+
+```python
+control_x = initial_x + dx / 2
+```
+
+```python
+control_y = initial_y + dy / 2
+```
+
+```python
+self.bezier_curve(ax, (initial_x, initial_y), (control_x, control_y), (predicted_x, predicted_y), color=color, alpha=0.7)
+```
+
 ```python
 ax.plot(initial_x, initial_y, 's', color=color, markersize=8)
 ```
@@ -1378,14 +1426,6 @@ ax.plot(predicted_x, predicted_y, 'o', color=color, markersize=8)
 
 ```python
 ax.annotate('End', (predicted_x, predicted_y), textcoords="offset points", xytext=(0,5), ha='center')
-```
-
-```python
-ax.plot([initial_x, predicted_x], [initial_y, predicted_y], color=color, linestyle='-')
-```
-
-```python
-ax.arrow(initial_x, initial_y, predicted_x - initial_x, predicted_y - initial_y, head_width=1, head_length=1, fc=color, ec=color)
 ```
 
 ```python
@@ -1427,7 +1467,19 @@ collision_x, collision_y = collision_point
 ```
 
 ```python
-ax.plot(collision_x, collision_y, 'ro', markersize=10)
+distance = self.compute_distance((future_position1[0] + velocity1[0] * prediction_time, future_position1[1] + velocity1[1] * prediction_time),
+```
+
+```python
+(future_position2[0] + velocity2[0] * prediction_time, future_position2[1] + velocity2[1] * prediction_time))
+```
+
+```python
+size = self.determine_markersize(distance)
+```
+
+```python
+ax.plot(collision_x, collision_y, 'ro', markersize=size)
 ```
 
 ```python
@@ -1523,11 +1575,11 @@ fig, ax = plt.subplots()
 ```
 
 ```python
-ax.set_xlim(-50, 50)
+ax.set_xlim(-500, 500)
 ```
 
 ```python
-ax.set_ylim(-50, 50)
+ax.set_ylim(-500, 500)
 ```
 
 ```python
@@ -1548,10 +1600,32 @@ ax.set_ylabel("Y Coordinate")
 user_positions = {}
 ```
 
+```python
+def adjusted_color_map(index, total):
+```
+
+*Adjust the index to skip the red portion of the jet colormap*
+
+*This can be fine-tuned based on the exact portion of the colormap you want to exclude*
+
+```python
+if index / total > 0.7:
+```
+
+```python
+index += int(0.2 * total)
+```
+
+*skip 20% of the colormap after the 70% mark*
+
+```python
+return plt.cm.jet(index / total)
+```
+
 *Assigning a fixed color to each user to ensure consistent coloring across frames*
 
 ```python
-user_colors = {user_id: plt.cm.jet(i/NUM_USERS) for i, user_id in enumerate(range(1, NUM_USERS + 1))}
+user_colors = {user_id: adjusted_color_map(i, NUM_USERS) for i, user_id in enumerate(range(1, NUM_USERS + 1))}
 ```
 
 ```python
@@ -1563,13 +1637,13 @@ ax.clear()
 ```
 
 ```python
-ax.set_xlim(-1000, 1000)
+ax.set_xlim(-100, 100)
 ```
 
 *Adjusting limits to match the earlier defined space*
 
 ```python
-ax.set_ylim(-1000, 1000)
+ax.set_ylim(-100, 100)
 ```
 
 ```python
@@ -1654,6 +1728,12 @@ ax.plot(x, y, 'o', color=user_colors[user_id],label=f"User {user_id}")
 visualizer.plot_enhanced_movements(ax, 10)
 ```
 
+```python
+plot_panel = pn.pane.Matplotlib(fig, tight=True)
+```
+
+*Create a Panel pane from the Matplotlib figure*
+
 *Create the animation*
 
 ```python
@@ -1692,6 +1772,10 @@ import json
 
 ```python
 import sys
+```
+
+```python
+import panel as pn
 ```
 
 The following code before the class is used to send the data to the Orion broker. The data is sent in the form of a JSON file. The data is sent to the topic "Orion_test/contact tracing" on the broker "test.mosquitto.org" The data is sent in the json format but requires the following format:pandas dataframe Adjust the path to the Models accordingly to ensure the modules are used correctly
@@ -1924,9 +2008,7 @@ print(contacts)
 df=pd.DataFrame(contacts)
 ```
 
-```python
-Handler.send_data(df, user_id=user)
-```
+*Handler.send_data(df, user_id=user)#uncomment to send data to the broker*
 
 *Getting contacts of UserA within a radius of 2 units*
 
@@ -1939,7 +2021,7 @@ def plot_spatial_temporal_contacts(central_user, contacts_df):
 ```
 
 ```python
-plt.figure(figsize=(12, 10))
+figure=plt.figure(figsize=(12, 10))
 ```
 
 *Plot the central user at (0,0) for simplicity*
@@ -2035,16 +2117,26 @@ plt.grid(True)
 ```
 
 ```python
-plt.show()
+return figure
 ```
 
 *Plotting the contacts of "UserA"*
 
 ```python
-plot_spatial_temporal_contacts("UserA", contacts)
+fig=plot_spatial_temporal_contacts("UserA", contacts)
+```
+
+```python
+plt.close(fig)
+```
+
+```python
+plot_panel = pn.pane.Matplotlib(fig, tight=True)
 ```
 
 *Empty to allow this folder to be treated as a package and allow communication between files*
+
+# __pycache__
 
 # Dashboard
 
@@ -2052,77 +2144,209 @@ plot_spatial_temporal_contacts("UserA", contacts)
 import panel as pn
 ```
 
+```python
+import os
+```
+
+```python
+import sys
+```
+
+```python
+import matplotlib.pyplot as plt
+```
+
 This is the Dashboard class that will be used to create the dashboard. It has the following functions: add_plot: Adds a plot to the dashboard add_widget: Adds a widget to the dashboard add_detail: Adds a detail to the dashboard construct_dashboard: Constructs the dashboard show: Displays the dashboard   The dashboard class can be used in conjuction with other modules to create a dashboard. For example, the dashboard can be used with the MQTTManager to display the data received from the MQTT broker. The dashboard can also be used with the ContactTracer to display the contacts of the user based on the time and location
+
+```python
+sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
+```
+
+```python
+from Collision_Prediction import Co_Pred
+```
+
+```python
+from Contact_Tracing import Tracer
+```
+
+```python
+from HeartRate_Monitoring import HeartRateMonitor
+```
+
+*from Individual_Tracking import Tracker_run*
+
+```python
+from Overcrowding_Detection import ODHG
+```
+
+```python
+Collision_Panel = Co_Pred.plot_panel
+```
+
+```python
+Contact_Panel = Tracer.plot_panel
+```
+
+```python
+HeartRate_Panel = HeartRateMonitor.plot_panel
+```
+
+*Individual_Panel = Tracker_run.plot_panel()*
+
+```python
+Overcrowding_Panel = ODHG.plot_panel
+```
 
 ```python
 class Dashboard:
 ```
 
 ```python
-def __init__(self):
+def __init__(self, plots=None, widgets=None, details=None):
 ```
 
 ```python
-self.plots = []
+self.plots = plots if plots else []
 ```
 
 ```python
-self.widgets = []
+self.widgets = widgets if widgets else []
 ```
 
 ```python
-self.details = []
+self.details = details if details else []
 ```
 
 ```python
-def add_plot(self, plot):
+def save_plot_as_image(self, plot, img_name):
 ```
 
-Add a plot to the dashboard.""" self.plots.append(plot)  def add_widget(self, widget):
+Save the provided Matplotlib figure or Panel Matplotlib pane as an image and return a PNG pane.""" # Check if the plot is a Panel Matplotlib pane and extract the figure if so if isinstance(plot, pn.pane.Matplotlib): fig = plot.object elif isinstance(plot, plt.Axes):  # Check if it's an AxesSubplot object fig = plot.figure else: fig = plot  # Assuming you save images in an 'images' directory images=r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Dashboard\images' images_dir = os.path.join(images, img_name) fig.savefig(images_dir) image_pane = pn.pane.PNG(images_dir, width=500) return image_pane def add_plot(self, fig, img_name):
 
 ```python
-self.widgets.append(widget)
-```
-
-```python
-def add_detail(self, detail):
-```
-
-Add a detail (like text or HTML) to the dashboard.""" self.details.append(detail)  def construct_dashboard(self):
-
-```python
-dashboard = pn.Column(
+image_pane = self.save_plot_as_image(fig, img_name)
 ```
 
 ```python
-pn.Row(*self.widgets),
-```
-
-*Place widgets at the top*
-
-```python
-pn.Row(*self.details),
-```
-
-*Details below widgets*
-
-```python
-pn.Row(*self.plots)
-```
-
-*Plots at the bottom or you can arrange as needed*
-
-```python
-)
+self.plots.append(image_pane)
 ```
 
 ```python
-return dashboard
+def add_gif_to_dashboard(self, gif_path):
+```
+
+Add a GIF to the Panel dashboard.  Parameters: - gif_path (str): Path to the GIF file.
+
+```python
+gif_pane = pn.pane.Image(gif_path, width=500)
 ```
 
 ```python
-def show(self):
+self.plots.append(gif_pane)
 ```
+
+```python
+def add_widget(self, widget):
+```
+
+Add a widget to the dashboard.""" if widget: self.widgets.append(widget)  def add_detail(self, detail):
+
+```python
+if detail:
+```
+
+```python
+self.details.append(detail)
+```
+
+```python
+def construct_dashboard(self):
+```
+
+Construct and return the dashboard layout by interleaving plots and details.""" items = []  # Adding widgets if any if self.widgets: items.append(pn.Row(*self.widgets))  # Interleave plots and details for plot, detail in zip(self.plots, self.details): items.append(plot) items.append(detail)  # If there are any remaining plots or details, add them as well remaining_plots = len(self.plots) - len(self.details) for i in range(remaining_plots): items.append(self.plots[len(self.details) + i])  remaining_details = len(self.details) - len(self.plots) for i in range(remaining_details): items.append(self.details[len(self.plots) + i])  dashboard = pn.Column(*items) return dashboard  def show(self):
+
+```python
+dashboard = self.construct_dashboard()
+```
+
+```python
+dashboard.show()
+```
+
+*Create the Dashboard instance and add plots*
+
+```python
+dashboard_instance = Dashboard()
+```
+
+```python
+dashboard_instance.add_gif_to_dashboard(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Dashboard\images\Collision_P.gif')
+```
+
+```python
+coll_deets='The above plot provides insights into potential collisions among tracked users over a specified timeframe. Each colored line represents the predicted trajectory of a different user, with the starting point marked as -Start- and the predicted endpoint as -End-. The presence of a red circle indicates a predicted point of collision. The size of the circle is proportional to the likelihood of a collision, with larger circles signifying higher probabilities. Such predictions can be instrumental in ensuring user safety by preempting and averting possible collisions.'
+```
+
+```python
+dashboard_instance.add_detail(coll_deets)
+```
+
+```python
+dashboard_instance.add_plot(Tracer.plot_panel, "Contact_Tracing.png")
+```
+
+```python
+cont_deets='The plot above is a visual representation of user contacts based on temporal and spatial data. It traces the interactions between different users, highlighting moments of close proximity. Such visualizations are crucial, especially in scenarios like infectious disease outbreaks, where understanding person-to-person contact patterns can play a pivotal role in containment and mitigation strategies.'
+```
+
+```python
+dashboard_instance.add_detail(cont_deets)
+```
+
+```python
+dashboard_instance.add_plot(HeartRateMonitor.plot_panel, "HeartRate_Monitoring.png")
+```
+
+```python
+HR_deets='The displayed plot captures the heart rate data of users over time, providing a continuous monitor of their cardiovascular health. Fluctuations, spikes, or irregular patterns can be indicative of underlying health conditions or moments of heightened stress or activity. Regular monitoring can aid in timely interventions and ensure the well-being of users.'
+```
+
+```python
+dashboard_instance.add_detail(HR_deets)
+```
+
+*dashboard_instance.add_plot(Tracker_run.plot_panel)*
+
+```python
+dashboard_instance.add_plot(ODHG.plot_panel, "Overcrowding_Detection.png")
+```
+
+```python
+dashboard_instance.add_plot(ODHG.plot_panel2, "Overcrowding_Detection2.png")
+```
+
+```python
+OD_deets='The presented visualizations delve into crowd density estimation within a specified area. The first plot delineates clusters, showcasing the congregation of individuals in specific zones. The subsequent heatmap offers a gradient view of crowd density, with warmer colors signifying areas of higher congestion. Such depictions are invaluable in scenarios that demand crowd management, ensuring safety protocols, and optimizing space utilization.'
+```
+
+```python
+dashboard_instance.add_detail(OD_deets)
+```
+
+*Construct and save the dashboard*
+
+```python
+constructed_dashboard = dashboard_instance.construct_dashboard()
+```
+
+```python
+constructed_dashboard.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Dashboard\dashboard.html')
+```
+
+# images
+
+# __pycache__
 
 # DataManager
 
@@ -2911,7 +3135,15 @@ import numpy as np
 ```
 
 ```python
-import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+```python
+import os
+```
+
+```python
+import panel as pn
 ```
 
 ```python
@@ -2924,6 +3156,30 @@ from scipy.stats import skew, kurtosis, zscore
 
 ```python
 from sklearn.preprocessing import StandardScaler
+```
+
+```python
+from sklearn.model_selection import train_test_split
+```
+
+```python
+from sklearn.preprocessing import LabelEncoder
+```
+
+```python
+from sklearn.linear_model import LinearRegression
+```
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+```
+
+```python
+from sklearn.metrics import mean_squared_error
+```
+
+```python
+from sklearn.svm import OneClassSVM
 ```
 
 The HRMonitoring class is meant to manage the data input and output of the system. It is the main class that calls the other classes and functions.
@@ -2949,35 +3205,15 @@ self.features = None
 ```
 
 ```python
-self.model = None
+def get_data(self, file_path):
 ```
 
 ```python
-self.prediction = None
+self.data = pd.read_csv(file_path)
 ```
 
 ```python
-self.analysis = None
-```
-
-```python
-self.mode = None
-```
-
-```python
-def get_data(self, source, mode='offline'):
-```
-
-*Fetch data from the source*
-
-*For demonstration purposes, assuming data is fetched into a DataFrame*
-
-```python
-self.data = pd.read_csv(source)
-```
-
-```python
-self.mode = mode
+self.data['userID'] = self.userID
 ```
 
 ```python
@@ -3021,13 +3257,13 @@ return
 *Baseline Heart Rate*
 
 ```python
-baseline_hr = np.mean(self.data['heart_rate'])
+baseline_hr = np.mean(self.data['PPG_Signal'])
 ```
 
 *Heart Rate Variability (HRV)*
 
 ```python
-rr_intervals = np.diff(self.data['heart_rate'].values)
+rr_intervals = np.diff(self.data['PPG_Signal'].values)
 ```
 
 *Difference between successive heart rates*
@@ -3039,11 +3275,11 @@ hrv = np.std(rr_intervals)
 *Outliers using IQR*
 
 ```python
-Q1 = np.percentile(self.data['heart_rate'], 25)
+Q1 = np.percentile(self.data['PPG_Signal'], 25)
 ```
 
 ```python
-Q3 = np.percentile(self.data['heart_rate'], 75)
+Q3 = np.percentile(self.data['PPG_Signal'], 75)
 ```
 
 ```python
@@ -3051,13 +3287,13 @@ IQR = Q3 - Q1
 ```
 
 ```python
-outlier_count = np.sum((self.data['heart_rate'] < (Q1 - 1.5 * IQR)) | (self.data['heart_rate'] > (Q3 + 1.5 * IQR)))
+outlier_count = np.sum((self.data['PPG_Signal'] < (Q1 - 1.5 * IQR)) | (self.data['PPG_Signal'] > (Q3 + 1.5 * IQR)))
 ```
 
 *Frequency Domain Features using Fourier Transform*
 
 ```python
-yf = fft(self.data['heart_rate'])
+yf = fft(self.data['PPG_Signal'].to_numpy())
 ```
 
 ```python
@@ -3068,38 +3304,20 @@ power_spectrum = np.abs(yf)
 dominant_frequency = np.argmax(power_spectrum)
 ```
 
-*Z-score compared to all users (assuming self.data contains data from all users)*
-
-```python
-user_mean = np.mean(self.data[self.data['userID'] == self.userID]['heart_rate'])
-```
-
-```python
-overall_mean = np.mean(self.data['heart_rate'])
-```
-
-```python
-overall_std = np.std(self.data['heart_rate'])
-```
-
-```python
-z = (user_mean - overall_mean) / overall_std
-```
-
 *Moving Average (7-day window as an example)*
 
 ```python
-moving_avg = self.data['heart_rate'].rolling(window=7).mean()
+moving_avg = self.data['PPG_Signal'].rolling(window=7).mean()
 ```
 
 *Skewness and Kurtosis*
 
 ```python
-skewness = skew(self.data['heart_rate'])
+skewness = skew(self.data['PPG_Signal'])
 ```
 
 ```python
-kurt = kurtosis(self.data['heart_rate'])
+kurt = kurtosis(self.data['PPG_Signal'])
 ```
 
 *Store features*
@@ -3125,10 +3343,6 @@ self.features = {
 ```
 
 ```python
-'z_score': z,
-```
-
-```python
 'moving_avg': moving_avg,
 ```
 
@@ -3145,168 +3359,460 @@ self.features = {
 ```
 
 ```python
-def process(mode='predict'):
+def detect_spikes(self, window_size=5, threshold=2.0):
 ```
 
 ```python
-pass
+if self.data is None:
 ```
 
 ```python
-def predict():
+print("Data not loaded.")
 ```
 
 ```python
-pass
+return
+```
+
+*Calculate rolling mean and standard deviation*
+
+```python
+rolling_mean = self.data['PPG_Signal'].rolling(window=window_size).mean()
 ```
 
 ```python
-def analyse():
+rolling_std = self.data['PPG_Signal'].rolling(window=window_size).std()
+```
+
+*Detect spikes where the signal deviates from the rolling mean by more than the threshold times the rolling standard deviation*
+
+```python
+spikes = np.where(np.abs(self.data['PPG_Signal'] - rolling_mean) > threshold * rolling_std)[0]
 ```
 
 ```python
-pass
+return spikes
 ```
 
 ```python
-import tensorflow as tf
+def detect_shifts(self, window_size=50, threshold=2.0):
 ```
 
 ```python
-import numpy as np
+if self.data is None:
 ```
 
 ```python
-import pandas as pd
+print("Data not loaded.")
 ```
+
+```python
+return
+```
+
+*Calculate rolling mean for two consecutive windows*
+
+```python
+rolling_mean_1 = self.data['PPG_Signal'].rolling(window=window_size).mean().shift(-window_size)
+```
+
+```python
+rolling_mean_2 = self.data['PPG_Signal'].rolling(window=window_size).mean()
+```
+
+*Detect shifts where the difference between the means of two consecutive windows is greater than the threshold*
+
+```python
+shifts = np.where(np.abs(rolling_mean_1 - rolling_mean_2) > threshold)[0]
+```
+
+```python
+return shifts
+```
+
+```python
+def process():
+```
+
+*Encoding the 'Condition' column*
+
+```python
+label_encoder = LabelEncoder()
+```
+
+```python
+df['Condition_encoded'] = label_encoder.fit_transform(df['Condition'])
+```
+
+*Drop the original 'Condition' column and use the encoded one*
+
+```python
+df = df.drop(columns=['Condition'])
+```
+
+*Splitting the data into training and testing sets*
+
+```python
+X = df.drop(columns=['PPG_Signal'])
+```
+
+```python
+y = df['PPG_Signal']
+```
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+```python
+X_train.head()
+```
+
+```python
+return X_train, X_test, y_train, y_test
+```
+
+```python
+def train(X_train, X_test, y_train, y_test):
+```
+
+*Training Random Forest Regressor*
+
+```python
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+```
+
+```python
+rf_model.fit(X_train, y_train)
+```
+
+*Predicting on the test set*
+
+```python
+rf_predictions = rf_model.predict(X_test)
+```
+
+*Evaluate the model using Mean Squared Error (MSE)*
+
+```python
+rf_mse = mean_squared_error(y_test, rf_predictions)
+```
+
+```python
+return rf_model, rf_mse
+```
+
+```python
+def predict(model, X_test):
+```
+
+*Predicting on the test set*
+
+```python
+predictions = model.predict(X_test)
+```
+
+```python
+return predictions
+```
+
+```python
+def train_anomaly_detector(self, sample_size=10000):
+```
+
+*Sample a subset of the data for training the One-Class SVM*
+
+```python
+subset_data = self.data.sample(sample_size, random_state=42)
+```
+
+*Prepare features for the model*
+
+```python
+features = subset_data[['PPG_Signal']]
+```
+
+*Train the One-Class SVM*
+
+```python
+self.anomaly_model = OneClassSVM(nu=0.01, kernel="rbf", gamma="scale")
+```
+
+```python
+self.anomaly_model.fit(features)
+```
+
+```python
+def detect_anomalies(self):
+```
+
+```python
+if self.anomaly_model is None:
+```
+
+```python
+print("Model not trained. Use the train_anomaly_detector method first.")
+```
+
+```python
+return
+```
+
+*Predict anomalies on the data*
+
+```python
+anomalies = self.anomaly_model.predict(self.data[['PPG_Signal']])
+```
+
+*Filter out the anomaly rows*
+
+```python
+anomaly_data = self.data[anomalies == -1]
+```
+
+```python
+return anomaly_data
+```
+
+```python
+path=r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\HeartRate_Monitoring\HRD'
+```
+
+```python
+monitor = HRmonitoring(userID="individual_0")
+```
+
+```python
+monitor.get_data(os.path.join(path, "individual_0.csv"))
+```
+
+*Extract features using the class methods*
+
+```python
+monitor.extract_features()
+```
+
+*Detect spikes and shifts*
+
+```python
+spikes = monitor.detect_spikes()
+```
+
+```python
+shifts = monitor.detect_shifts()
+```
+
+*Train the anomaly detector and detect anomalies*
+
+```python
+monitor.train_anomaly_detector()
+```
+
+```python
+anomalies = monitor.detect_anomalies()
+```
+
+*Plot the results*
 
 ```python
 import matplotlib.pyplot as plt
 ```
 
 ```python
-import seaborn as sns
+plt.figure(figsize=(15, 8))
 ```
 
 ```python
-import os
+plt.plot(monitor.data['PPG_Signal'], label="PPG Signal", alpha=0.7)
 ```
 
 ```python
-import datetime
-```
-
-The predictor class is meant to use the data generated by the data generator class and predict the heart rate of the individual. It is a personalised LSTM for each individual. It captures the unique features of the individual and predicts the heart rate.
-
-```python
-class HeartRatePredictor:
+plt.scatter(spikes, monitor.data['PPG_Signal'].iloc[spikes], color='red', label="Detected Spikes", s=50, marker="x")
 ```
 
 ```python
-def create_dataset():
+plt.scatter(shifts, monitor.data['PPG_Signal'].iloc[shifts], color='blue', label="Detected Shifts", s=50, marker="o")
 ```
 
 ```python
-pass
+plt.scatter(anomalies.index, anomalies['PPG_Signal'], color='green', label="Detected Anomalies", s=50, marker="s")
 ```
 
 ```python
-def create_model():
+plt.legend()
 ```
 
 ```python
-pass
+plt.title("PPG Signal with Detected Spikes, Shifts, and Anomalies")
 ```
 
 ```python
-def train_model():
+plt.xlabel("Time (Samples)")
 ```
 
 ```python
-pass
+plt.ylabel("PPG Signal Value")
 ```
 
 ```python
-def save_model():
+plt.tight_layout()
 ```
 
 ```python
-pass
+plt.show()
 ```
 
 ```python
-def load_model():
+monitor.extract_features()
+```
+
+*Plotting the extracted features*
+
+```python
+fig, axs = plt.subplots(4, 1, figsize=(15, 15))
+```
+
+*PPG Signal with Moving Average and Outliers*
+
+```python
+axs[0].plot(monitor.data['PPG_Signal'], label="PPG Signal", alpha=0.7)
 ```
 
 ```python
-pass
+axs[0].plot(monitor.features['moving_avg'], label="Moving Average (7-sample window)", color="purple")
 ```
 
 ```python
-def predict():
+Q1 = np.percentile(monitor.data['PPG_Signal'], 25)
 ```
 
 ```python
-pass
-```
-
-The analyse class is meant to analyse the data generated by the data generator class and predict the presence of any heart disease. It is a generalised LSTM+ Cluster for all individuals. It captures the common features of the individuals and predicts the presence of heart disease.
-
-```python
-class Analyser:
+Q3 = np.percentile(monitor.data['PPG_Signal'], 75)
 ```
 
 ```python
-def create_dataset():
+IQR = Q3 - Q1
 ```
 
 ```python
-pass
+outliers = monitor.data[(monitor.data['PPG_Signal'] < (Q1 - 1.5 * IQR)) | (monitor.data['PPG_Signal'] > (Q3 + 1.5 * IQR))]
 ```
 
 ```python
-def create_model():
+axs[0].scatter(outliers.index, outliers['PPG_Signal'], color='red', label="IQR Outliers", s=50, marker="x")
 ```
 
 ```python
-pass
+axs[0].set_title("PPG Signal with Moving Average and IQR Outliers")
 ```
 
 ```python
-def train_model():
+axs[0].set_xlabel("Time (Samples)")
 ```
 
 ```python
-pass
+axs[0].set_ylabel("PPG Signal Value")
 ```
 
 ```python
-def save_model():
+axs[0].legend()
+```
+
+*Frequency Domain Representation of PPG Signal*
+
+```python
+yf = fft(monitor.data['PPG_Signal'].to_numpy())
 ```
 
 ```python
-pass
+power_spectrum = np.abs(yf[:len(yf)//2])
+```
+
+*Taking half due to symmetry*
+
+```python
+frequencies = np.linspace(0, 0.5, len(power_spectrum))
+```
+
+*Frequency values from 0 to Nyquist (0.5 for normalized freq.)*
+
+```python
+axs[1].plot(frequencies, power_spectrum, label="Frequency Spectrum", alpha=0.7)
 ```
 
 ```python
-def load_model():
+axs[1].axvline(frequencies[monitor.features['dominant_frequency']], color='red', linestyle='--', label="Dominant Frequency")
 ```
 
 ```python
-pass
+axs[1].set_title("Frequency Domain Representation of PPG Signal")
 ```
 
 ```python
-def analyse():
+axs[1].set_xlabel("Frequency (Normalized)")
 ```
 
 ```python
-pass
+axs[1].set_ylabel("Magnitude")
+```
+
+```python
+axs[1].legend()
+```
+
+*Displaying HRV*
+
+```python
+axs[2].text(0.5, 0.6, f"Heart Rate Variability (HRV): {monitor.features['hrv']:.2f}",
+```
+
+```python
+horizontalalignment='center', verticalalignment='center', transform=axs[2].transAxes, fontsize=14)
+```
+
+```python
+axs[2].axis('off')
+```
+
+*Displaying Skewness and Kurtosis*
+
+```python
+axs[3].text(0.5, 0.7, f"Skewness: {monitor.features['skewness']:.2f}",
+```
+
+```python
+horizontalalignment='center', verticalalignment='center', transform=axs[3].transAxes, fontsize=14)
+```
+
+```python
+axs[3].text(0.5, 0.3, f"Kurtosis: {monitor.features['kurtosis']:.2f}",
+```
+
+```python
+horizontalalignment='center', verticalalignment='center', transform=axs[3].transAxes, fontsize=14)
+```
+
+```python
+axs[3].axis('off')
+```
+
+```python
+plt.tight_layout()
+```
+
+```python
+plt.close(fig)
+```
+
+```python
+plot_panel = pn.pane.Matplotlib(fig, tight=True)
 ```
 
 *Empty to allow this folder to be treated as a package and allow communication between files*
 
 # HRD
+
+# __pycache__
 
 # Individual_Tracking
 
@@ -3383,7 +3889,7 @@ self.load_data(preprocessed_data, mode)
 ```
 
 ```python
-def calculate_epochs(self, min_epochs=20, max_epochs=250):
+def calculate_epochs(self, min_epochs=100, max_epochs=1000):
 ```
 
 Calculates the number of epochs based on the training samples.  **Parameter:** min_epochs: Minimum number of epochs, defaults to 20. **Parameter:** max_epochs: Maximum number of epochs, defaults to 250. **Returns:** Calculated number of epochs.
@@ -3531,25 +4037,17 @@ self.model.add(Masking(mask_value=0., input_shape=(self.seq_length, 27)))
 *Masking layer*
 
 ```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True), input_shape=(self.seq_length, 17)))
+self.model.add(Bidirectional(LSTM(1024, return_sequences=True), input_shape=(self.seq_length, 17)))
 ```
 
 *17 features*
 
 ```python
-self.model.add(Dropout(0.2))
+self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))
 ```
 
 ```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
-```
-
-```python
-self.model.add(Dropout(0.2))
-```
-
-```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=True)))
+self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))
 ```
 
 ```python
@@ -3557,7 +4055,31 @@ self.model.add(Dropout(0.2))
 ```
 
 ```python
-self.model.add(Bidirectional(LSTM(256, return_sequences=False)))
+self.model.add(Bidirectional(LSTM(1024, return_sequences=True)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(512, return_sequences=True)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(512, return_sequences=True)))
+```
+
+```python
+self.model.add(Dropout(0.2))
+```
+
+```python
+self.model.add(Bidirectional(LSTM(512, return_sequences=False)))
 ```
 
 ```python
@@ -3593,7 +4115,7 @@ epochs = self.calculate_epochs()
 *Implement early stopping*
 
 ```python
-early_stopping = EarlyStopping(monitor='val_loss', patience=10)
+early_stopping = EarlyStopping(monitor='val_loss', patience=100)
 ```
 
 *Fit the model with validation split*
@@ -3701,7 +4223,19 @@ from sklearn.metrics import mean_squared_error,mean_absolute_error
 ```
 
 ```python
+import matplotlib.pyplot as plt
+```
+
+```python
+import pandas as pd
+```
+
+```python
 import sys
+```
+
+```python
+import panel as pn
 ```
 
 ```python
@@ -3718,10 +4252,6 @@ topic="Orion_test/Individual Tracking & Monitoring"
 
 ```python
 topic="Orion_test/UTP"
-```
-
-```python
-from Dashboard import Dashboard as DB
 ```
 
 ```python
@@ -3759,7 +4289,7 @@ self.train_date=None
 ```
 
 ```python
-self.model_path = f"Models/Individual Tracking & Monitoring/IndiMods/model_{user_id}.h5"
+self.model_path = f"E:/Dev/Deakin/redbackoperations-T2_2023/Project 1 - Tracking Players and Crowd Monitoring/DataScience/IndividualLSTMs/model_{user_id}.h5"
 ```
 
 ```python
@@ -4436,11 +4966,11 @@ data['user_id'] = user_id
 return data
 ```
 
-*common_areas = [(lat1, lon1), (lat2, lon2), ...] # Example common areas i.e. landmarks,coffee shops*
+*common_areas = [(lat1, lon1), (lat2, lon2), ...]*
+
+*Example common areas i.e. landmarks,coffee shops*
 
 *Empty to allow this folder to be treated as a package and allow communication between files*
-
-# IndiMods
 
 # __pycache__
 
@@ -4479,6 +5009,10 @@ from folium.plugins import HeatMap
 ```
 
 ```python
+import panel as pn
+```
+
+```python
 import sys
 ```
 
@@ -4503,10 +5037,6 @@ Handler=MQDH(broker_address, topic)
 ```
 
 ```python
-from Dashboard import Dashboard as DB
-```
-
-```python
 def process_data(gps_data):
 ```
 
@@ -4515,7 +5045,7 @@ Processes the GPS data using DBSCAN clustering and plots the clusters.  **Parame
 *Using DBSCAN to cluster the data*
 
 ```python
-dbscan = DBSCAN(eps=0.01, min_samples=5)
+dbscan = DBSCAN(eps=0.02, min_samples=15, metric='euclidean')
 ```
 
 ```python
@@ -4535,7 +5065,7 @@ colors = cm.rainbow(np.linspace(0, 1, num_clusters))
 ```
 
 ```python
-plt.figure(figsize=(10, 10))
+figure=plt.figure(figsize=(10, 10))
 ```
 
 ```python
@@ -4579,7 +5109,7 @@ plt.show()
 ```
 
 ```python
-return  df
+return  df,figure
 ```
 
 *Initialize empty arrays for latitudes and longitudes*
@@ -4592,70 +5122,28 @@ latitudes = []
 longitudes = []
 ```
 
-*Define cluster centers*
-
-```python
-cluster_centers = [
-```
-
-```python
-(51.507351, -0.127758),
-```
-
-*London, UK*
-
-```python
-]
-```
-
-*Define standard deviation for the distribution of points around the cluster center*
-
-```python
-std_dev = 0.03
-```
-
-*Number of points per cluster*
-
-```python
-points_per_cluster = 100
-```
-
-*Generate points for cluster*
-
-```python
-for center in cluster_centers:
-```
-
-```python
-lat_center, lon_center = center
-```
-
-```python
-latitudes += list(np.random.normal(lat_center, std_dev, points_per_cluster))
-```
-
-```python
-longitudes += list(np.random.normal(lon_center, std_dev, points_per_cluster))
-```
-
 *reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv*
 
 *change this line depending on the file path*
 
 ```python
-df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD2.csv')
+df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD4.csv')
 ```
 
 ```python
-time = df[df["Time"].isin(['9:25:47'])].reset_index(drop=True)
+selected_time_data = df[df["Time"] == '22:22:01']
 ```
 
 ```python
-latitudes_list = df[" Longitude Degrees"].tolist()
+time = df[df["Time"].isin(['23:39:33'])].reset_index(drop=True)
 ```
 
 ```python
-longitudes_list = df[" Latitude Degrees"].tolist()
+latitudes_list = time[" Longitude Degrees"].tolist()
+```
+
+```python
+longitudes_list = time[" Latitude Degrees"].tolist()
 ```
 
 *remove "Time" to facilitate the processing*
@@ -4679,7 +5167,7 @@ gps_data = np.array([latitudes, longitudes]).T
 ```
 
 ```python
-cluster_data=process_data(gps_data)
+cluster_data,fig1=process_data(gps_data)
 ```
 
 *Creating a DataFrame with the latitude and longitude data*
@@ -4691,7 +5179,7 @@ heatmap_data = pd.DataFrame({'Latitude': latitudes, 'Longitude': longitudes})
 *Plotting the heatmap using Seaborn's kdeplot function*
 
 ```python
-plt.figure(figsize=(10, 10))
+figure2=plt.figure(figsize=(10, 10))
 ```
 
 ```python
@@ -4714,14 +5202,14 @@ plt.ylabel('Latitude')
 plt.show()
 ```
 
-*Calculate the mean latitude and longitude*
+*Calculate the mean latitude and longitude for centering the map*
 
 ```python
-mean_latitude = np.mean(latitudes)
+mean_latitude = selected_time_data[" Latitude Degrees"].mean()
 ```
 
 ```python
-mean_longitude = np.mean(longitudes)
+mean_longitude = selected_time_data[" Longitude Degrees"].mean()
 ```
 
 *Create a base map, centered at the mean coordinates*
@@ -4733,13 +5221,13 @@ base_map = folium.Map(location=[mean_latitude, mean_longitude], zoom_start=13)
 *Create a list of [lat, lon] pairs for the heatmap*
 
 ```python
-heatmap_data = [[lat, lon] for lat, lon in zip(latitudes, longitudes)]
+heatmap_data = [[lat, lon] for lat, lon in zip(selected_time_data[" Latitude Degrees"], selected_time_data[" Longitude Degrees"])]
 ```
 
-*Add the heatmap layer to the base map*
+*Add the heatmap layer to the base map with adjusted parameters*
 
 ```python
-HeatMap(heatmap_data).add_to(base_map)
+HeatMap(heatmap_data, radius=15, max_zoom=13, blur=15).add_to(base_map)
 ```
 
 *Save the map to an HTML file (optional)*
@@ -4747,14 +5235,26 @@ HeatMap(heatmap_data).add_to(base_map)
 *change this line depending on the file path*
 
 ```python
-base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding Detection\heatmap.html')
+base_map.save(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Models\Overcrowding_Detection\heatmap.html')
+```
+
+*Handler.send_data(cluster_data)#send the data to the broker*
+
+*plt.close(fig1)*
+
+*plt.close(figure2)*
+
+```python
+plot_panel = pn.pane.Matplotlib(fig1, tight=True)
 ```
 
 ```python
-Handler.send_data(cluster_data)
+plot_panel2 = pn.pane.Matplotlib(figure2, tight=True)
 ```
 
 *Empty to allow this folder to be treated as a package and allow communication between files*
+
+# __pycache__
 
 # variables
 

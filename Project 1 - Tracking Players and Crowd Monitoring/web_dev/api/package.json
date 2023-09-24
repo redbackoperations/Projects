@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "This the api for Project 1 crowd monitoring and player tracking web app",
   "main": "api.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon api.js"
+    "start": "node api.js",
+    "dev": "nodemon api.js"
   },
   "author": "Saksham Behal",
   "license": "ISC",
@@ -20,5 +22,8 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
   }
 }

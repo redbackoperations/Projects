@@ -29,7 +29,7 @@ def process_data(gps_data):
     # Using DBSCAN to cluster the data
     dbscan = DBSCAN(eps=0.02, min_samples=15, metric='euclidean')
     clusters = dbscan.fit_predict(gps_data)
-    print(len(clusters))
+   
     
     df = pd.DataFrame({'Latitude': gps_data[:, 0], 'Longitude': gps_data[:, 1], 'Cluster': clusters})
     num_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
@@ -59,10 +59,10 @@ longitudes = []
 
 # reading latitudes and longitudes from the VirtualCrowd_Test_Cleaned.csv 
 #change this line depending on the file path
-df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD3.csv')
+df = pd.read_csv(r'E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\VD4.csv')
 
 selected_time_data = df[df["Time"] == '22:22:01']
-time = df[df["Time"].isin(['22:22:01'])].reset_index(drop=True)
+time = df[df["Time"].isin(['23:39:33'])].reset_index(drop=True)
 latitudes_list = time[" Longitude Degrees"].tolist()
 longitudes_list = time[" Latitude Degrees"].tolist()
 

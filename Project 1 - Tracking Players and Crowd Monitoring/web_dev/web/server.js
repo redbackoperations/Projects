@@ -25,16 +25,18 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
   
 app.get("/welcome", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/welcome.html"));
+    res.sendFile(path.join(__dirname, "./public/welcome.html"));
 });
 
 setupLoginRoute(app);
 
 setupAddRoute(app);
+
+app.post("/login", setupLoginRoute);
 
 app.get("/", function (req,res)
 {
