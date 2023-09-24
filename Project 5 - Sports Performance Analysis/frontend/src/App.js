@@ -1,5 +1,5 @@
 import './App.css';
-import IdleTimerContainer from './components/idleTimerContainer';
+import IdleTimerContainer from './components/IdleTimerContainer';
 
 function App() {
   return (
