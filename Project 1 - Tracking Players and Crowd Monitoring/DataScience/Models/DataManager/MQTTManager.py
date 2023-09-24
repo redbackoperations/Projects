@@ -37,18 +37,30 @@ class MQTTDataFrameHandler:
         except Exception as e:
             self.error = str(e)
     def create_json_payload(self, dataframe, user_id=None):
-        # Convert dataframe to JSON format
-        data_json = dataframe.to_json(orient='split')
-    
+        # Copies the original data, avoiding modifying it
+        df_anonymized = dataframe.copy()
+
+        # Anonymizing the sensitive data, MAC address
+        if 'name' in df_anonymized.columns:
+            df_anonymized['name'] = df_anonymized['name'].apply(lambda x: 'Anonymous individual' if x else x)
+        # Anonymizing the sensitive data, name (if need be)
+        if 'mac_address' in df_anonymized.columns:
+            df_anonymized['mac_address'] = df_anonymized['mac_address'].apply(lambda x: 'XX:XX:XX:XX:XX:XX' if x else x)
+
+        # Converting the anonymized dataframe to the JSON format
+        data_json = df_anonymized.to_json(orient='split')
+
         payload = {
             'timestamp': datetime.utcnow().isoformat(),
             'data': json.loads(data_json)
         }
-        
+
         if user_id:
             payload['user_id'] = user_id
 
+
         return json.dumps(payload)
+    
     def receive_data(self, timeout=10):
         retries = 0
         while retries < self.max_retries:

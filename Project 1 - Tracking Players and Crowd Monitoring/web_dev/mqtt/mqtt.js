@@ -57,7 +57,7 @@ const temperatureSchema = new mongoose.Schema({
 
 const Temperature = mongoose.model('Temperature', temperatureSchema);
 
-// Define IR sensor schema and model
+
 const irSensorSchema = new mongoose.Schema({
   status: {
     type: String,

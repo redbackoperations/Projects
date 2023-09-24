@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Define the schema for heart rate data
 const heartRateSchema = new mongoose.Schema({
@@ -15,11 +15,9 @@ const heartRateSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // You can add more fields like 'location', 'activity', etc. as needed
 });
 
-// Create a model for the heart rate data
-const HeartRate = mongoose.model('HeartRate', heartRateSchema);
 
-module.exports = HeartRate;
+
+export const HeartRate = mongoose.model('HeartRate', heartRateSchema);
 
