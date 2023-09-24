@@ -1,4 +1,4 @@
-iimport './App.css';
+import './App.css';
 import IdleTimerContainer from './components/idleTimerContainer';
 
 function App() {
