@@ -1,0 +1,35 @@
+/* CoolCursor.css */
+
+.cool-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.2s, border 0.2s;
+    z-index: 9999;
+  }
+  
+  .inner-cursor {
+    width: 12px;
+    height: 12px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s;
+  }
+  
+  .cool-cursor:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    border-color: #2980b9;
+  }
+  
+  .cool-cursor:hover .inner-cursor {
+    background-color: #2980b9;
+  }
+  
