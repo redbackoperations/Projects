@@ -142,5 +142,119 @@ router.post('/trends', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = req.body;
+    if (
+      !updatedData.timestamp ||
+      !updatedData.location ||
+      !updatedData.density ||
+      !updatedData.heatMapData ||
+      !updatedData.eventsOrIncidents ||
+      !updatedData.trends
+    ) {
+      return res.status(400).send({ message: 'Missing parameters' });
+    }
+
+    const crowdRecord = await Crowd.findById(id);
+
+    if (!crowdRecord) {
+      return res.status(404).json({ message: 'Crowd record not found' });
+    }
+
+    const result = await Object.assign(crowdRecord, updatedData);
+
+    if (!result) {
+      return res.status(500).json({ message: 'Error updating crowd record' });
+    }
+
+    await crowdRecord.save(); // Save the updated crowd record
+
+    res.status(200).json({ message: 'Data updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.put('/heat-map/:id', async (req, res) => {
+  try {
+    const crowdId = req.params.id;
+    const updatedHeatMapData = req.body.heatMapData;
+
+    if (!req.body.heatMapData) {
+      return res.status(400).send({ message: 'Missing parameters' });
+    }
+
+
+    const crowdRecord = await Crowd.findById(crowdId);
+
+    if (!crowdRecord) {
+      return res.status(404).json({ message: 'Crowd record not found' });
+    }
+
+
+    crowdRecord.heatMapData = updatedHeatMapData;
+
+
+    await crowdRecord.save();
+
+    res.status(200).json(crowdRecord);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+router.put('/eventsOrIncidents/:id', async (req, res) => {
+  try {
+    const crowdId = req.params.id;
+    const updatedEventsOrIncidents = req.body.eventsOrIncidents;
+
+    if (!req.body.eventsOrIncidents) {
+      return res.status(400).send({ message: 'Missing parameters' });
+    }
+    const crowdRecord = await Crowd.findById(crowdId);
+
+    if (!crowdRecord) {
+      return res.status(404).json({ message: 'Crowd record not found' });
+    }
+
+
+    crowdRecord.eventsOrIncidents = updatedEventsOrIncidents;
+
+
+    await crowdRecord.save();
+
+    res.status(200).json(crowdRecord);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+router.put('/trends/:id', async (req, res) => {
+  try {
+    const crowdId = req.params.id;
+    const updatedTrends = req.body.trends;
+
+
+    const crowdRecord = await Crowd.findById(crowdId);
+
+    if (!crowdRecord) {
+      return res.status(404).json({ message: 'Crowd record not found' });
+    }
+
+
+    crowdRecord.trends = updatedTrends;
+
+
+    await crowdRecord.save();
+
+    res.status(200).json(crowdRecord);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 export default router;
