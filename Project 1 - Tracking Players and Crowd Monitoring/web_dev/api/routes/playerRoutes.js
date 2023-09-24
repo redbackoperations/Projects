@@ -160,7 +160,7 @@ router.post('/:id/movements', async (req, res) => {
 
 
         const { time, date, location, alt, sat } = req.body;
-t
+
         const newMovement = {
             time,
             date,
