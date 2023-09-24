@@ -121,7 +121,7 @@ class PredictiveTracking:
             self.model.add(Bidirectional(LSTM(512, return_sequences=False)))
             self.model.add(Dropout(0.2))
             self.model.add(Dense(self.pred_length * 2))
-            self.model.add(Reshape((self.pred_length, 2))) # Reshape to (pred_length, 2)
+            self.model.add(Reshape((self.pred_length, 2))) # Reshape to (pred_length, 2) for longitude and latitude
              # Compile with a custom learning rate
             optimizer = keras.optimizers.Adam(learning_rate=0.001)
             self.model.compile(optimizer=optimizer, loss='mse')
