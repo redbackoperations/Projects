@@ -17,19 +17,19 @@ import pandas as pd
 import sys
 import panel as pn
 
-sys.path.append(r'e:\\Dev\\Deakin\\redbackoperations-T2_2023\\Project 1 - Tracking Players and Crowd Monitoring\\DataScience\\Models')
-
-broker_address="test.mosquitto.org"
-topic="Orion_test/Individual Tracking & Monitoring"
 
 
-topic="Orion_test/UTP"
+# broker_address="test.mosquitto.org"
+# topic="Orion_test/Individual Tracking & Monitoring"
+
+
+# topic="Orion_test/UTP"
 
 
 
-from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
-Handler=MQDH(broker_address, topic)
-Reciever=MQDH(broker_address, "Orion_test/UTP")
+# from DataManager.MQTTManager import MQTTDataFrameHandler as MQDH 
+# Handler=MQDH(broker_address, topic)
+# Reciever=MQDH(broker_address, "Orion_test/UTP")
 
 class RealTimeTracking:
     def __init__(self,user_id):
@@ -38,9 +38,10 @@ class RealTimeTracking:
         :param user_id: Unique identifier for the user
         """
         self.user_id = user_id
-        self.seq_length = 20
+        self.seq_length =60
+        
         self.train_date=None
-        self.model_path = f"E:/Dev/Deakin/redbackoperations-T2_2023/Project 1 - Tracking Players and Crowd Monitoring/DataScience/IndividualLSTMs/model_{user_id}.h5"
+        self.model_path = f"/home/sam/Desktop/DataScience/Models/Individual_Tracking/IndividualLSTMs/model_{user_id}.h5"
         self.predictive_model=None
        
 
@@ -192,6 +193,10 @@ class RealTimeTracking:
         print(f"Mean Squared Error: {mse}")
         
     def preprocess_data(self, trajectory, common_areas=None):
+        #sort data by ascending date and time since the validation split is based past vs future
+        trajectory = trajectory.sort_values(by='Datetime').reset_index(drop=True)
+
+
         frequent_areas = list(self.get_frequent_areas(trajectory, 10, 5).values())
         combined_areas = [area[0] for area in frequent_areas[:10]]  # Take the first 10 frequent areas
 
@@ -211,13 +216,17 @@ class RealTimeTracking:
                 point['Longitude'],
                 self.get_speed(point, trajectory.iloc[i+1], point['Datetime'], trajectory.iloc[i+1]['Datetime']),
                 self.get_direction(point, trajectory.iloc[i+1]), # Direction
+                point['Datetime'].year,
+                point['Datetime'].month,
                 point['Datetime'].weekday(),
                 point['Datetime'].hour,
-                point['Datetime'].minute
+                
+                point['Datetime'].minute,
+                point['Datetime'].second
             ] + [area['Latitude'] for area in combined_areas] + [area['Longitude'] for area in combined_areas]
 
             features.append(feature_vector)
-
+        
         # Create sequences and future coordinates
         sequences = []
         future_coordinates = []
@@ -234,7 +243,7 @@ class RealTimeTracking:
         return X, y
 
 
-    def generate_future_coordinates(self, trajectory, common_areas=None, number_of_future_points=100, time_interval_minutes=5):
+    def generate_future_coordinates(self,model, trajectory, common_areas=None, number_of_future_points=100, time_interval_minutes=1):
         print(trajectory.head(-5))
         # Get the latest data point from the trajectory
         latest_data_point = trajectory.iloc[-1]
@@ -242,27 +251,28 @@ class RealTimeTracking:
         # Create a list of future datetimes
         future_datetimes = [latest_data_point['Datetime'] + timedelta(minutes=i * time_interval_minutes) for i in range(1, number_of_future_points + 1)]
 
-        # Create a DataFrame to hold the future trajectory
-        future_trajectory = pd.DataFrame(columns=trajectory.columns)
+        # Create a list to hold the future data points
+        future_data_points = []
 
-        # Populate the future trajectory DataFrame with the latest data point and future datetimes
+        # Populate the list with the future data points
         for future_datetime in future_datetimes:
             future_data_point = latest_data_point.copy()
             future_data_point['Datetime'] = future_datetime
-            future_trajectory = future_trajectory.append(future_data_point, ignore_index=True)
-        print(future_trajectory.head(5))
+            future_data_points.append(future_data_point)
+
+        # Convert the list of future data points into a DataFrame
+        future_trajectory = pd.DataFrame(future_data_points)
+
         # Create test data for the given trajectory and future datetimes
         pred_sequence = self.create_prediction_data(future_trajectory, common_areas)
 
         # Load the trained model
-        try:
-            self.model = load_model(self.model_path)
-        except:
-            print("No model found. Please train the model first.")
-            return
+       
+        if model is None:
+            print("empty model")
 
         # Make a prediction using the test sequence
-        prediction = self.model.predict(pred_sequence)
+        prediction = model.predict(pred_sequence)
 
         # Convert the prediction to a list of coordinates (latitude, longitude)
         predicted_coordinates = [(coords[0], coords[1]) for coords in prediction[0]]
@@ -281,21 +291,20 @@ class RealTimeTracking:
         if retrain and model is not None:
             print("Retraining model......")
             self.predictive_model = PredictiveTracking(self.user_id, preprocessed_data,'train')
-            self.predictive_model.train_model()             
+            model=self.predictive_model.train_model()        
             self.predictive_model.save_model()
         
-            return
+            return model
         elif not retrain and model is not None:
             print("Model already trained. Use retrain=True to retrain the model.")
-            return
+            return model
         
         elif model is None:
             print("No model found. Training new model...")
             self.predictive_model = PredictiveTracking(self.user_id, preprocessed_data,'train')
-            self.predictive_model.train_model()
+            model=self.predictive_model.train_model()
             self.predictive_model.save_model()
-            return
-
+            return model
 
 
 
@@ -340,8 +349,7 @@ def read_plt(file_path, user_id):
 
 
 '''-----------------------------------------------------------------------------------------------------------------------------------------------------------the number 00x is the user id, it should be changed to the user id of the user whose data is being processed'''
-directory_path = r"E:\Dev\Deakin\redbackoperations-T2_2023\Project 1 - Tracking Players and Crowd Monitoring\DataScience\Clean Datasets\Geolife Trajectories 1.3\Data\004\Trajectory\*.plt"
-
+directory_path = "/home/sam/Desktop/DataScience/Clean Datasets/Geolife Trajectories 1.3/Data/021/Trajectory/*.plt"
 # Extract the user ID from the directory path (assuming it's the parent folder of "Trajectory")
 user_id = os.path.basename(os.path.dirname(os.path.dirname(directory_path)))
 
@@ -351,44 +359,51 @@ real_time_tracking = RealTimeTracking(user_id)
 # Loop through the .plt files and process the trajectory data
 for file_path in glob.glob(directory_path):
     trajectory_data = read_plt(file_path, user_id)
-    user_trajectory = real_time_tracking.get_trajectory(trajectory_data)
+user_trajectory = real_time_tracking.get_trajectory(trajectory_data)
     
 # Train the model
-real_time_tracking.train_personalised_model(user_trajectory,False)
-print(user_id)
+model=real_time_tracking.train_personalised_model(user_trajectory,False)
+print("user ID:",user_id)
 
 # Predict the future coordinates
-predicted_coordinates = real_time_tracking.generate_future_coordinates(user_trajectory)
+predicted_coordinates = real_time_tracking.generate_future_coordinates(model,user_trajectory)
 print(predicted_coordinates)
 print(user_trajectory)
 #data=Handler.receive_data()
 #user_id=Reciever.receive_data()
 def plot_trajectory_and_predictions(trajectory_data, predicted_coordinates):
     fig, ax = plt.subplots()
-    df=pd.DataFrame(round(trajectory_data[['Longitude', 'Latitude']],4))
-    df=df.tail(100)
+    df = pd.DataFrame(round(trajectory_data[['Longitude', 'Latitude']], 5))
+    df = df.tail(20)
     
+    # Plotting the initial trajectory line with its points
+    ax.plot(df['Longitude'], df['Latitude'], color='blue', label='Initial Trajectory')
+    ax.scatter(df['Longitude'], df['Latitude'], color='blue', s=50)
     
+    # Extracting coordinates for the predicted trajectory
+    predicted_longs, predicted_lats = zip(*predicted_coordinates)
     
-    ax.scatter(round(df['Longitude'],4),round( df['Latitude'],4), label='Initial Trajectory')
-    for i, coords in enumerate(predicted_coordinates):
-        label = f"Predicted Point {i+1}"
-        ax.scatter(coords[1], coords[0], label=label, marker='x')
+    # Plotting the predicted trajectory line
+    ax.plot(predicted_longs, predicted_lats, color='red', label='Predicted Trajectory', linestyle='--')  # Using a dashed line for differentiation
+    
+    # Marking the beginning and end of the predicted trajectory
+    ax.scatter(predicted_longs[0], predicted_lats[0], color='red', s=100, label='Start of Prediction', marker='s')
+    ax.scatter(predicted_longs[-1], predicted_lats[-1], color='red', s=100, label='End of Prediction', marker='^')
     
     ax.set_title('User Trajectory and Predictions')
     ax.set_xlabel('Longitude')
     ax.set_ylabel('Latitude')
     ax.legend()
-    
-   
-    
+
     return fig
+
     
   
 
 data=list()
 fig=plot_trajectory_and_predictions(user_trajectory, predicted_coordinates)
 data.append(predicted_coordinates)
+plt.show()
 plt.close(fig)
 #Uncomment the following line to send the data to the MQTT broker
 # Handler.send_data(pd.DataFrame(data),user_id)
