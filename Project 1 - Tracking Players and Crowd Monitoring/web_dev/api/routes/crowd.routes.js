@@ -1,7 +1,20 @@
+/**
+ * Express API routes for managing player data.
+ * @module routes/crowdRoutes
+ */
+
 import express from 'express';
 import {Crowd} from '../models/crowd.model.js';
 
 const router = express.Router();
+
+/**
+ * Get all crowd data records.
+ * @route GET /api/crowd
+ * @group Crowd - Operations related to crowd data
+ * @returns {Array.<Object>} 200 - An array of crowd data records
+ * @throws {Error} 500 - Server error
+ */
 
 router.get('/', async (req, res) => {
   try {
@@ -12,6 +25,13 @@ router.get('/', async (req, res) => {
   }
 });
 
+/**
+ * Get all crowd heat map data records.
+ * @route GET /api/crowd/heat-map
+ * @group Crowd - Operations related to crowd data
+ * @returns {Array.<Object>} 200 - An array of crowd heat map data records
+ * @throws {Error} 500 - Server error
+ */
 router.get('/heat-map', async (req, res) => {
   try {
     const crowdHeatMapData = await Crowd.find().select('heatMapData');
@@ -21,6 +41,13 @@ router.get('/heat-map', async (req, res) => {
   }
 });
 
+/**
+ * Get all crowd events or incidents data records.
+ * @route GET /api/crowd/eventsOrIncidents
+ * @group Crowd - Operations related to crowd data
+ * @returns {Array.<Object>} 200 - An array of crowd events or incidents data records
+ * @throws {Error} 500 - Server error
+ */
 router.get('/eventsOrIncidents', async (req, res) => {
   try {
     // Assuming events or incidents data is stored as a string in the database
@@ -31,6 +58,13 @@ router.get('/eventsOrIncidents', async (req, res) => {
   }
 });
 
+/**
+ * Get all crowd trends data records.
+ * @route GET /api/crowd/trends
+ * @group Crowd - Operations related to crowd data
+ * @returns {Array.<Object>} 200 - An array of crowd trends data records
+ * @throws {Error} 500 - Server error
+ */
 router.get('/trends', async (req, res) => {
   try {
     const crowdTrends = await Crowd.find().select('trends');
@@ -39,7 +73,20 @@ router.get('/trends', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
+/**
+ * Create a new crowd data record.
+ * @route POST /api/crowd
+ * @group Crowd - Operations related to crowd data
+ * @param {string} timestamp.body.required - Timestamp of the crowd data
+ * @param {string} location.body.required - Location of the crowd data
+ * @param {number} density.body.required - Crowd density
+ * @param {string} heatMapData.body.required - Heat map data of the crowd
+ * @param {string} eventsOrIncidents.body.required - Events or incidents data of the crowd
+ * @param {string} trends.body.required - Trends data of the crowd
+ * @returns {Object} 201 - The created crowd data record
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 500 - Server error
+ */
 router.post('/', async (req, res) => {
     try {
         if (
@@ -69,6 +116,17 @@ router.post('/', async (req, res) => {
     }
   });
 
+/**
+ * Update crowd heat map data by location.
+ * @route POST /api/crowd/heat-map
+ * @group Crowd - Operations related to crowd data
+ * @param {string} location.body.required - Location of the crowd data
+ * @param {string} heatMapData.body.required - Updated heat map data
+ * @returns {Object} 200 - Updated crowd data record with new heat map data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.post('/heat-map', async (req, res) => {
 try {
     if (!req.body.location || !req.body.heatMapData) {
@@ -92,6 +150,18 @@ try {
     res.status(500).json({ message: error.message });
 }
 });
+
+/**
+ * Update crowd events or incidents data by location.
+ * @route POST /api/crowd/eventsOrIncidents
+ * @group Crowd - Operations related to crowd data
+ * @param {string} location.body.required - Location of the crowd data
+ * @param {string} eventsOrIncidents.body.required - Updated events or incidents data
+ * @returns {Object} 200 - Updated crowd data record with new events or incidents data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 
 router.post('/eventsOrIncidents', async (req, res) => {
   try {
@@ -117,6 +187,17 @@ router.post('/eventsOrIncidents', async (req, res) => {
   }
 });
 
+/**
+ * Update crowd trends data by location.
+ * @route POST /api/crowd/trends
+ * @group Crowd - Operations related to crowd data
+ * @param {string} location.body.required - Location of the crowd data
+ * @param {string} trends.body.required - Updated trends data
+ * @returns {Object} 200 - Updated crowd data record with new trends data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.post('/trends', async (req, res) => {
   try {
     if (!req.body.location || !req.body.trends) {
@@ -142,6 +223,22 @@ router.post('/trends', async (req, res) => {
   }
 });
 
+/**
+ * Update crowd data by ID.
+ * @route PUT /api/crowd/{id}
+ * @group Crowd - Operations related to crowd data
+ * @param {string} id.path.required - Crowd data ID
+ * @param {string} timestamp.body.required - Updated timestamp
+ * @param {string} location.body.required - Updated location
+ * @param {number} density.body.required - Updated crowd density
+ * @param {string} heatMapData.body.required - Updated heat map data
+ * @param {string} eventsOrIncidents.body.required - Updated events or incidents data
+ * @param {string} trends.body.required - Updated trends data
+ * @returns {Object} 200 - Crowd data updated successfully
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -177,6 +274,17 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+/**
+ * Update crowd heat map data by location.
+ * @route PUT /api/crowd/heat-map/{id}
+ * @group Crowd - Operations related to crowd data
+ * @param {string} id.path.required - Crowd data ID
+ * @param {string} heatMapData.body.required - Updated heat map data
+ * @returns {Object} 200 - Updated crowd data record with new heat map data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.put('/heat-map/:id', async (req, res) => {
   try {
     const crowdId = req.params.id;
@@ -205,7 +313,17 @@ router.put('/heat-map/:id', async (req, res) => {
   }
 });
 
-
+/**
+ * Update crowd events or incidents data by location.
+ * @route PUT /api/crowd/eventsOrIncidents/{id}
+ * @group Crowd - Operations related to crowd data
+ * @param {string} id.path.required - Crowd data ID
+ * @param {string} eventsOrIncidents.body.required - Updated events or incidents data
+ * @returns {Object} 200 - Updated crowd data record with new events or incidents data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.put('/eventsOrIncidents/:id', async (req, res) => {
   try {
     const crowdId = req.params.id;
@@ -232,7 +350,17 @@ router.put('/eventsOrIncidents/:id', async (req, res) => {
   }
 });
 
-
+/**
+ * Update crowd trends data by location.
+ * @route PUT /api/crowd/trends/{id}
+ * @group Crowd - Operations related to crowd data
+ * @param {string} id.path.required - Crowd data ID
+ * @param {string} trends.body.required - Updated trends data
+ * @returns {Object} 200 - Updated crowd data record with new trends data
+ * @throws {Error} 400 - Missing parameters or invalid input
+ * @throws {Error} 404 - Crowd record not found
+ * @throws {Error} 500 - Server error
+ */
 router.put('/trends/:id', async (req, res) => {
   try {
     const crowdId = req.params.id;

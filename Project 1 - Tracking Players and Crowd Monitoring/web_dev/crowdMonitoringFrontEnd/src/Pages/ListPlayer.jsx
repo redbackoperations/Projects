@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from '../components/Spinner';
+import Cursor from '../components/cursor';
 import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
@@ -104,6 +105,13 @@ const ListPlayers = () => {
                     >
                       <RiPlayFill className='text-2xl' />
                     </Link>
+                    <Link
+                      to={`/player/update/stats/${player._id}`} // Link to player statistics update
+                      className='text-orange-600 hover:text-orange-800 transition duration-300'
+                      >
+                      <MdOutlineAddBox className='text-2xl' />
+                    </Link>
+                    <Cursor />
                   </div>
                 </td>
               </tr>
