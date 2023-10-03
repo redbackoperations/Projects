@@ -109,7 +109,7 @@ client.on('connect', () => {
 });
 
 
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 
 client.on('message', async (topic, message) => {
   if (topic === 'User_Device') {
@@ -118,7 +118,7 @@ client.on('message', async (topic, message) => {
       console.log('Message received:', data);
 
       // Generate a random sensor ID
-      const sensorId = uuidv4();
+      // const sensorId = uuidv4();
 
       // Save the temperature data to MongoDB
       const temperatureData = new Temperature({
