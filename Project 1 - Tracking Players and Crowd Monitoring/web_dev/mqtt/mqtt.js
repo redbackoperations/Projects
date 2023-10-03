@@ -2,6 +2,17 @@ const mongoose = require('mongoose');
 const mqtt = require('mqtt');
 const express = require('express');
 const bodyParser = require('body-parser');
+const { v4: uuidv4 } = require('uuid');
+
+// Generate a random number between 0 and 1
+const randomNumber = Math.random();
+
+// Generate a random UUID (similar to what uuidv4() does)
+const randomUuid = uuidv4();
+
+console.log('Random Number:', randomNumber);
+console.log('Random UUID:', randomUuid);
+
 
 const app = express();
 
@@ -39,7 +50,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const temperatureSchema = new mongoose.Schema({
   sensorId: {
     type: String,
-    required: true
+    required: false
   },
   temperature: {
     type: Number,
@@ -118,7 +129,7 @@ client.on('message', async (topic, message) => {
       console.log('Message received:', data);
 
       // Generate a random sensor ID
-      // const sensorId = uuidv4();
+      const sensorId = uuidv4();
 
       // Save the temperature data to MongoDB
       const temperatureData = new Temperature({
