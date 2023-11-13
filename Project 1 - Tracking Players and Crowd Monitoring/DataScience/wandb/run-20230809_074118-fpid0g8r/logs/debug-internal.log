@@ -1,0 +1,92 @@
+2023-08-09 07:41:18,618 INFO    StreamThr :106548 [internal.py:wandb_internal():86] W&B internal server running at pid: 106548, started at: 2023-08-09 07:41:18.617092
+2023-08-09 07:41:18,619 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status
+2023-08-09 07:41:18,622 INFO    WriterThread:106548 [datastore.py:open_for_write():85] open: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\run-fpid0g8r.wandb
+2023-08-09 07:41:18,623 DEBUG   SenderThread:106548 [sender.py:send():379] send: header
+2023-08-09 07:41:18,668 DEBUG   SenderThread:106548 [sender.py:send():379] send: run
+2023-08-09 07:41:19,332 INFO    SenderThread:106548 [dir_watcher.py:__init__():211] watching files in: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files
+2023-08-09 07:41:19,332 INFO    SenderThread:106548 [sender.py:_start_run_threads():1121] run started: fpid0g8r with start time 1691530878.61909
+2023-08-09 07:41:19,333 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: summary_record
+2023-08-09 07:41:19,334 INFO    SenderThread:106548 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 07:41:19,338 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: check_version
+2023-08-09 07:41:19,338 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: check_version
+2023-08-09 07:41:19,475 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: run_start
+2023-08-09 07:41:19,500 DEBUG   HandlerThread:106548 [system_info.py:__init__():31] System info init
+2023-08-09 07:41:19,500 DEBUG   HandlerThread:106548 [system_info.py:__init__():46] System info init done
+2023-08-09 07:41:19,500 INFO    HandlerThread:106548 [system_monitor.py:start():181] Starting system monitor
+2023-08-09 07:41:19,501 INFO    SystemMonitor:106548 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-08-09 07:41:19,501 INFO    HandlerThread:106548 [system_monitor.py:probe():201] Collecting system info
+2023-08-09 07:41:19,519 INFO    SystemMonitor:106548 [interfaces.py:start():190] Started cpu monitoring
+2023-08-09 07:41:19,519 INFO    SystemMonitor:106548 [interfaces.py:start():190] Started disk monitoring
+2023-08-09 07:41:19,519 INFO    SystemMonitor:106548 [interfaces.py:start():190] Started gpu monitoring
+2023-08-09 07:41:19,564 INFO    SystemMonitor:106548 [interfaces.py:start():190] Started memory monitoring
+2023-08-09 07:41:19,579 INFO    SystemMonitor:106548 [interfaces.py:start():190] Started network monitoring
+2023-08-09 07:41:19,595 DEBUG   HandlerThread:106548 [system_info.py:probe():195] Probing system
+2023-08-09 07:41:19,597 DEBUG   HandlerThread:106548 [system_info.py:_probe_git():180] Probing git
+2023-08-09 07:41:19,603 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:19,677 DEBUG   HandlerThread:106548 [system_info.py:_probe_git():188] Probing git done
+2023-08-09 07:41:19,677 DEBUG   HandlerThread:106548 [system_info.py:probe():240] Probing system done
+2023-08-09 07:41:19,677 DEBUG   HandlerThread:106548 [system_monitor.py:probe():210] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.10.6', 'heartbeatAt': '2023-08-08T21:41:19.595688', 'startedAt': '2023-08-08T21:41:18.609089', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'e:\\Dev\\Deakin\\Project_Orion\\DataScience\\Models\\Action Recognition\\Train.py', 'codePath': 'DataScience\\Models\\Action Recognition\\Train.py', 'git': {'remote': 'https://github.com/whosthis-svg/Project_Orion.git', 'commit': '03e2b9c7894f505a9fafb3faf2f18f6d564d243c'}, 'email': '68013561+whosthis-svg@users.noreply.github.com', 'root': 'E:/Dev/Deakin/Project_Orion', 'host': 'sky', 'username': '61493', 'executable': 'C:\\Python310\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2688.0, 'min': 0.0, 'max': 2688.0}, 'cpu_freq_per_core': [{'current': 2688.0, 'min': 0.0, 'max': 2688.0}], 'disk': {'total': 931.4960899353027, 'used': 216.11728286743164}, 'gpu': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3050 Ti Laptop GPU', 'memory_total': 4294967296}], 'memory': {'total': 31.64645767211914}}
+2023-08-09 07:41:19,677 INFO    HandlerThread:106548 [system_monitor.py:probe():211] Finished collecting system info
+2023-08-09 07:41:19,677 INFO    HandlerThread:106548 [system_monitor.py:probe():214] Publishing system info
+2023-08-09 07:41:19,677 DEBUG   HandlerThread:106548 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-08-09 07:41:19,679 DEBUG   HandlerThread:106548 [system_info.py:_save_pip():67] Saving pip packages done
+2023-08-09 07:41:19,679 INFO    HandlerThread:106548 [system_monitor.py:probe():216] Finished publishing system info
+2023-08-09 07:41:19,690 DEBUG   SenderThread:106548 [sender.py:send():379] send: files
+2023-08-09 07:41:19,690 INFO    SenderThread:106548 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-08-09 07:41:19,699 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 07:41:19,699 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 07:41:20,002 DEBUG   SenderThread:106548 [sender.py:send():379] send: telemetry
+2023-08-09 07:41:20,345 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\requirements.txt
+2023-08-09 07:41:20,346 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\wandb-metadata.json
+2023-08-09 07:41:20,346 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\output.log
+2023-08-09 07:41:20,347 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_created():271] file/dir created: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\wandb-summary.json
+2023-08-09 07:41:20,778 INFO    wandb-upload_0:106548 [upload_job.py:push():131] Uploaded file C:\Users\61493\AppData\Local\Temp\tmpnvdfmf66wandb\8tirn436-wandb-metadata.json
+2023-08-09 07:41:21,626 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:22,359 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\output.log
+2023-08-09 07:41:23,711 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:24,032 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:25,756 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:27,816 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:29,071 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:29,843 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:31,873 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:33,923 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:34,109 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:34,712 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 07:41:34,712 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 07:41:35,959 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:38,013 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:40,043 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:40,070 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:42,105 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:44,150 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:44,531 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\output.log
+2023-08-09 07:41:44,795 DEBUG   SenderThread:106548 [sender.py:send():379] send: telemetry
+2023-08-09 07:41:44,795 DEBUG   SenderThread:106548 [sender.py:send():379] send: metric
+2023-08-09 07:41:44,795 DEBUG   SenderThread:106548 [sender.py:send():379] send: telemetry
+2023-08-09 07:41:44,796 DEBUG   SenderThread:106548 [sender.py:send():379] send: metric
+2023-08-09 07:41:44,796 WARNING SenderThread:106548 [sender.py:send_metric():1326] Seen metric with glob (shouldn't happen)
+2023-08-09 07:41:44,796 DEBUG   SenderThread:106548 [sender.py:send():379] send: telemetry
+2023-08-09 07:41:45,941 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:46,190 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:46,546 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\output.log
+2023-08-09 07:41:48,405 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:49,709 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-09 07:41:49,709 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: stop_status
+2023-08-09 07:41:50,609 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:51,046 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:51,601 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\config.yaml
+2023-08-09 07:41:52,636 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:54,650 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:55,709 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: partial_history
+2023-08-09 07:41:55,710 DEBUG   SenderThread:106548 [sender.py:send():379] send: metric
+2023-08-09 07:41:55,711 DEBUG   SenderThread:106548 [sender.py:send():379] send: metric
+2023-08-09 07:41:55,711 DEBUG   SenderThread:106548 [sender.py:send():379] send: metric
+2023-08-09 07:41:55,711 DEBUG   SenderThread:106548 [sender.py:send():379] send: history
+2023-08-09 07:41:55,711 DEBUG   SenderThread:106548 [sender.py:send_request():406] send_request: summary_record
+2023-08-09 07:41:55,713 INFO    SenderThread:106548 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-08-09 07:41:56,641 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\wandb-summary.json
+2023-08-09 07:41:56,641 INFO    Thread-16 :106548 [dir_watcher.py:_on_file_modified():288] file/dir modified: e:\Dev\Deakin\Project_Orion\DataScience\wandb\run-20230809_074118-fpid0g8r\files\output.log
+2023-08-09 07:41:56,664 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-09 07:41:56,717 DEBUG   HandlerThread:106548 [handler.py:handle_request():144] handle_request: status_report
+2023-08-09 07:41:58,702 ERROR   gpu       :106548 [interfaces.py:monitor():144] Failed to sample metric: Not Supported

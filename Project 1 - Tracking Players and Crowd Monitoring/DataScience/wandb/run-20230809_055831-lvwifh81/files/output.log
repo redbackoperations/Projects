@@ -1,0 +1,27 @@
+Num GPUs Available:  2
+Num CPUs Available:  1
+Num TPUs Available:  0
+Loaded 360 sequences
+Epoch 1/100
+Traceback (most recent call last):
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 109, in <module>
+    TC.train_model()
+  File "e:\Dev\Deakin\Project_Orion\DataScience\Models\Action Recognition\Train.py", line 101, in train_model
+    self.model.fit(self.X_train, self.y_train, epochs=100, batch_size=256, validation_data=(self.X_test, self.y_test), callbacks=[early_stopping,WandbMetricsLogger(log_freq=5),WandbModelCheckpoint("models")])
+  File "C:\Python310\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Python310\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Python310\lib\site-packages\wandb\integration\keras\keras.py", line 174, in new_v2
+    return old_v2(*args, **kwargs)
+  File "C:\Python310\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Python310\lib\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+No OpKernel was registered to support Op 'CudnnRNNV3' used by {{node cond_40/then/_0/cond/CudnnRNNV3}} with these attrs: [seed=0, dropout=0, T=DT_FLOAT, input_mode="linear_input", direction="unidirectional", rnn_mode="lstm", is_training=true, seed2=0, num_proj=0, time_major=false]
+Registered devices: [CPU, GPU]
+Registered kernels:
+  <no registered kernels>
+	 [[cond_40/then/_0/cond/CudnnRNNV3]]
+	 [[sequential/lstm/PartitionedCall]] [Op:__inference_train_function_7129]

@@ -1,0 +1,72 @@
+wandb_version: 1
+
+layer_1:
+  desc: null
+  value: 100
+activation_1:
+  desc: null
+  value: tanh
+optimizer:
+  desc: null
+  value: adam
+loss:
+  desc: null
+  value: sparse_categorical_crossentropy
+metric:
+  desc: null
+  value: accuracy
+epoch:
+  desc: null
+  value: 30
+batch_size:
+  desc: null
+  value: 64
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.6
+    cli_version: 0.15.8
+    framework: keras
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1691536476.42085
+    t:
+      1:
+      - 2
+      - 3
+      - 5
+      - 53
+      - 55
+      2:
+      - 2
+      - 3
+      - 5
+      - 53
+      - 55
+      3:
+      - 7
+      - 16
+      - 23
+      - 38
+      - 39
+      4: 3.10.6
+      5: 0.15.8
+      8:
+      - 3
+      - 5
+    m:
+    - 1: batch/batch_step
+      6:
+      - 3
+    - 1: batch/loss
+      5: 1
+      6:
+      - 1
+    - 1: batch/accuracy
+      5: 1
+      6:
+      - 1
+    - 1: batch/learning_rate
+      5: 1
+      6:
+      - 1
