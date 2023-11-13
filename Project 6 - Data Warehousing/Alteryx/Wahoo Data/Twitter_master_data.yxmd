@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="53" y="40" width="805" height="219" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Twitter_master_data</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="606" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="twitter_handle" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="twitter_handle" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_twitter_id" selected="True" input="Left_" />
+                    <SelectField field="Right_twitter_handle" selected="False" rename="Right_twitter_handle" input="Right_" />
+                    <SelectField field="Right_comment" selected="True" input="Right_" />
+                    <SelectField field="Right_review_date" selected="True" input="Right_" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="726" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:master_Twitter_Data|||master_twitter_data</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Create</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use master_data;</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:master_Twitter_Data
+Query=master_twitter_data</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="78" y="89" width="133" height="24" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>TwitterID</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="1">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+                <Position x="294" y="149" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <UniqueFields>
+                    <Field field="twitter_handle" />
+                  </UniqueFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+            </Node>
+            <Node ToolID="2">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="102" y="149" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <CachedCosmeticName />
+                  <File FileFormat="23" RecordLimit="">aka:master_Twitter|||select * 
+from sw_data.dbo.sw_twitter_data</File>
+                  <FormatSpecificOptions>
+                    <SingleRowFetch>False</SingleRowFetch>
+                    <ReadCentroids>False</ReadCentroids>
+                    <TableStyle>Quoted</TableStyle>
+                    <CacheData>False</CacheData>
+                    <SessionReadOnly>True</SessionReadOnly>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <NoProgress>True</NoProgress>
+                    <PostSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <PreSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>aka:master_Twitter
+Query=select * 
+from sw_data.dbo....</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="twitter_handle" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from sw_data.dbo.sw_twitter_data" type="V_String" />
+                    <Field name="comment" size="1000" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from sw_data.dbo.sw_twitter_data" type="V_WString" />
+                    <Field name="review_date" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from sw_data.dbo.sw_twitter_data" type="Date" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="3">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="486" y="137" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="twitter_id" selected="True" />
+                    <SelectField field="twitter_handle" selected="True" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="4">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+                <Position x="198" y="149" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FieldName>twitter_id</FieldName>
+                  <StartValue>1</StartValue>
+                  <FieldType>Int32</FieldType>
+                  <FieldSize>6</FieldSize>
+                  <Position>0</Position>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+            </Node>
+            <Node ToolID="5">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+                <Position x="390" y="137" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <SortInfo locale="1033">
+                    <Field field="twitter_id" order="Ascending" />
+                  </SortInfo>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>twitter_id - Ascending</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="78" y="173" width="162" height="24" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Twitter_review</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="16">
+              <GuiSettings>
+                <Position x="426" y="221" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Value name="Check Box (135)">False</Value>
+                  <Value name="Check Box (136)">False</Value>
+                  <Value name="List Box (11)">"review_date","twitter_handle","comment","date"</Value>
+                  <Value name="Check Box (84)">True</Value>
+                  <Value name="Check Box (117)">False</Value>
+                  <Value name="Check Box (15)">True</Value>
+                  <Value name="Check Box (109)">True</Value>
+                  <Value name="Check Box (122)">False</Value>
+                  <Value name="Check Box (53)">False</Value>
+                  <Value name="Check Box (58)">False</Value>
+                  <Value name="Check Box (70)">False</Value>
+                  <Value name="Check Box (77)">False</Value>
+                  <Value name="Drop Down (81)">upper</Value>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings Macro="Cleanse.yxmc" />
+            </Node>
+            <Node ToolID="17">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="101" y="233" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`</File>
+                  <FormatSpecificOptions>
+                    <FirstRowData>False</FirstRowData>
+                    <ImportLine>1</ImportLine>
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Untitled spreadsheet.xlsx
+Query=`twitter$`</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="int64_field_1" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`" type="Double" />
+                    <Field name="string_field_2" size="255" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`" type="V_String" />
+                    <Field name="string_field_3" size="255" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`" type="V_String" />
+                    <Field name="string_field_4" size="255" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`" type="V_String" />
+                    <Field name="string_field_5" size="255" source="File: C:\Users\Ankit Mehta\Downloads\Project\Untitled spreadsheet.xlsx|||`twitter$`" type="V_WString" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="18">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="198" y="221" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="string_field_2" selected="True" rename="review_date" />
+                    <SelectField field="string_field_4" selected="True" rename="twitter_handle" />
+                    <SelectField field="string_field_5" selected="True" rename="comment" size="1000" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="19">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="294" y="221" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField expression="Substring([review_date],3,8)+', '+right([review_date], 4)&#xA;&#xA;" field="date" size="1073741823" type="V_WString" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText><![CDATA[date = Substring([review_date],3,8)+', '+right([review_date], 4)
+
+
+]]></DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+            <Node ToolID="20">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+                <Position x="546" y="221" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <IsFrom value="False" />
+                  <InputFieldName>date</InputFieldName>
+                  <Language>English</Language>
+                  <Format>Month dd, yyyy</Format>
+                  <OutputFieldName>DateTime_Out</OutputFieldName>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Convert date From:
+Month dd, yyyy</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+            </Node>
+            <Node ToolID="22">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="666" y="221" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="twitter_handle" selected="True" />
+                    <SelectField field="comment" selected="True" />
+                    <SelectField field="DateTime_Out" selected="True" rename="review_date" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+          </ChildNodes>
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="15" Connection="Join" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Unique" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="15" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="15" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output26" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="16" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Join</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="4c2e0b1e-6fb4-4fee-ba87-3ccd78a94bac" />
+      <Telemetry>
+        <PreviousWorkflowId value="1be00fb3-8f7b-470d-ad40-a3966ab91baf" />
+        <OriginWorkflowId value="1be00fb3-8f7b-470d-ad40-a3966ab91baf" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
