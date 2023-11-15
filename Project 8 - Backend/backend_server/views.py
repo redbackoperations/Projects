@@ -6,6 +6,8 @@ from .serializers import UserSerializer
 def user_list(request):
     #get all user
     users = Users.objects.all()
+    #Serialaize all users
     serilaizer = UserSerializer(users, many=True)
+    
     return JsonResponse(serilaizer.data,  safe=False)
 
