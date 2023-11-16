@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Project 3 - Wearable technology for elderly people",
+            "cwd": "Project 3 - Wearable technology for elderly people",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+        },
+        // {
+        //     "name": "Project 3 - Wearable technology for elderly people (profile mode)",
+        //     "cwd": "Project 3 - Wearable technology for elderly people",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "profile"
+        // },
+        // {
+        //     "name": "Project 3 - Wearable technology for elderly people (release mode)",
+        //     "cwd": "Project 3 - Wearable technology for elderly people",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // },
+        // {
+        //     "name": "Flutter Project",
+        //     "cwd": "Project 4 - W-sensor(injury burden and disability)\\App Development\\Flutter Project",
+        //     "request": "launch",
+        //     "type": "dart"
+        // },
+        // {
+        //     "name": "Flutter Project (profile mode)",
+        //     "cwd": "Project 4 - W-sensor(injury burden and disability)\\App Development\\Flutter Project",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "profile"
+        // },
+        // {
+        //     "name": "Flutter Project (release mode)",
+        //     "cwd": "Project 4 - W-sensor(injury burden and disability)\\App Development\\Flutter Project",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // }
+    ]
+}

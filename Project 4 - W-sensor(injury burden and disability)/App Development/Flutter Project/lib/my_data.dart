@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:untitled4/Walking.dart';
+import 'Walking.dart';
 import 'running.dart'; // Import the file where RunningScreen is defined
-import 'package:untitled4/Walking.dart';
-import 'package:untitled4/Jogging.dart';
-import 'package:untitled4/Cycling.dart';
+import 'Walking.dart';
+import 'Jogging.dart';
+import 'Cycling.dart';
 
 class MyData extends StatelessWidget {
   @override

@@ -1,0 +1,10 @@
+^C:\REPO\PROJECT 3 - WEARABLE TECHNOLOGY FOR ELDERLY PEOPLE\BUILD\WINDOWS\CMAKEFILES\D3CE7E602B390B09A3B71DAB62D9934E\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

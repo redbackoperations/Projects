@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/email.dart';
+import 'email.dart';
 import 'Homepage.dart';
 import 'EditProfile.dart';
 import 'Friends.dart';
@@ -13,6 +13,7 @@ import 'login.dart';
 import 'signup.dart';
 import 'timer.dart';
 import 'privacy.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -40,7 +41,6 @@ class Setting extends StatefulWidget {
   @override
   State<Setting> createState() => _Setting();
 }
-
 
 class _Setting extends State<Setting> {
   int _currentIndex = 0;
@@ -92,7 +92,7 @@ class _Setting extends State<Setting> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyAccount(title:'Profile'),
+                      builder: (context) => MyAccount(title: 'Profile'),
                     ),
                   );
                 },
@@ -273,4 +273,3 @@ class _Setting extends State<Setting> {
     );
   }
 }
-

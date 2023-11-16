@@ -1,0 +1,10 @@
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/CMakeFiles/INSTALL.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/CMakeFiles/mobile_app.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/CMakeFiles/ALL_BUILD.dir

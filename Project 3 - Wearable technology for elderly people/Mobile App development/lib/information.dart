@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/contact.dart';
+import 'contact.dart';
 
 class InformationScreen extends StatelessWidget {
   @override
@@ -40,7 +40,8 @@ class InformationScreen extends StatelessWidget {
             top: 120,
             left: 0,
             right: 0,
-            bottom: 160, // Adjust the bottom value to create space for the button
+            bottom:
+                160, // Adjust the bottom value to create space for the button
             child: ListView(
               shrinkWrap: true,
               children: [
@@ -129,7 +130,6 @@ class InformationScreen extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );
