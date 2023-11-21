@@ -10,15 +10,15 @@ Redback Operations is on a mission to transform small steps in the virtual world
  
 In the current trimester, we are thrilled to present a line-up of four exciting projects that reflect our commitment to innovation and continuous improvement. These projects include both new initiatives and enhancements to existing products or services. Our objective is to ensure that our offerings remain efficient, and user-friendly.
  
-Project 1 - VR SunCycle and SmartBike
+* Project 1 - VR SunCycle and SmartBike
 
-Project 2 - Wearable sensor technology for injury prevention of athletes, the elderly, or physically impaired persons
+* Project 2 - Wearable sensor technology for injury prevention of athletes, the elderly, or physically impaired persons
 
-Project 3 - Sports Analysis -for cycling, cricket and football(soccer)
+* Project 3 - Sports Analysis -for cycling, cricket and football(soccer)
 
-Project 4 - Data Warehousing
+* Project 4 - Data Warehousing
 
-Cyber security Team
+* Cyber security Team
  
 ## Vision
  
