@@ -19,5 +19,6 @@ from django.urls import path
 from backend_server import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', views.user_list)
+    path('users/', views.user_list),
+    path('users/<int:id>', views.user_detail)
 ]
