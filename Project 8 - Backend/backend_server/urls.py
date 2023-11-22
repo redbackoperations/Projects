@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from backend_server import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # URL for the Django admin interface
     path('users/', views.user_list),  # URL for handling user list operations (GET and POST)
     path('users/<int:id>', views.user_detail)  # URL for handling individual user operations (GET, PUT, DELETE)
 ]
+
+#Getting Json format through browzer
+urlpatterns = format_suffix_patterns(urlpatterns)

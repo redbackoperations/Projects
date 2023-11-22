@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 @api_view(['GET', 'POST'])
-def user_list(request):
+def user_list(request, format=None):
     if request.method == 'GET':
         # Retrieve all users
         users = Users.objects.all()
@@ -24,7 +24,8 @@ def user_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def user_detail(request, id):
+def user_detail(request, id,format=None):
+
     try:
         user = Users.objects.get(pk=id)
     except Users.DoesNotExist:
