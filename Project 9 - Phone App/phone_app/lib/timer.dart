@@ -15,6 +15,7 @@ class _TimerPageState extends State<TimerPage> {
   int _seconds = 0;
   late Timer _timer;
   bool _isPaused = false;
+  bool _isRunning = false;
 
   @override
   void initState() {
@@ -93,7 +94,7 @@ class _TimerPageState extends State<TimerPage> {
                   ),
                 ),
               ),
-            ),
+            ), // container holding circle elapsed time display
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _togglePause,
@@ -119,10 +120,17 @@ class _TimerPageState extends State<TimerPage> {
               child: Text('Stop'),
             ),
             SizedBox(height: 50),
-            MapPage(),
-          ],
+            Container(
+              width: MediaQuery.of(context).size.width,
+              constraints: BoxConstraints(
+                maxWidth: MediaQuery.of(context).size.width,
+                maxHeight: MediaQuery.of(context).size.width,
+              ),
+              child: MapPage(),
+            )
+          ], // children of list view
         ),
-      ),
+      ), // body container
     );
   }
 }
