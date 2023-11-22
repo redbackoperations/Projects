@@ -5,7 +5,11 @@ import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatefulWidget {
-  const MapPage({super.key});
+  MapPage({super.key});
+  bool _isTracking = false;
+  void startStopTracking(bool isTracking) {
+    _isTracking = isTracking;
+  }
 
   @override
   State<MapPage> createState() => _MapPageState();
@@ -16,13 +20,15 @@ class _MapPageState extends State<MapPage> {
       Completer<GoogleMapController>();
   Location _locationController = new Location();
   LatLng? _currentPosition = null;
+  bool _isTracking = false;
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      getLocationUpdates();
-    });
+    setLocation();
+    //Timer.periodic(Duration(seconds: 1), (timer) {
+    //getLocationUpdates();
+    //});
   }
 
   @override
@@ -65,7 +71,7 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
-  Future<void> getLocationUpdates() async {
+  Future<void> setLocation() async {
     // Begin checking location services available and user has permission
     bool serviceEnabled;
     PermissionStatus permissionGranted;
@@ -95,9 +101,47 @@ class _MapPageState extends State<MapPage> {
       setState(() {
         _currentPosition =
             LatLng(currentLocation.latitude!, currentLocation.longitude!);
-        print("Location changed: $currentLocation");
       });
       cameraFollow(_currentPosition!);
+    }
+
+    //});
+  } // end getLocationUpdates
+
+  Future<void> getLocationUpdates() async {
+    // Begin checking location services available and user has permission
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
+
+    serviceEnabled = await _locationController.serviceEnabled();
+    if (serviceEnabled) {
+      serviceEnabled = await _locationController.requestService();
+    } else {
+      return;
+    }
+
+    permissionGranted = await _locationController.hasPermission();
+    // end permission and service checks
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await _locationController.requestPermission();
+
+      if (permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    // _locationController.onLocationChanged
+    //     .listen((LocationData currentLocation) {
+    if (_isTracking) {
+      LocationData currentLocation = await _locationController.getLocation();
+      if (currentLocation.latitude != null &&
+          currentLocation.longitude != null) {
+        setState(() {
+          _currentPosition =
+              LatLng(currentLocation.latitude!, currentLocation.longitude!);
+        });
+        cameraFollow(_currentPosition!);
+      }
     }
     //});
   } // end getLocationUpdates

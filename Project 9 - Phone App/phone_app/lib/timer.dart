@@ -24,7 +24,7 @@ class _TimerPageState extends State<TimerPage> {
   }
 
   void _incrementTimer(Timer timer) {
-    if (!_isPaused) {
+    if (!_isPaused && _isRunning) {
       setState(() {
         _seconds++;
       });
@@ -45,15 +45,22 @@ class _TimerPageState extends State<TimerPage> {
     });
   }
 
-  void _stopTimer() {
-    _timer.cancel();
-    Navigator.of(context)
-        .pop(); // Close the screen and go back to the previous screen
+  void _startStopTimer() {
+    if (!_isRunning) {
+      _isRunning = true;
+      MapPage().startStopTracking(true);
+    } else {
+      _timer.cancel();
+      MapPage().startStopTracking(false);
+      Navigator.of(context)
+          .pop(); // Close the screen and go back to the previous screen
+    }
   }
 
   @override
   void dispose() {
     _timer.cancel();
+    MapPage().startStopTracking(false);
     super.dispose();
   }
 
@@ -109,7 +116,7 @@ class _TimerPageState extends State<TimerPage> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _stopTimer,
+              onPressed: _startStopTimer,
               style: ElevatedButton.styleFrom(
                 primary: Colors.red,
                 minimumSize: Size(160, 60),
@@ -117,7 +124,7 @@ class _TimerPageState extends State<TimerPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              child: Text('Stop'),
+              child: Text(_isRunning ? 'Stop' : 'Start'),
             ),
             SizedBox(height: 50),
             Container(
