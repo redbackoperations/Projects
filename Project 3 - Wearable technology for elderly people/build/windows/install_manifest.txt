@@ -1,0 +1,10 @@
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/icudtl.dat
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/flutter_windows.dll
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/AssetManifest.bin
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+C:/repo/Project 3 - Wearable technology for elderly people/build/windows/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

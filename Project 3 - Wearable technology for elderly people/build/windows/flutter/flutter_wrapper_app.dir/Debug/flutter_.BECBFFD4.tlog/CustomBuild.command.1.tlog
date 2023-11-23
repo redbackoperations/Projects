@@ -1,0 +1,10 @@
+^C:\REPO\PROJECT 3 - WEARABLE TECHNOLOGY FOR ELDERLY PEOPLE\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/repo/Project 3 - Wearable technology for elderly people/windows" "-BC:/repo/Project 3 - Wearable technology for elderly people/build/windows" --check-stamp-file "C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

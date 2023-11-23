@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:mobile_app/Friends.dart';
+import 'Friends.dart';
 import 'MyActivity.dart';
 import 'main.dart';
 import 'MyAccount.dart';
@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> fetchData() async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.211.105:3000/api/data'));
+      final response =
+          await http.get(Uri.parse('http://192.168.211.105:3000/api/data'));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
@@ -63,7 +64,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -74,9 +74,15 @@ class _HomePageState extends State<HomePage> {
             children: [
               TabBar(
                 tabs: [
-                  Tab(text: 'Home',),
-                  Tab(text: 'Activities',),
-                  Tab(text: 'Account',),
+                  Tab(
+                    text: 'Home',
+                  ),
+                  Tab(
+                    text: 'Activities',
+                  ),
+                  Tab(
+                    text: 'Account',
+                  ),
                 ],
               ),
             ],
@@ -91,7 +97,9 @@ class _HomePageState extends State<HomePage> {
               avgTime: avgTime,
               avgPace: avgPace,
             ),
-            MyActivity(title: '',),
+            MyActivity(
+              title: '',
+            ),
             MyAccount(title: ''),
           ],
         ),

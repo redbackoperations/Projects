@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\repo\Project 3 - Wearable technology for elderly people\build\windows\CMakeFiles\d3ce7e602b390b09a3b71dab62d9934e\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{AD8FB6F6-B01D-3AC7-BD4B-4BB5F03526B7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
