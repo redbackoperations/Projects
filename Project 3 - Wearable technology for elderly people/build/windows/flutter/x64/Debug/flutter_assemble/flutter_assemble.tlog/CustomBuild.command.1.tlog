@@ -1,0 +1,28 @@
+^C:\REPO\PROJECT 3 - WEARABLE TECHNOLOGY FOR ELDERLY PEOPLE\BUILD\WINDOWS\CMAKEFILES\CEB1C06BEC3585CCA9929451CA9B8602\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\Users\kinge\flutter\flutter "PROJECT_DIR=C:\repo\Project 3 - Wearable technology for elderly people" FLUTTER_ROOT=C:\Users\kinge\flutter\flutter "FLUTTER_EPHEMERAL_DIR=C:\repo\Project 3 - Wearable technology for elderly people\windows\flutter\ephemeral" "PROJECT_DIR=C:\repo\Project 3 - Wearable technology for elderly people" "FLUTTER_TARGET=C:\repo\Project 3 - Wearable technology for elderly people\Mobile App development\lib\mapsample.dart" DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==,RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC8wNTQ1Zjg3MDVkZjMwMTg3N2Q3ODcxMDdiYWMxYTZlOWZjOWVlMWFkLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=C:\repo\Project 3 - Wearable technology for elderly people\.dart_tool\package_config.json" C:/Users/kinge/flutter/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\REPO\PROJECT 3 - WEARABLE TECHNOLOGY FOR ELDERLY PEOPLE\BUILD\WINDOWS\CMAKEFILES\F7313DCB91F3A0ACF27737CC29B6AA77\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\REPO\PROJECT 3 - WEARABLE TECHNOLOGY FOR ELDERLY PEOPLE\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/repo/Project 3 - Wearable technology for elderly people/windows" "-BC:/repo/Project 3 - Wearable technology for elderly people/build/windows" --check-stamp-file "C:/repo/Project 3 - Wearable technology for elderly people/build/windows/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

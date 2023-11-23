@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/privacy.dart';
+import 'privacy.dart';
 import 'EditProfile.dart';
 import 'MyActivity.dart';
 import 'main.dart';
@@ -54,7 +54,8 @@ class _MyAccount extends State<MyAccount> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => EditProfileActivity(title:'Profile'),
+                      builder: (context) =>
+                          EditProfileActivity(title: 'Profile'),
                     ),
                   );
                 },
@@ -142,8 +143,7 @@ class _MyAccount extends State<MyAccount> {
             child: Container(
               width: 300,
               child: ElevatedButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shape: RoundedRectangleBorder(
@@ -182,8 +182,7 @@ class _MyAccount extends State<MyAccount> {
             child: Container(
               width: 300,
               child: ElevatedButton(
-                onPressed: () {
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                   shape: RoundedRectangleBorder(
