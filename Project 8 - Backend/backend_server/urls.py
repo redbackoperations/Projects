@@ -24,7 +24,8 @@ urlpatterns = [
     path('users/', views.user_list),  # URL for handling user list operations (GET and POST)
     path('users/<int:id>', views.user_detail),  # URL for handling individual user operations (GET, PUT, DELETE)
     path('signup/', views.test_take_input, name='signup'),
-    path('login/', views.test_take_input, name='login'),
+    path('login/', views.login, name='login'),
+    path('home/', views.home, name='home')
     #path('maxi/', views.maxi_list, name='maxi')
 ]
 

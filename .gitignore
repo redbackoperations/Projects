@@ -1,1 +1,4 @@
 .venv/
+*.sqlite3
+Project 8 - Backend/db.sqlite3
+Project 8 - Backend/db.sqlite3
