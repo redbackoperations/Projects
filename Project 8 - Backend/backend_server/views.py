@@ -19,6 +19,9 @@ from .models import warehouse
 def home(request):
     return render(request, "home.html")
 
+def redirect_home(request):
+    return render(request, "redirect_home.html")
+
 # View to handle GET and POST requests for user list (GET - get all users, POST - create new user)
 @api_view(['GET', 'POST'])
 def user_list(request, format=None):
@@ -101,11 +104,22 @@ def test_take_input(request, format=None):
         fetched_username = request.data.get("username")
         fetched_password = request.data.get("password")
 
-        input_into_db = warehouse(email=fetched_email, username=fetched_username, password=fetched_password)
-        input_into_db.save()
+        email_is_exist = warehouse.objects.filter(email = fetched_email).exists()
+        username_is_exist = warehouse.objects.filter(username = fetched_username).exists()
 
-        # Optionally, return a response indicating success or any other necessary data
-        return Response({"message": "Data saved successfully"}, status=201)
+        if email_is_exist:
+            return Response("This email does  exist in the warehouse records.", status= 203)
+        
+        elif username_is_exist:
+            return Response("This username does  exist in the warehouse records.", status= 203)
+        
+        else:
+
+            input_into_db = warehouse(email=fetched_email, username=fetched_username, password=fetched_password)
+            input_into_db.save()
+
+            # Optionally, return a response indicating success or any other necessary data
+            return redirect('home')
     elif request.method == 'GET':
         # Render the signup form for GET requests
         return render(request, 'signup.html')
