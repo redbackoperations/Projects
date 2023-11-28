@@ -88,7 +88,7 @@ def user_detail(request, id,format=None):
 
 
 
-
+#take input using the singup.html page
 @api_view(['POST', 'GET'])
 def test_take_input(request, format=None):
     if request.method == 'POST':
