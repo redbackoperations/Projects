@@ -4,7 +4,7 @@ from .models import Users
 from .serializers import UserSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status 
 from .forms import UserCreationForm
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login
@@ -14,24 +14,32 @@ from django.shortcuts import redirect
 from .auth_form_serializers import LoginSerializer, SignupSerializer
 from rest_framework.exceptions import ValidationError
 from .models import warehouse  
+
+
+def home(request):
+    return render(request, "home.html")
+
+def redirect_home(request):
+    return render(request, "redirect_home.html")
+
 # View to handle GET and POST requests for user list (GET - get all users, POST - create new user)
 @api_view(['GET', 'POST'])
 def user_list(request, format=None):
     if request.method == 'GET':
-        # Retrieve all users
+         # Retrieve all users
         users = Users.objects.all()
         # Serialize all users
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
 
     if request.method == 'POST':
-        # Create a new user
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
+       # Create a new user
+       serializer = UserSerializer(data=request.data)
+       if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        # Return errors if the data is invalid
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # Return errors if the data is invalid
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # View to handle GET, PUT, and DELETE requests for a specific user
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -96,14 +104,64 @@ def test_take_input(request, format=None):
         fetched_username = request.data.get("username")
         fetched_password = request.data.get("password")
 
-        input_into_db = warehouse(email=fetched_email, username=fetched_username, password=fetched_password)
-        input_into_db.save()
+        email_is_exist = warehouse.objects.filter(email = fetched_email).exists()
+        username_is_exist = warehouse.objects.filter(username = fetched_username).exists()
 
-        # Optionally, return a response indicating success or any other necessary data
-        return Response({"message": "Data saved successfully"}, status=201)
+        if email_is_exist:
+            return Response("This email does  exist in the warehouse records.", status= 203)
+        
+        elif username_is_exist:
+            return Response("This username does  exist in the warehouse records.", status= 203)
+        
+        else:
+
+            input_into_db = warehouse(email=fetched_email, username=fetched_username, password=fetched_password)
+            input_into_db.save()
+
+            # Optionally, return a response indicating success or any other necessary data
+            return redirect('home')
     elif request.method == 'GET':
         # Render the signup form for GET requests
         return render(request, 'signup.html')
 
+@api_view(['POST', 'GET'])
+def login(request, format=None):
+    if request.method == 'POST':
+        fetched_username = request.data.get("username")
+        fetched_password = request.data.get("password")
+
+        fetched = warehouse.objects.filter(username = fetched_username).exists()
+        if fetched:
+            user = warehouse.objects.get(username = fetched_username)
+            
+
+            if (fetched_password != user.password):
+                print("incorrect password ")
+                return Response({"message": "incorrect password"}, status=202)
+            
+            else:
+                return Response({"message": "username = {} and email = {}".format(user.username,user.email)}, status=201)
+        
+        else:
+            return Response("This username does not exist in the warehouse records.", status= 203)
 
 
+
+
+        
+    elif request.method == 'GET':
+        # Render the signup form for GET requests
+        return render(request, 'login.html')
+
+
+    # if request.method == 'POST':
+
+    #     fetched_username = request.data.get("username")
+    #     fetched_password = request.data.get("password")
+
+    #     print(fetched_username)
+    #     print(fetched_password)
+
+
+    #     # Optionally, return a response indicating success or any other necessary data
+    #     return Response({"message": "Data logged in successfully"}, status=201)

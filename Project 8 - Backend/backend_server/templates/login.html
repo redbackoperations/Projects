@@ -4,11 +4,17 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form method="post">
+    <h1>LLogin</h1>
+    <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
+
+        <label for="username">username:</label><br>
+        <input type="username" id="username" name="username"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <button type="submit">submit</button>
     </form>
 </body>
 </html>
