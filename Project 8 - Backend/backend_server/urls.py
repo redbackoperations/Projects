@@ -25,8 +25,8 @@ urlpatterns = [
     path('users/<int:id>', views.user_detail),  # URL for handling individual user operations (GET, PUT, DELETE)
     path('signup/', views.test_take_input, name='signup'),
     path('login/', views.login, name='login'),
-    path('home/', views.home, name='home')
-    #path('maxi/', views.maxi_list, name='maxi')
+    path('home/', views.home, name='home'),
+    path('redirected_home.html/', views.login, name='home'),
 ]
 
 

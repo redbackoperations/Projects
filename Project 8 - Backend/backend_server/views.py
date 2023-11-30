@@ -140,7 +140,8 @@ def login(request, format=None):
                 return Response({"message": "incorrect password"}, status=202)
             
             else:
-                return Response({"message": "username = {} and email = {}".format(user.username,user.email)}, status=201)
+                # return Response({"message": "username = {} and email = {}".format(user.username,user.email)}, status=201)
+                return render(request,'home.html')
         
         else:
             return Response("This username does not exist in the warehouse records.", status= 203)
