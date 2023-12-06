@@ -1,0 +1,28 @@
+GeoLife GPS Trajectory Dataset:
+
+Description: This dataset was collected by Microsoft Research and contains GPS coordinates of 182 users over a span of nearly five years.
+Access: GeoLife GPS Trajectory Dataset
+CRAWDAD:
+
+Description: A community resource for archiving wireless data. They provide several datasets related to WiFi connectivity, mobility, and GPS tracking.
+Access: CRAWDAD
+UCI Machine Learning Repository:
+
+Description: The UCI repository might have datasets that could be useful for tracking applications, especially if you're looking for datasets that combine GPS with other sensor data like accelerometers and gyroscopes.
+Access: UCI Machine Learning Repository
+Next Generation Simulation (NGSIM):
+
+Description: NGSIM provides detailed vehicle trajectory data and could be an interesting resource if you're looking at tracking in a vehicular context.
+Access: NGSIM
+MobiAct Dataset:
+
+Description: A dataset containing accelerometer, gyroscope, and orientation data collected from various activities. It can be useful for tracking and activity recognition.
+Access: MobiAct Dataset
+Human Activity Recognition Using Smartphones Data Set:
+
+Description: Contains accelerometer and gyroscope data from smartphones. This might be useful if you are looking to understand individual movements or activities.
+Access: Human Activity Recognition Dataset
+Open Street Map (OSM):
+
+Description: While not a dataset in itself, OSM can be used to enrich or validate the GPS data you might be using. It can provide context and additional information about the areas where tracking is occurring.
+Access: Open Street Map

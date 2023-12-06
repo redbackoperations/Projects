@@ -1,0 +1,13 @@
+Title: Virtual Crowd IoT Data Collection
+
+Dataset Description:
+
+This dataset represents a unique collection of simulated Internet of Things (IoT) device data derived from a virtual crowd environment. The dataset encapsulates a 22-minute recording, captured at a frequency of 10Hz. Each data entry simulates the readings from two distinct devices - a smartwatch situated on the left wrist and a mobile phone housed in the right pocket of virtual individuals within the crowd.
+
+The data fields captured for each device and individual include Time, Agent ID, Device Type, Accelerometer X/Y/Z, Gyroscope X/Y/Z, Longitude (Degrees and Minutes), Latitude (Degrees and Minutes), and Altitude. Here, the accelerometer readings correspond to the linear acceleration of the device, whereas gyroscope readings indicate the orientation, both vital in understanding the movement and orientation of the devices. The geographic coordinates provide insight into the spatial movement of each individual, with altitude indicating the vertical displacement.
+
+The dataset stands out for its inclusion of emulated data noise and broken connections. The data noise introduced is a result of intentional perturbation in the recorded data values, intending to mimic real-world scenarios where the device readings might be influenced by various factors causing slight deviations. The broken connections emulate potential loss of data transmission, a common occurrence in real-world IoT implementations due to network issues, device malfunctioning, or other unexpected scenarios.
+
+Overall, this dataset serves as a rich source for analyzing and understanding crowd dynamics, human movement, and the performance of IoT devices in a crowded scenario, under both optimal and non-optimal conditions. It can aid in developing and testing algorithms related to IoT data processing, crowd movement modeling, connectivity issues troubleshooting, and device performance optimization under varying conditions.
+
+NB:Crowd agents emulate call and text reactions where they stop do an action then continue, it's an early trial so not as good and the phone retains it's position in pocket throughout
