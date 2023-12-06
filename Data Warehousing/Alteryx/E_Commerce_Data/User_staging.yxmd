@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="161" y="65" width="504" height="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>User_Staging</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="186" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File FileFormat="23" RecordLimit="">aka:User_RW|||select * 
+from thelook_ecommerce.dbo.user_data_rw</File>
+              <FormatSpecificOptions>
+                <SingleRowFetch>False</SingleRowFetch>
+                <ReadCentroids>False</ReadCentroids>
+                <TableStyle>Quoted</TableStyle>
+                <CacheData>False</CacheData>
+                <SessionReadOnly>True</SessionReadOnly>
+                <ReadUncommitted>False</ReadUncommitted>
+                <NoProgress>True</NoProgress>
+                <PostSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <PreSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:User_RW
+Query=select * 
+from thelook_ecom...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="id" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="Double" />
+                <Field name="first_name" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="last_name" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="email" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="age" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="Double" />
+                <Field name="gender" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="state" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="street_address" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="postal_code" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="city" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="country" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="latitude" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="Double" />
+                <Field name="longitude" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="Double" />
+                <Field name="traffic_source" size="255" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="V_String" />
+                <Field name="created_at" source="File: aka:User_RW|||select * &#xA;from thelook_ecommerce.dbo.user_data_rw" type="DateTime" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings>
+            <Position x="294" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"id","first_name","last_name","email","age","gender","state","street_address","postal_code","city","country","latitude","longitude","traffic_source","created_at"</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="414" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="first_name" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>first_name - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+            <Position x="522" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UpdateField value="True" />
+              <UpdateField_Name>gender</UpdateField_Name>
+              <CreateField_Name>New Field</CreateField_Name>
+              <CreateField_Type>Int32</CreateField_Type>
+              <CreateField_Size>4</CreateField_Size>
+              <OtherRows>Empty</OtherRows>
+              <NumRows value="1" />
+              <Expression />
+              <GroupByFields>
+                <Field field="gender" />
+              </GroupByFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+            <Position x="534" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldType>Text</FieldType>
+              <Fields orderChanged="False">
+                <Field name="gender" />
+                <Field name="first_name" selected="False" />
+                <Field name="last_name" selected="False" />
+                <Field name="email" selected="False" />
+                <Field name="state" selected="False" />
+                <Field name="street_address" selected="False" />
+                <Field name="postal_code" selected="False" />
+                <Field name="city" selected="False" />
+                <Field name="country" selected="False" />
+                <Field name="traffic_source" selected="False" />
+                <Field name="*Unknown" selected="False" />
+              </Fields>
+              <NewFieldAddOn>New_</NewFieldAddOn>
+              <NewFieldAddOnPos>Prefix</NewFieldAddOnPos>
+              <CopyOutput value="True" />
+              <Expression>iif([_CurrentField_]="Y" || [_CurrentField_]="Yes","True",iif([_CurrentField_]="N" || [_CurrentField_]="No","False",[_CurrentField_]))</Expression>
+              <ChangeFieldType value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>iif([_CurrentField_]="Y" || [_CurrentField_]="Yes","True",iif...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output26" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>User_staging</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="f50aa0f7-8803-48f8-88d5-c37ccd13a69d" />
+      <Telemetry>
+        <PreviousWorkflowId value="13be62c7-fc7c-4dab-aba1-0def868363a8" />
+        <OriginWorkflowId value="13be62c7-fc7c-4dab-aba1-0def868363a8" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

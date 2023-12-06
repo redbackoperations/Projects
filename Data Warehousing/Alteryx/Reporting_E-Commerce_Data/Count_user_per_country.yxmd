@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="197" y="65" width="456" height="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Count_user_per_country</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="222" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File FileFormat="23" RecordLimit="">aka:inventory_item_RW|||select * 
+from thelook_ecommerce_Staging.dbo.user_staging_data</File>
+              <FormatSpecificOptions>
+                <SingleRowFetch>False</SingleRowFetch>
+                <ReadCentroids>False</ReadCentroids>
+                <TableStyle>Quoted</TableStyle>
+                <CacheData>False</CacheData>
+                <SessionReadOnly>True</SessionReadOnly>
+                <ReadUncommitted>False</ReadUncommitted>
+                <NoProgress>True</NoProgress>
+                <PostSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <PreSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:inventory_item_RW
+Query=select * 
+from thelook_ecom...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="id" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="Double" />
+                <Field name="first_name" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="last_name" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="email" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="age" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="Double" />
+                <Field name="gender" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="state" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="street_address" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="postal_code" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="city" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="country" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="latitude" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="Double" />
+                <Field name="longitude" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="Double" />
+                <Field name="traffic_source" size="255" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="V_String" />
+                <Field name="created_at" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=;SERVER=DESKTOP-TA4QC6M;Trusted_Connection=yes|||select * &#xA;from thelook_ecommerce_Staging.dbo.user_staging_data" type="DateTime" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="366" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="country" action="GroupBy" rename="country" />
+                <SummarizeField field="country" action="Count" rename="Count" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="522" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:User_RW|||Count_user_per_country</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Create</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use reporting_thelook_ecommerce_data;</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:User_RW
+Query=Count_user_per_country</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Count_user_per_country</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="a7014285-2c6c-4084-aeb2-4ff7c3248073" />
+      <Telemetry>
+        <PreviousWorkflowId value="a0b5fe77-aa43-4f74-8a58-3ff998010286" />
+        <OriginWorkflowId value="a0b5fe77-aa43-4f74-8a58-3ff998010286" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
