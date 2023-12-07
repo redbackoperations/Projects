@@ -1,0 +1,48 @@
+pipeline 
+{
+    agent any
+
+    stages 
+    {
+        stage('Build') 
+        {
+            steps 
+            {
+                echo "Build stage : Build Create table scripts on DEV environment"
+            }
+        }
+        
+        stage('Unit and Integration Tests') 
+        {
+            steps 
+            {
+                echo "Unit and Integration Tests stage : Perform tests on DEV environment"
+            }
+        }
+        
+        stage('Deploy to Staging') 
+        {
+            steps 
+            {
+                echo "Deploy to Staging stage : Deploy to staging database"
+            }
+        }
+
+        stage('Integration Tests on Staging') 
+        {
+            steps 
+            {
+                echo "Integration Tests on Staging : Perform Integration Tests on Staging database"
+            }
+        }
+                
+        stage('Deploy to Production') 
+        {
+            steps 
+            {
+                echo "Deploy to Production stage : Code is being deployed to Production Environment"
+                sh 'pip3 install bandit && bandit /Users/cyb0r9/Desktop/yaml_load.py || echo "Finished scan of file"'
+            }
+        }
+    }
+}
