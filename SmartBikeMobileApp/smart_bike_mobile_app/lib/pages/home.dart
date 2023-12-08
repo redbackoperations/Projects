@@ -50,9 +50,9 @@ class _HomeState extends State<Home> {
     return db.collection(uid).add(WorkoutData(
         timestamp: DateTime.timestamp(),
         duration: duration,
-        totalPwr: totalPwr,
-        totalRPM: totalRPM,
-        totalDst: distance).toJson())
+        totalPwr: (totalPwr * 10).round() / 10,
+        totalRPM: (totalRPM * 10).round() / 10,
+        totalDst: (totalRPM * 100).round() / 100).toJson())
     .then((val) => debugPrint('Added: $val'))
     .catchError((e) => debugPrint('Error: $e'));
   }
