@@ -13,7 +13,7 @@ class PowerCurveAnalyzer:
         create_power_curve: Creates a power curve based on activity type, date, and number of days.
     """
 
-    def __init__(self, data_source):
+    def __init__(self, data_source=None):
         self.data_source = data_source
         if self.data_source is None:
             self.data_source = pd.read_csv('data/extended_activities.csv')
