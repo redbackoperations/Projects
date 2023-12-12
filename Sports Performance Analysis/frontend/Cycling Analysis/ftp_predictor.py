@@ -25,28 +25,32 @@ class FtpPredictor:
         """
         Fit the model to the training data.
 
-        This method should be implemented to train the model using the provided data.
+        Parameters:
+        - data (DataFrame or str): The DataFrame or filename to be used for training the model.
         """
 
-        # load the training data
+        # Load the training data
         if data is None:
             data = pd.read_csv(self.filename)
+        elif isinstance(data, str):
+            data = pd.read_csv(data)
+        # If data is already a DataFrame, it will be used directly
 
-            # train the model
-            data = data.dropna(subset=['FTP'])
-            data = data.drop(['Activity Date'], axis=1)
-            data = data.fillna(0)
+        # Clean the training data
+        data = data.dropna(subset=['FTP'])
+        data = data.drop(['Activity Date'], axis=1)
+        data = data.fillna(0)
 
         X = data.drop('FTP', axis=1)  # Features
         y = data['FTP']               # Target variable
 
         # Split the data into training and testing sets
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         # Create a Linear Regression model
-        self.model = RandomForestRegressor()
-        self.model.fit(X_train, y_train)
-
+        self.model = RandomForestRegressor(random_state=42)
+        #self.model.fit(X_train, y_train)
+        self.model.fit(X, y)
 
     def predict(self, data):
         """
@@ -65,4 +69,4 @@ class FtpPredictor:
         # return 0 for each record in data
         ftp_pred = self.model.predict(data)
 
-        return ftp_pred
+        return np.around(ftp_pred, decimals=1)
