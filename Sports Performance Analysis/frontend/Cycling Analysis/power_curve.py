@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+from scipy.interpolate import make_interp_spline
 class PowerCurveAnalyzer:
     """
     A class for analyzing power curves in cycling performance data.
@@ -36,6 +38,7 @@ class PowerCurveAnalyzer:
                              'Maximum Power 2.0hr'
                             ]
 
+
     def format_duration(self, seconds):
         """
         Formats the duration in seconds to a human-readable format.
@@ -46,12 +49,14 @@ class PowerCurveAnalyzer:
         Returns:
             str: The formatted duration.
         """
+
         if seconds < 60:
             return f"{seconds}s"
         elif seconds < 3600:
             return f"{seconds / 60:.1f}min"
         else:
             return f"{seconds / 3600:.1f} hr"
+
 
     def create_power_curve(self, activity_type, date, num_days):
         """
@@ -65,6 +70,7 @@ class PowerCurveAnalyzer:
         Returns:
             list: A list of pairs of duration and maximum power values.
         """
+
         # Read the data from the file
         data = self.data_source
 
@@ -108,7 +114,7 @@ class PowerCurveAnalyzer:
         Returns:
             None
         """
-        #filtered_durations, filtered_powers = filter_powers(power_curve)
+
         filtered_durations = []
         filtered_powers = []
 
@@ -116,11 +122,26 @@ class PowerCurveAnalyzer:
             if power > 0:
                 filtered_durations.append(self.format_duration(duration))
                 filtered_powers.append(power)
-        
+
+        # Convert durations to a numeric format
+        numeric_durations = np.arange(len(filtered_durations))
+
+        # Convert the list to a Pandas Series for easy rolling mean computation
+        power_series = pd.Series(filtered_powers)
+
+        # Compute the moving average (rolling mean)
+        # The window size determines the smoothing level
+        smooth_powers = power_series.rolling(window=2, center=True).mean().fillna(power_series)
+
+        # Plotting the original and smoothed curve
         plt.figure(figsize=(10, 6))
-        plt.plot(filtered_durations, filtered_powers, marker='o')
+        plt.plot(numeric_durations, filtered_powers, color='lightgrey', label='Original', marker='.')
+        plt.plot(numeric_durations, smooth_powers, color='blue', label='Smoothed', marker='.')
         plt.axhline(y=tested_ftp, color='g', linestyle='--', label='Tested FTP')
+        plt.xticks(numeric_durations, filtered_durations)
         plt.xlabel('Duration')
         plt.ylabel('Power (Watts)')
         plt.title('Power Curve')
+        plt.legend()
         plt.show()
+
