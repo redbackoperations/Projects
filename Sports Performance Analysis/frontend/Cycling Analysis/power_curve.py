@@ -1,5 +1,5 @@
 import pandas as pd
-
+import matplotlib.pyplot as plt
 class PowerCurveAnalyzer:
     """
     A class for analyzing power curves in cycling performance data.
@@ -10,7 +10,11 @@ class PowerCurveAnalyzer:
         power_fields (list): A list of power field names.
 
     Methods:
+        __init__: Initializes the PowerCurveAnalyzer class.
+        format_duration: Formats the duration in seconds to a human-readable format.
         create_power_curve: Creates a power curve based on activity type, date, and number of days.
+        plot_power_curve: Plots the power curve.
+
     """
 
     def __init__(self, data_source=None):
@@ -33,6 +37,15 @@ class PowerCurveAnalyzer:
                             ]
 
     def format_duration(self, seconds):
+        """
+        Formats the duration in seconds to a human-readable format.
+
+        Args:
+            seconds (int): The duration in seconds.
+
+        Returns:
+            str: The formatted duration.
+        """
         if seconds < 60:
             return f"{seconds}s"
         elif seconds < 3600:
@@ -83,3 +96,31 @@ class PowerCurveAnalyzer:
 
         return power_curve
 
+
+    def plot_power_curve(self, power_curve, tested_ftp):
+        """
+        Plots the power curve.
+
+        Args:
+            power_curve (list): A list of pairs of duration and maximum power values.
+            tested_ftp (float): The tested FTP (Functional Threshold Power).
+
+        Returns:
+            None
+        """
+        #filtered_durations, filtered_powers = filter_powers(power_curve)
+        filtered_durations = []
+        filtered_powers = []
+
+        for duration, power in power_curve:
+            if power > 0:
+                filtered_durations.append(self.format_duration(duration))
+                filtered_powers.append(power)
+        
+        plt.figure(figsize=(10, 6))
+        plt.plot(filtered_durations, filtered_powers, marker='o')
+        plt.axhline(y=tested_ftp, color='g', linestyle='--', label='Tested FTP')
+        plt.xlabel('Duration')
+        plt.ylabel('Power (Watts)')
+        plt.title('Power Curve')
+        plt.show()
