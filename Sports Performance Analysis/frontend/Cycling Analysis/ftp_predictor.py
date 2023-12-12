@@ -30,7 +30,7 @@ class FtpPredictor:
 
         # load the training data
         if data is None:
-            data = pd.read_csv('data/extended_activities_with_ftp.csv')
+            data = pd.read_csv(self.filename)
 
             # train the model
             data = data.dropna(subset=['FTP'])

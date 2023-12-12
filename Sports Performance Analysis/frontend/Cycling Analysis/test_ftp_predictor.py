@@ -1,12 +1,14 @@
 import unittest
 import pandas as pd
 from ftp_predictor import FtpPredictor
+import os
 
 class TestFtpPredictor(unittest.TestCase):
 
     def setUp(self):
-        self.filename = "training_data.csv"
+        self.filename = 'Sports Performance Analysis/frontend/Cycling Analysis/data/extended_activities_with_ftp.csv'
         self.predictor = FtpPredictor(self.filename)
+        print(os.getcwd())
 
     def test_fit(self):
         # Test if the fit method runs without errors
