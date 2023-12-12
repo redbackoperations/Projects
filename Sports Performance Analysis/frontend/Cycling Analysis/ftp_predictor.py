@@ -1,24 +1,27 @@
 
 
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import numpy as np
 import pandas as pd
 
 class FtpPredictor:
-    def __init__(self, filename):
+    def __init__(self, filename=None):
         """
         Initialize the FtpPredictor class.
 
         Parameters:
         - filename (str): The name of the file to be used for training the prediction model. 
         """
+
+        if filename is None:
+            filename = 'data/extended_activities_with_ftp.csv' # default filename
         
         self.filename = filename
         self.model = None
 
-    def fit(self):
+    def fit(self, data=None):
         """
         Fit the model to the training data.
 
@@ -26,12 +29,13 @@ class FtpPredictor:
         """
 
         # load the training data
-        data = pd.read_csv('data/extended_activities_with_ftp.csv')
+        if data is None:
+            data = pd.read_csv('data/extended_activities_with_ftp.csv')
 
-        # train the model
-        data = data.dropna(subset=['FTP'])
-        data = data.drop(['Activity Date'], axis=1)
-        data = data.fillna(0)
+            # train the model
+            data = data.dropna(subset=['FTP'])
+            data = data.drop(['Activity Date'], axis=1)
+            data = data.fillna(0)
 
         X = data.drop('FTP', axis=1)  # Features
         y = data['FTP']               # Target variable
@@ -56,9 +60,9 @@ class FtpPredictor:
         """
 
         if self.model is None:
-            raise Exception('Model has not been trained yet.')
+            self.fit()
 
         # return 0 for each record in data
-        ftp = [0] * len(data)
+        ftp_pred = self.model.predict(data)
 
-        return ftp
+        return ftp_pred
