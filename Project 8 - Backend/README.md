@@ -1,32 +1,37 @@
-======================================================
+=================================================
+Environment setup:
 
-# Environment setup:
+# If venv is existing within the backend foders please delete it and create a new one using the following commad
 
-python version 3.9
 
-Django
+python3 -m venv .venv
 
-djangorestframework
+Activate virtual environment:
 
-======================================================
+On windows CMD
+.venv\Scripts\activate
 
-# install:
+On Unix or MacOS
+source .venv/bin/activate
 
+Install necessary packages: 
 pip install Django
-
 pip install djangorestframework
 
-======================================================
+=================================================
+# How to use 
+Execute the following commands:
 
-# how to use:
+cd "Project 8 - Backend"
 
-Go inside "Project 8 - Backend" directory.
+venv\Scripts\activate
 
-Use Backend>venv\Scripts\activate to activae virtual environment, NOTE!! using venv is a must to avoid setup conflicts
+python manage.py runserver
 
-To run the server, use "python manage.py runserver" to run the server
+# once the server is running go ahead and hold Ctrl and click on the link.
 
-To manage the urls, "backend_server/urls.py"
+go to urls.by to see availabe likns that can be use. Example http://127.0.0.1:8000/login/
 
+To manage the backend database visit http://127.0.0.1:8000/admin
 
-## documentation will be updated...
+please ask your supervisor for admin credintials.
