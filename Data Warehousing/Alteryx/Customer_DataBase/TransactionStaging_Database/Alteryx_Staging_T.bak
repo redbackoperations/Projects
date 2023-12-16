@@ -1,0 +1,1290 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="318" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="brand" />
+            <Field field="product_line" />
+            <Field field="product_class" />
+            <Field field="product_size" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="brand" />
+            <Field field="product_line" />
+            <Field field="product_class" />
+            <Field field="product_size" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_brand_id" selected="True" input="Left_" />
+                <SelectField field="Right_transaction_id" selected="True" input="Right_" />
+                <SelectField field="Right_product_id" selected="True" input="Right_" />
+                <SelectField field="Right_customer_id" selected="True" input="Right_" />
+                <SelectField field="Right_transaction_date" selected="True" input="Right_" />
+                <SelectField field="Right_online_order" selected="True" input="Right_" />
+                <SelectField field="Right_order_status" selected="True" input="Right_" />
+                <SelectField field="Right_list_price" selected="True" input="Right_" />
+                <SelectField field="Right_standard_cost" selected="True" input="Right_" />
+                <SelectField field="Right_product_first_sold_date" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="426" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="brand_id" selected="True" />
+            <SelectField field="transaction_id" selected="True" />
+            <SelectField field="product_id" selected="True" />
+            <SelectField field="customer_id" selected="True" />
+            <SelectField field="transaction_date" selected="True" />
+            <SelectField field="online_order" selected="True" />
+            <SelectField field="order_status" selected="True" />
+            <SelectField field="list_price" selected="True" />
+            <SelectField field="standard_cost" selected="True" />
+            <SelectField field="product_first_sold_date" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="426" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="transaction_id" selected="True" />
+            <SelectField field="product_id" selected="True" />
+            <SelectField field="customer_id" selected="True" />
+            <SelectField field="transaction_date" selected="True" />
+            <SelectField field="online_order" selected="True" />
+            <SelectField field="order_status" selected="True" />
+            <SelectField field="list_price" selected="True" />
+            <SelectField field="standard_cost" selected="True" />
+            <SelectField field="product_first_sold_date" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="558" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="654" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="customer_id" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>customer_id - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="762" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:Saru|||stg_transactions</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <TransactionMessages>False</TransactionMessages>
+            <KeyForUpdate>
+              <KU_Fields>
+                <KU_Field key="brand_id" />
+                <KU_Field key="transaction_id" />
+                <KU_Field key="product_id" />
+                <KU_Field key="customer_id" />
+                <KU_Field key="transaction_date" />
+              </KU_Fields>
+            </KeyForUpdate>
+            <Geometry>True</Geometry>
+            <Projection />
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <OutputOption>Upsert</OutputOption>
+            <PostSQL />
+            <TransactionSize>10000</TransactionSize>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>USE stg_data;
+
+IF OBJECT_ID(N'stg_data.dbo.stg_transactions', N'U') IS NULL
+CREATE TABLE stg_data.dbo.stg_transactions
+(
+	customer_id varchar(10),
+	transaction_id varchar(10),
+	product_id varchar(10),
+	brand_id varchar(10),
+	transaction_date date,
+	online_order bit,
+	order_status varchar(50),
+	list_price float,
+	standard_cost float,
+	product_first_sold_date int
+)</PreSQL>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:Saru
+Query=stg_transactions</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="41" y="53" width="193" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Master_Transactions</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="306" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="brand" />
+                <Field field="product_line" />
+                <Field field="product_class" />
+                <Field field="product_size" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="389" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>brand_id</FieldName>
+              <StartValue>0</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="473" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>!=</Operator>
+                <Field>brand_id</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2023-05-07 16:24:53</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>0</Operand>
+                  <StartDate>2023-05-07 16:24:53</StartDate>
+                  <EndDate>2023-05-07 16:24:53</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[brand_id] != 0</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="570" y="102" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="brand_id" selected="True" type="V_String" size="254" />
+                <SelectField field="brand" selected="True" />
+                <SelectField field="product_line" selected="True" />
+                <SelectField field="product_class" selected="True" />
+                <SelectField field="product_size" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="66" y="138" width="150" height="24" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Transactions</Caption>
+              <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+              <Disabled value="False" />
+              <Folded value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="5">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+                <Position x="90" y="186" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Passwords />
+                  <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv</File>
+                  <FormatSpecificOptions>
+                    <HeaderRow>True</HeaderRow>
+                    <IgnoreErrors>False</IgnoreErrors>
+                    <AllowShareWrite>False</AllowShareWrite>
+                    <ImportLine>1</ImportLine>
+                    <FieldLen>254</FieldLen>
+                    <SingleThreadRead>False</SingleThreadRead>
+                    <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                    <Delimeter>,</Delimeter>
+                    <QuoteRecordBreak>False</QuoteRecordBreak>
+                    <CodePage>28591</CodePage>
+                  </FormatSpecificOptions>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>transactions.csv</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+                <MetaInfo connection="Output">
+                  <RecordInfo>
+                    <Field name="transaction_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="product_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="customer_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="transaction_date" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="online_order" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="order_status" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="brand" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="product_line" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="product_class" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="product_size" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="list_price" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="standard_cost" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="product_first_sold_date" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_13" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_14" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_15" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_16" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_17" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_18" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_19" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_20" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_21" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_22" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_23" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_24" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_25" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_26" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_27" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_28" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_29" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_30" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_31" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_32" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_33" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_34" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_35" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_36" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_37" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_38" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_39" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_40" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_41" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_42" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_43" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_44" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_45" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_46" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_47" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_48" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_49" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_50" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_51" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_52" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_53" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_54" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_55" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_56" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_57" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_58" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_59" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_60" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_61" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_62" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_63" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_64" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_65" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_66" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_67" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_68" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_69" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_70" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_71" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_72" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_73" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_74" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_75" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_76" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_77" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_78" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_79" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_80" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_81" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_82" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_83" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_84" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_85" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_86" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_87" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_88" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_89" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_90" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_91" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_92" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_93" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_94" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_95" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_96" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_97" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_98" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_99" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_100" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_101" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_102" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_103" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_104" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_105" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_106" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_107" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_108" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_109" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_110" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_111" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_112" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_113" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_114" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_115" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_116" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_117" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_118" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_119" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_120" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_121" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_122" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_123" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_124" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_125" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_126" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_127" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_128" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_129" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_130" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_131" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_132" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_133" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_134" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_135" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_136" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_137" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_138" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_139" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_140" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_141" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_142" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_143" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_144" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_145" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_146" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_147" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_148" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_149" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_150" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_151" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_152" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_153" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_154" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_155" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_156" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_157" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_158" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_159" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_160" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_161" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_162" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_163" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_164" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_165" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_166" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_167" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_168" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_169" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_170" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_171" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_172" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_173" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_174" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_175" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_176" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_177" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_178" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_179" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_180" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_181" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_182" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_183" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_184" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_185" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_186" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_187" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_188" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_189" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_190" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_191" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_192" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_193" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_194" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_195" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_196" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_197" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_198" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_199" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_200" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_201" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_202" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_203" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_204" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_205" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_206" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_207" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_208" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_209" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_210" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_211" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_212" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_213" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_214" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_215" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_216" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_217" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_218" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_219" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_220" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_221" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_222" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_223" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_224" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_225" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_226" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_227" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_228" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_229" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_230" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_231" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_232" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_233" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_234" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_235" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_236" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_237" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_238" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_239" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_240" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_241" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_242" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_243" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_244" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_245" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_246" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_247" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_248" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_249" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_250" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_251" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_252" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_253" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_254" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                    <Field name="string_field_255" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+            </Node>
+            <Node ToolID="6">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="258" y="186" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="transaction_id" selected="True" />
+                    <SelectField field="product_id" selected="True" />
+                    <SelectField field="customer_id" selected="True" />
+                    <SelectField field="transaction_date" selected="True" />
+                    <SelectField field="online_order" selected="True" />
+                    <SelectField field="order_status" selected="True" />
+                    <SelectField field="brand" selected="True" />
+                    <SelectField field="product_line" selected="True" />
+                    <SelectField field="product_class" selected="True" />
+                    <SelectField field="product_size" selected="True" />
+                    <SelectField field="list_price" selected="True" />
+                    <SelectField field="standard_cost" selected="True" />
+                    <SelectField field="product_first_sold_date" selected="True" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="7">
+              <GuiSettings>
+                <Position x="378" y="186" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Value name="Check Box (135)">False</Value>
+                  <Value name="Check Box (136)">False</Value>
+                  <Value name="List Box (11)">"order_status","brand","product_line","product_class","product_size"</Value>
+                  <Value name="Check Box (84)">True</Value>
+                  <Value name="Check Box (117)">False</Value>
+                  <Value name="Check Box (15)">True</Value>
+                  <Value name="Check Box (109)">True</Value>
+                  <Value name="Check Box (122)">False</Value>
+                  <Value name="Check Box (53)">False</Value>
+                  <Value name="Check Box (58)">False</Value>
+                  <Value name="Check Box (70)">False</Value>
+                  <Value name="Check Box (77)">False</Value>
+                  <Value name="Drop Down (81)">upper</Value>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings Macro="Cleanse.yxmc" />
+            </Node>
+            <Node ToolID="8">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="642" y="186" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="transaction_date" selected="False" type="Date" size="10" />
+                    <SelectField field="online_order" selected="False" type="Bool" size="1" />
+                    <SelectField field="brand" selected="True" />
+                    <SelectField field="product_line" selected="True" />
+                    <SelectField field="product_class" selected="True" />
+                    <SelectField field="product_size" selected="True" />
+                    <SelectField field="list_price" selected="False" type="Float" size="4" />
+                    <SelectField field="standard_cost" selected="False" type="Float" size="4" />
+                    <SelectField field="product_first_sold_date" selected="False" type="Int64" size="8" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="9">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+                <Position x="522" y="186" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <FormulaFields>
+                    <FormulaField expression="DateTimeFormat(DateTimeParse([transaction_date],&quot;%m/%d/%Y&quot;),&quot;%Y-%m-%d&quot;)" field="transaction_date" size="254" type="V_String" />
+                    <FormulaField expression="IF [online_order]=&quot;True&quot; THEN 1 ELSEIF [online_order]=&quot;False&quot; THEN 0 ELSE Null() ENDIF" field="online_order" size="254" type="V_String" />
+                  </FormulaFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>transaction_date = DateTimeFormat(DateTimeParse([transaction_date],"%m/%d/%Y"),"...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+            </Node>
+          </ChildNodes>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="53" y="149" width="150" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Transactions</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="78" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>transactions.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="transaction_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="product_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="customer_id" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="transaction_date" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="online_order" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="order_status" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="brand" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="product_line" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="product_class" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="product_size" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="list_price" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="standard_cost" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="product_first_sold_date" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_13" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_14" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_15" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_16" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_17" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_18" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_19" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_20" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_21" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_22" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_23" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_24" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_25" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_26" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_27" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_28" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_29" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_30" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_31" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_32" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_33" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_34" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_35" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_36" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_37" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_38" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_39" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_40" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_41" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_42" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_43" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_44" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_45" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_46" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_47" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_48" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_49" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_50" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_51" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_52" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_53" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_54" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_55" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_56" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_57" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_58" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_59" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_60" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_61" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_62" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_63" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_64" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_65" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_66" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_67" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_68" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_69" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_70" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_71" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_72" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_73" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_74" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_75" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_76" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_77" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_78" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_79" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_80" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_81" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_82" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_83" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_84" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_85" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_86" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_87" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_88" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_89" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_90" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_91" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_92" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_93" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_94" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_95" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_96" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_97" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_98" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_99" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_100" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_101" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_102" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_103" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_104" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_105" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_106" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_107" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_108" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_109" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_110" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_111" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_112" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_113" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_114" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_115" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_116" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_117" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_118" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_119" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_120" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_121" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_122" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_123" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_124" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_125" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_126" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_127" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_128" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_129" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_130" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_131" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_132" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_133" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_134" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_135" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_136" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_137" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_138" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_139" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_140" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_141" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_142" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_143" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_144" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_145" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_146" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_147" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_148" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_149" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_150" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_151" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_152" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_153" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_154" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_155" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_156" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_157" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_158" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_159" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_160" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_161" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_162" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_163" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_164" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_165" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_166" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_167" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_168" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_169" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_170" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_171" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_172" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_173" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_174" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_175" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_176" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_177" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_178" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_179" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_180" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_181" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_182" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_183" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_184" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_185" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_186" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_187" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_188" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_189" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_190" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_191" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_192" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_193" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_194" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_195" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_196" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_197" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_198" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_199" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_200" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_201" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_202" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_203" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_204" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_205" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_206" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_207" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_208" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_209" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_210" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_211" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_212" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_213" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_214" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_215" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_216" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_217" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_218" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_219" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_220" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_221" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_222" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_223" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_224" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_225" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_226" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_227" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_228" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_229" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_230" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_231" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_232" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_233" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_234" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_235" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_236" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_237" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_238" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_239" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_240" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_241" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_242" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_243" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_244" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_245" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_246" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_247" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_248" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_249" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_250" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_251" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_252" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_253" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_254" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+                <Field name="string_field_255" size="254" source="File: C:\Users\saran\OneDrive\Project - 1\Data\transactions.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="234" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="transaction_id" selected="True" />
+                <SelectField field="product_id" selected="True" />
+                <SelectField field="customer_id" selected="True" />
+                <SelectField field="transaction_date" selected="True" />
+                <SelectField field="online_order" selected="True" />
+                <SelectField field="order_status" selected="True" />
+                <SelectField field="brand" selected="True" />
+                <SelectField field="product_line" selected="True" />
+                <SelectField field="product_class" selected="True" />
+                <SelectField field="product_size" selected="True" />
+                <SelectField field="list_price" selected="True" />
+                <SelectField field="standard_cost" selected="True" />
+                <SelectField field="product_first_sold_date" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings>
+            <Position x="354" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">False</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"order_status","brand","product_line","product_class","product_size"</Value>
+              <Value name="Check Box (84)">True</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">True</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="618" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="transaction_id" selected="True" />
+                <SelectField field="product_id" selected="True" />
+                <SelectField field="customer_id" selected="True" />
+                <SelectField field="transaction_date" selected="True" type="Date" size="10" />
+                <SelectField field="online_order" selected="True" type="Bool" size="1" />
+                <SelectField field="order_status" selected="True" />
+                <SelectField field="brand" selected="True" />
+                <SelectField field="product_line" selected="True" />
+                <SelectField field="product_class" selected="True" />
+                <SelectField field="product_size" selected="True" />
+                <SelectField field="list_price" selected="True" type="Float" size="4" />
+                <SelectField field="standard_cost" selected="True" type="Float" size="4" />
+                <SelectField field="product_first_sold_date" selected="True" type="Int64" size="8" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="498" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeFormat(DateTimeParse([transaction_date],&quot;%m/%d/%Y&quot;),&quot;%Y-%m-%d&quot;)" field="transaction_date" size="254" type="V_String" />
+                <FormulaField expression="IF [online_order]=&quot;True&quot; THEN 1 ELSEIF [online_order]=&quot;False&quot; THEN 0 ELSE Null() ENDIF" field="online_order" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>transaction_date = DateTimeFormat(DateTimeParse([transaction_date],"%m/%d/%Y"),"...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="18" Connection="Join" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Right" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Unique" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="18" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="18" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output26" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output26" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Alteryx_Staging_T</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="9800a48f-f30d-4f59-be46-48784b1437ac" />
+      <Telemetry>
+        <PreviousWorkflowId value="7d64945c-d968-444d-8030-23a8c883ce22" />
+        <OriginWorkflowId value="d1468ae0-1abf-4b56-a463-43701758e8de" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

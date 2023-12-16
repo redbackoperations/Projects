@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+target 'Runner' do
+  # Your Flutter project's dependencies are listed here.
+  # Flutter itself should already be included.
+
+  # Add any native iOS dependencies your Flutter project needs using CocoaPods.
+  # For example, to add a dependency called "GoogleMaps" (Google Maps SDK):
+
+  # Add these lines to use the Google Maps SDK
+  # pod 'GoogleMaps'
+  # pod 'GooglePlaces'
+
+  # You may also need to specify a specific version of the dependency or other options.
+end
+
+# Post-install instructions for Flutter
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+end

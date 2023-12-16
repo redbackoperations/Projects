@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[EPL_Results] (
+    [Date_Of_Match]           VARCHAR (50) NULL,
+    [Time_Of_Match]           VARCHAR (50) NULL,
+    [Home_Team]               VARCHAR (50) NULL,
+    [Away_Team]               VARCHAR (50) NULL,
+    [Full_Time_Home_Goals]    INT          NULL,
+    [Full_Time_Away_Goals]    INT          NULL,
+    [Full_Time_Result]        CHAR (10)    NULL,
+    [Halftime_Home_Goals]     INT          NULL,
+    [Halftime_Away_Goals]     INT          NULL,
+    [Halftime_Result]         CHAR (10)    NULL,
+    [Referee]                 VARCHAR (50) NULL,
+    [Home_Team_Shots]         INT          NULL,
+    [Away_Team_Shots]         INT          NULL,
+    [Home_Team_Shots_On_Goal] INT          NULL,
+    [Away_Team_Shots_On_Goal] INT          NULL,
+    [Home_Team_Fouls]         INT          NULL,
+    [Away_Team_Fouls]         INT          NULL,
+    [Home_Team_Corners]       INT          NULL,
+    [Away_Team_Corners]       INT          NULL,
+    [Home_Team_Yellow_Cards]  INT          NULL,
+    [Away_Team_Yellow_Cards]  INT          NULL,
+    [Home_Team_Red_Cards]     INT          NULL,
+    [Away_Team_Red_cards]     INT          NULL
+);
+
