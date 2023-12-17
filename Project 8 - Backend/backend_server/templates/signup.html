@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .logo {
+            width: 150px; 
+            height: auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <img src="https://media.licdn.com/dms/image/C4E03AQHK1JQ9OHLzMg/profile-displayphoto-shrink_800_800/0/1651223441502?e=1706745600&v=beta&t=x80ApWhp3hz4uDuJ4EvONCpVUaCvDZXRWkNpzyICQVo" alt="Redback Logo" class="logo">
+        <h2>Signup Form</h2>
+        <form action="{% url 'signup' %}" method="POST">
+            {% csrf_token %}
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
